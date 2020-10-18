@@ -11,7 +11,7 @@ struct Discover: View {
     var body: some View {
         NavigationView{
             
-            NavBar(map: false, discover: true, favorite: false, events: false)
+            //NavBar(map: false, discover: true, favorite: false, events: false)
         }
     }
 }

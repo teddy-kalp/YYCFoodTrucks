@@ -22,7 +22,7 @@ struct NavBar: View {
     var body: some View {
         HStack(spacing: 30){
                 VStack{
-                    Image("map")
+                    Image(systemName: "map")
                         .resizable()
                         .frame(width: 50, height: 45)
                         .foregroundColor(map ? primColor: .black)
@@ -30,28 +30,28 @@ struct NavBar: View {
                         .foregroundColor(map ? primColor: .black)
                 }
                 VStack{
-                    Image("discover")
+                    Image(systemName: "magnifyingglass")
                         .resizable()
                         .frame(width: 50, height: 45)
                         .foregroundColor(discover ? primColor: .black)
                     Text("Discover")
-                        .foregroundColor(map ? primColor: .black)
+                        .foregroundColor(discover ? primColor: .black)
                 }
                 VStack {
-                    Image("favorite")
+                    Image(systemName: "star.fill")
                         .resizable()
                         .frame(width: 50, height: 45)
-                        .foregroundColor(discover ? primColor: .black)
+                        .foregroundColor(favorite ? primColor: .black)
                     Text("Favorites")
-                        .foregroundColor(map ? primColor: .black)
+                        .foregroundColor(favorite ? primColor: .black)
                 }
                 VStack {
-                    Image("events")
+                    Image(systemName: "calendar")
                         .resizable()
                         .frame(width: 50, height: 45)
-                        .foregroundColor(discover ? primColor: .black)
+                        .foregroundColor(events ? primColor: .black)
                     Text("Events")
-                        .foregroundColor(map ? primColor: .black)
+                        .foregroundColor(events ? primColor: .black)
             }
         }
     }

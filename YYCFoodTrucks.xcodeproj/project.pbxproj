@@ -90,8 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				799E61BA253A1E92007D19EF /* MapView.swift */,
-				799E61B7253A1D2E007D19EF /* yycHeader.swift */,
 				799E61C9253A39D3007D19EF /* NavBar.swift */,
+				799E61B7253A1D2E007D19EF /* yycHeader.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";

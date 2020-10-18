@@ -24,7 +24,7 @@ let Locations = [
 ]
 
 
-// used to convert addresses to lats and longs
+// used to convert addresses to lats and longs -> still trying to get to work
 func convertToCoords(address: String) -> (CLLocationDegrees, CLLocationDegrees){
     let geocoder = CLGeocoder()
     var lat: CLLocationDegrees = 0
