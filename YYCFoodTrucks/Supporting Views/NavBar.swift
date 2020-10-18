@@ -22,72 +22,36 @@ struct NavBar: View {
     var body: some View {
         HStack(spacing: 30){
                 VStack{
-                    if (map){
-                        Image("mapClicked")
-                            .resizable()
-                            .frame(width: 50, height: 45)
-                            .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
-                                
-                            })
-                        Text("Truck Tracker")
-                            .foregroundColor(primColor)
-                    }
-                    else{
-                        Image("map")
-                            .resizable()
-                            .frame(width: 50, height: 45)
-                        Text("Truck Tracker")
-                            .foregroundColor(.black)
-                    }
+                    Image("map")
+                        .resizable()
+                        .frame(width: 50, height: 45)
+                        .foregroundColor(map ? primColor: .black)
+                    Text("Truck Tracker")
+                        .foregroundColor(map ? primColor: .black)
                 }
                 VStack{
-                    if (discover){
-                        Image("discoverClicked")
-                            .resizable()
-                            .frame(width: 50, height: 45)
-                        Text("Discover")
-                            .foregroundColor(primColor)
-                    }
-                    else{
-                        Image("discover")
-                            .resizable()
-                            .frame(width: 50, height: 45)
-                        Text("Discover")
-                            .foregroundColor(.black)
-                    }
+                    Image("discover")
+                        .resizable()
+                        .frame(width: 50, height: 45)
+                        .foregroundColor(discover ? primColor: .black)
+                    Text("Discover")
+                        .foregroundColor(map ? primColor: .black)
                 }
                 VStack {
-                    if (favorite){
-                        Image("favoriteClicked")
-                            .resizable()
-                            .frame(width: 50, height: 45)
-                        Text("Favorites")
-                            .foregroundColor(primColor)
-                    }
-                    else{
-                        Image("favorite")
-                            .resizable()
-                            .frame(width: 50, height: 45)
-                        Text("Favorites")
-                            .foregroundColor(.black)
-                    }
+                    Image("favorite")
+                        .resizable()
+                        .frame(width: 50, height: 45)
+                        .foregroundColor(discover ? primColor: .black)
+                    Text("Favorites")
+                        .foregroundColor(map ? primColor: .black)
                 }
                 VStack {
-                    if (events){
-                        Image("eventsClicked")
-                            .resizable()
-                            .frame(width: 50, height: 45)
-                        Text("Events")
-                            .foregroundColor(primColor)
-                    }
-                    else{
-                        Image("events")
-                            .resizable()
-                            .frame(width: 50, height: 45)
-                        Text("Events")
-                            .foregroundColor(.black)
-                        
-                    }
+                    Image("events")
+                        .resizable()
+                        .frame(width: 50, height: 45)
+                        .foregroundColor(discover ? primColor: .black)
+                    Text("Events")
+                        .foregroundColor(map ? primColor: .black)
             }
         }
     }
@@ -96,6 +60,6 @@ struct NavBar: View {
 
 struct NavBar_Previews: PreviewProvider {
     static var previews: some View {
-        NavBar(map: false, discover: true, favorite: true, events: true)
+        NavBar(map: true, discover: false, favorite: false, events: false)
     }
 }
