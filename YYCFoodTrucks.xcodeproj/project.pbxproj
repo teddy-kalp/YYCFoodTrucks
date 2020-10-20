@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17312441253EBF6B00A873B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A2253A1C19007D19EF /* AppDelegate.swift */; };
+		799E61A5253A1C19007D19EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A4253A1C19007D19EF /* SceneDelegate.swift */; };
+		799E61A7253A1C19007D19EF /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A6253A1C19007D19EF /* HomePage.swift */; };
+		799E61A9253A1C1C007D19EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799E61A8253A1C1C007D19EF /* Assets.xcassets */; };
+		799E61AC253A1C1C007D19EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799E61AB253A1C1C007D19EF /* Preview Assets.xcassets */; };
+		799E61AF253A1C1C007D19EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 799E61AD253A1C1C007D19EF /* LaunchScreen.storyboard */; };
+		799E61B8253A1D2E007D19EF /* yycHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61B7253A1D2E007D19EF /* yycHeader.swift */; };
+		799E61BB253A1E92007D19EF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61BA253A1E92007D19EF /* MapView.swift */; };
+		799E61C2253A269E007D19EF /* LandMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61C1253A269E007D19EF /* LandMark.swift */; };
+		799E61CA253A39D3007D19EF /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61C9253A39D3007D19EF /* NavBar.swift */; };
+		799E61D4253A7413007D19EF /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61D3253A7413007D19EF /* Discover.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		799E619F253A1C19007D19EF /* YYCFoodTrucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYCFoodTrucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		799E61A2253A1C19007D19EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		799E61A4253A1C19007D19EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		799E61A6253A1C19007D19EF /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		799E61A8253A1C1C007D19EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		799E61AB253A1C1C007D19EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		799E61AE253A1C1C007D19EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		799E61B0253A1C1D007D19EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		799E61B7253A1D2E007D19EF /* yycHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yycHeader.swift; sourceTree = "<group>"; };
+		799E61BA253A1E92007D19EF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		799E61C1253A269E007D19EF /* LandMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMark.swift; sourceTree = "<group>"; };
+		799E61C9253A39D3007D19EF /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		799E61D3253A7413007D19EF /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		799E619C253A1C19007D19EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		799E6196253A1C19007D19EF = {
+			isa = PBXGroup;
+			children = (
+				799E61A1253A1C19007D19EF /* YYCFoodTrucks */,
+				799E61A0253A1C19007D19EF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		799E61A0253A1C19007D19EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				799E619F253A1C19007D19EF /* YYCFoodTrucks.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		799E61A1253A1C19007D19EF /* YYCFoodTrucks */ = {
+			isa = PBXGroup;
+			children = (
+				799E61C0253A25B9007D19EF /* Model */,
+				799E61CF253A6F7C007D19EF /* Delegate Group */,
+				799E61CD253A6F6A007D19EF /* Main Pages */,
+				799E61D0253A6F89007D19EF /* Assets */,
+				799E61D1253A6F96007D19EF /* LaunchScreen */,
+				799E61B0253A1C1D007D19EF /* Info.plist */,
+				799E61AA253A1C1C007D19EF /* Preview Content */,
+				799E61BD253A226C007D19EF /* Supporting Views */,
+			);
+			path = YYCFoodTrucks;
+			sourceTree = "<group>";
+		};
+		799E61AA253A1C1C007D19EF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				799E61AB253A1C1C007D19EF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		799E61BD253A226C007D19EF /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				799E61BA253A1E92007D19EF /* MapView.swift */,
+				799E61C9253A39D3007D19EF /* NavBar.swift */,
+				799E61B7253A1D2E007D19EF /* yycHeader.swift */,
+			);
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		799E61C0253A25B9007D19EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				799E61C1253A269E007D19EF /* LandMark.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		799E61CD253A6F6A007D19EF /* Main Pages */ = {
+			isa = PBXGroup;
+			children = (
+				799E61A6253A1C19007D19EF /* HomePage.swift */,
+				799E61D3253A7413007D19EF /* Discover.swift */,
+			);
+			path = "Main Pages";
+			sourceTree = "<group>";
+		};
+		799E61CF253A6F7C007D19EF /* Delegate Group */ = {
+			isa = PBXGroup;
+			children = (
+				799E61A2253A1C19007D19EF /* AppDelegate.swift */,
+				799E61A4253A1C19007D19EF /* SceneDelegate.swift */,
+			);
+			path = "Delegate Group";
+			sourceTree = "<group>";
+		};
+		799E61D0253A6F89007D19EF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				799E61A8253A1C1C007D19EF /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		799E61D1253A6F96007D19EF /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				799E61AD253A1C1C007D19EF /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		799E619E253A1C19007D19EF /* YYCFoodTrucks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 799E61B3253A1C1D007D19EF /* Build configuration list for PBXNativeTarget "YYCFoodTrucks" */;
+			buildPhases = (
+				799E619B253A1C19007D19EF /* Sources */,
+				799E619C253A1C19007D19EF /* Frameworks */,
+				799E619D253A1C19007D19EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YYCFoodTrucks;
+			productName = YYCFoodTrucks;
+			productReference = 799E619F253A1C19007D19EF /* YYCFoodTrucks.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		799E6197253A1C19007D19EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					799E619E253A1C19007D19EF = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = 799E619A253A1C19007D19EF /* Build configuration list for PBXProject "YYCFoodTrucks" */;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 799E6196253A1C19007D19EF;
+			productRefGroup = 799E61A0253A1C19007D19EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				799E619E253A1C19007D19EF /* YYCFoodTrucks */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		799E619D253A1C19007D19EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				799E61AF253A1C1C007D19EF /* LaunchScreen.storyboard in Resources */,
+				799E61AC253A1C1C007D19EF /* Preview Assets.xcassets in Resources */,
+				799E61A9253A1C1C007D19EF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		799E619B253A1C19007D19EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17312441253EBF6B00A873B4 /* AppDelegate.swift in Sources */,
+				799E61D4253A7413007D19EF /* Discover.swift in Sources */,
+				799E61B8253A1D2E007D19EF /* yycHeader.swift in Sources */,
+				799E61BB253A1E92007D19EF /* MapView.swift in Sources */,
+				799E61A5253A1C19007D19EF /* SceneDelegate.swift in Sources */,
+				799E61CA253A39D3007D19EF /* NavBar.swift in Sources */,
+				799E61C2253A269E007D19EF /* LandMark.swift in Sources */,
+				799E61A7253A1C19007D19EF /* HomePage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		799E61AD253A1C1C007D19EF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				799E61AE253A1C1C007D19EF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		799E61B1253A1C1D007D19EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		799E61B2253A1C1D007D19EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		799E61B4253A1C1D007D19EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"YYCFoodTrucks/Preview Content\"";
+				DEVELOPMENT_TEAM = 8Y8438377N;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = YYCFoodTrucks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "teddy-kalp.YYCFoodTrucks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		799E61B5253A1C1D007D19EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"YYCFoodTrucks/Preview Content\"";
+				DEVELOPMENT_TEAM = 8Y8438377N;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = YYCFoodTrucks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "teddy-kalp.YYCFoodTrucks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		799E619A253A1C19007D19EF /* Build configuration list for PBXProject "YYCFoodTrucks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				799E61B1253A1C1D007D19EF /* Debug */,
+				799E61B2253A1C1D007D19EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		799E61B3253A1C1D007D19EF /* Build configuration list for PBXNativeTarget "YYCFoodTrucks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				799E61B4253A1C1D007D19EF /* Debug */,
+				799E61B5253A1C1D007D19EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 799E6197253A1C19007D19EF /* Project object */;
+}
