@@ -12,17 +12,8 @@ import CoreLocation
 struct LandMark {
     var name: String
     var address: String
-    var open: Bool
     var coords: (CLLocationDegrees, CLLocationDegrees)
-    
 }
-
-let Locations = [
-    LandMark(name: "Location 1", address: "2500 University Avenue, Calgary, AB T2N1N4", open: true, coords: (51.076340, -114.131520)),
-    LandMark(name: "Location 2", address: "819 4 Avenue NW, Calgary, AB", open: false, coords: (51.057700, -114.082170)),
-    LandMark(name: "Location 3", address: "1527 23 Street NW, Calgary, AB T2N2P6", open: false, coords: (51.066000, -114.116850))
-]
-
 
 // used to convert addresses to lats and longs -> still trying to get to work
 func convertToCoords(address: String) -> (CLLocationDegrees, CLLocationDegrees){
@@ -38,5 +29,15 @@ func convertToCoords(address: String) -> (CLLocationDegrees, CLLocationDegrees){
 
     return (lat, lon)
 }
+
+//let Locations = [
+//    LandMark(name: "Location 1", address: "2500 University Avenue, Calgary, AB T2N1N4", coords: (51.076340, -114.131520)),
+//    LandMark(name: "Location 2", address: "819 4 Avenue NW, Calgary, AB", coords: (51.057700, -114.082170)),
+//    LandMark(name: "Location 3", address: "1527 23 Street NW, Calgary, AB T2N2P6", coords: (51.066000, -114.116850))
+//]
+
+
+
+
 
 

@@ -8,5 +8,7 @@ target 'YYCFoodTrucks' do
   # Pods for YYCFoodTrucks
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
 end

@@ -28,13 +28,13 @@ struct MapView: UIViewRepresentable {
         // this is how to add an annotation to a MapKitUI
             //map.addAnnotation(annotation)
             
-            for loc in Locations{
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2D(latitude: loc.coords.0, longitude: loc.coords.1)
-                print(loc.coords.0)
-                print(loc.coords.1)
-                map.addAnnotation(annotation)
-            }
+//            for loc in Locations{
+//                let annotation = MKPointAnnotation()
+//                annotation.coordinate = CLLocationCoordinate2D(latitude: loc.coords.0, longitude: loc.coords.1)
+//                print(loc.coords.0)
+//                print(loc.coords.1)
+//                map.addAnnotation(annotation)
+//            }
             
         
             
