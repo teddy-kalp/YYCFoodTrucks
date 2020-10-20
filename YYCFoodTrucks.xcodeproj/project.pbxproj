@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7961A0A3253F65D400CA3431 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7961A0A2253F65D400CA3431 /* GoogleService-Info.plist */; };
 		799E61A3253A1C19007D19EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A2253A1C19007D19EF /* AppDelegate.swift */; };
 		799E61A5253A1C19007D19EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A4253A1C19007D19EF /* SceneDelegate.swift */; };
 		799E61A7253A1C19007D19EF /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A6253A1C19007D19EF /* HomePage.swift */; };
@@ -18,9 +19,13 @@
 		799E61C2253A269E007D19EF /* LandMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61C1253A269E007D19EF /* LandMark.swift */; };
 		799E61CA253A39D3007D19EF /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61C9253A39D3007D19EF /* NavBar.swift */; };
 		799E61D4253A7413007D19EF /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61D3253A7413007D19EF /* Discover.swift */; };
+		F13806B80545BCB0E3292EAE /* Pods_YYCFoodTrucks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		623C8089113AC5F676518B6B /* Pods-YYCFoodTrucks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYCFoodTrucks.debug.xcconfig"; path = "Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks.debug.xcconfig"; sourceTree = "<group>"; };
+		6E103D855E34514CCC5A7117 /* Pods-YYCFoodTrucks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYCFoodTrucks.release.xcconfig"; path = "Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks.release.xcconfig"; sourceTree = "<group>"; };
+		7961A0A2253F65D400CA3431 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		799E619F253A1C19007D19EF /* YYCFoodTrucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYCFoodTrucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799E61A2253A1C19007D19EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		799E61A4253A1C19007D19EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		799E61C1253A269E007D19EF /* LandMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMark.swift; sourceTree = "<group>"; };
 		799E61C9253A39D3007D19EF /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		799E61D3253A7413007D19EF /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YYCFoodTrucks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +47,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13806B80545BCB0E3292EAE /* Pods_YYCFoodTrucks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37827B51D44E5FC5D3C3279D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				623C8089113AC5F676518B6B /* Pods-YYCFoodTrucks.debug.xcconfig */,
+				6E103D855E34514CCC5A7117 /* Pods-YYCFoodTrucks.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4B48D609CEB1EACDED464FC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		799E6196253A1C19007D19EF = {
 			isa = PBXGroup;
 			children = (
 				799E61A1253A1C19007D19EF /* YYCFoodTrucks */,
 				799E61A0253A1C19007D19EF /* Products */,
+				37827B51D44E5FC5D3C3279D /* Pods */,
+				4B48D609CEB1EACDED464FC2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +99,7 @@
 				799E61D0253A6F89007D19EF /* Assets */,
 				799E61D1253A6F96007D19EF /* LaunchScreen */,
 				799E61B0253A1C1D007D19EF /* Info.plist */,
+				7961A0A2253F65D400CA3431 /* GoogleService-Info.plist */,
 				799E61AA253A1C1C007D19EF /* Preview Content */,
 				799E61BD253A226C007D19EF /* Supporting Views */,
 			);
@@ -145,9 +173,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 799E61B3253A1C1D007D19EF /* Build configuration list for PBXNativeTarget "YYCFoodTrucks" */;
 			buildPhases = (
+				D87197053CC3418FB9FDC0E5 /* [CP] Check Pods Manifest.lock */,
 				799E619B253A1C19007D19EF /* Sources */,
 				799E619C253A1C19007D19EF /* Frameworks */,
 				799E619D253A1C19007D19EF /* Resources */,
+				11658700A492A414FB9C8867 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,12 +226,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				799E61AF253A1C1C007D19EF /* LaunchScreen.storyboard in Resources */,
+				7961A0A3253F65D400CA3431 /* GoogleService-Info.plist in Resources */,
 				799E61AC253A1C1C007D19EF /* Preview Assets.xcassets in Resources */,
 				799E61A9253A1C1C007D19EF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11658700A492A414FB9C8867 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D87197053CC3418FB9FDC0E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YYCFoodTrucks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		799E619B253A1C19007D19EF /* Sources */ = {
@@ -351,6 +424,7 @@
 		};
 		799E61B4253A1C1D007D19EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 623C8089113AC5F676518B6B /* Pods-YYCFoodTrucks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -371,6 +445,7 @@
 		};
 		799E61B5253A1C1D007D19EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E103D855E34514CCC5A7117 /* Pods-YYCFoodTrucks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
