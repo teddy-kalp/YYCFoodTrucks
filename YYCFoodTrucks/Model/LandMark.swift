@@ -9,10 +9,10 @@ import Foundation
 import CoreLocation
 
 
-struct LandMark {
+class LandMark: Identifiable, Codable {
     var name: String
     var address: String
-    var coords: (CLLocationDegrees, CLLocationDegrees)
+    var coords: [Int]
 }
 
 // used to convert addresses to lats and longs -> still trying to get to work

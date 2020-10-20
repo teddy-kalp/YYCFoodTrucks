@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7961A0A3253F65D400CA3431 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7961A0A2253F65D400CA3431 /* GoogleService-Info.plist */; };
+		7961A0CD253F6E5B00CA3431 /* LandMarkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961A0CC253F6E5B00CA3431 /* LandMarkRepository.swift */; };
+		7961A0D0253F706200CA3431 /* TruckRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961A0CF253F706200CA3431 /* TruckRepository.swift */; };
+		7961A0D4253F745B00CA3431 /* LandMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961A0D3253F745B00CA3431 /* LandMarkViewModel.swift */; };
 		799E61A3253A1C19007D19EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A2253A1C19007D19EF /* AppDelegate.swift */; };
 		799E61A5253A1C19007D19EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A4253A1C19007D19EF /* SceneDelegate.swift */; };
 		799E61A7253A1C19007D19EF /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A6253A1C19007D19EF /* HomePage.swift */; };
@@ -26,6 +29,9 @@
 		623C8089113AC5F676518B6B /* Pods-YYCFoodTrucks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYCFoodTrucks.debug.xcconfig"; path = "Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks.debug.xcconfig"; sourceTree = "<group>"; };
 		6E103D855E34514CCC5A7117 /* Pods-YYCFoodTrucks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYCFoodTrucks.release.xcconfig"; path = "Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks.release.xcconfig"; sourceTree = "<group>"; };
 		7961A0A2253F65D400CA3431 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7961A0CC253F6E5B00CA3431 /* LandMarkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMarkRepository.swift; sourceTree = "<group>"; };
+		7961A0CF253F706200CA3431 /* TruckRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckRepository.swift; sourceTree = "<group>"; };
+		7961A0D3253F745B00CA3431 /* LandMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMarkViewModel.swift; sourceTree = "<group>"; };
 		799E619F253A1C19007D19EF /* YYCFoodTrucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYCFoodTrucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799E61A2253A1C19007D19EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		799E61A4253A1C19007D19EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +66,6 @@
 				623C8089113AC5F676518B6B /* Pods-YYCFoodTrucks.debug.xcconfig */,
 				6E103D855E34514CCC5A7117 /* Pods-YYCFoodTrucks.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -70,6 +75,23 @@
 				B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7961A0CA253F6E4000CA3431 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				7961A0CC253F6E5B00CA3431 /* LandMarkRepository.swift */,
+				7961A0CF253F706200CA3431 /* TruckRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		7961A0D2253F737C00CA3431 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				7961A0D3253F745B00CA3431 /* LandMarkViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		799E6196253A1C19007D19EF = {
@@ -93,6 +115,8 @@
 		799E61A1253A1C19007D19EF /* YYCFoodTrucks */ = {
 			isa = PBXGroup;
 			children = (
+				7961A0D2253F737C00CA3431 /* View Model */,
+				7961A0CA253F6E4000CA3431 /* Repositories */,
 				799E61C0253A25B9007D19EF /* Model */,
 				799E61CF253A6F7C007D19EF /* Delegate Group */,
 				799E61CD253A6F6A007D19EF /* Main Pages */,
@@ -282,9 +306,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				799E61D4253A7413007D19EF /* Discover.swift in Sources */,
+				7961A0CD253F6E5B00CA3431 /* LandMarkRepository.swift in Sources */,
 				799E61B8253A1D2E007D19EF /* yycHeader.swift in Sources */,
+				7961A0D0253F706200CA3431 /* TruckRepository.swift in Sources */,
 				799E61A3253A1C19007D19EF /* AppDelegate.swift in Sources */,
 				799E61BB253A1E92007D19EF /* MapView.swift in Sources */,
+				7961A0D4253F745B00CA3431 /* LandMarkViewModel.swift in Sources */,
 				799E61A5253A1C19007D19EF /* SceneDelegate.swift in Sources */,
 				799E61CA253A39D3007D19EF /* NavBar.swift in Sources */,
 				799E61C2253A269E007D19EF /* LandMark.swift in Sources */,
