@@ -10,32 +10,28 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class LandMarkRespository: ObservableObject{
-    let db = Firestore.firestore()
-    var landmarks = [LandMark]()
+    private let db = Firestore.firestore()
+    @Published var landmarks = [LandMark]()
     
     init() {
         loadData()
     }
     
     func loadData(){
-        db.collection("LandMarks").getDocuments{ (querySnapshot, error) in
-            if let e = error{
-                print("Error")
-                //print{"There was an issue retrieving data from Firestore.\(e)"}
+        db.collection("LandMarks").addSnapshotListener{(querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else{
+                print("No Documents")
+                return
             }
-            else{
-                if let snapshotDocuments = querySnapshot?.documents{
-                    for doc in snapshotDocuments{
-                        let data = doc.data()
-                        let name = (data["name"] as? String ?? "Name could not be found")
-                        let address = (data["address"] as? String ?? "Address could not be converted")
-                        let latitude = (data["latitude"] as? Double ?? 0)
-                        let longitude = (data["longitude"] as? Double ?? 0)
-                        
-                        let landMark = LandMark(name: name, address: address, latitude: latitude, longtitude: longitude)
-                        self.landmarks.append(landMark)
-                    }
-                }
+            self.landmarks = documents.map{(queryDocumentSnapshot) -> LandMark in
+                let data = queryDocumentSnapshot.data()
+                
+                let name = data["name"] as? String ?? ""
+                let address = data["address"] as? String ?? ""
+                let latitude = data["latitude"] as? Double ?? 0
+                let longitude = data["longitude"] as? Double ?? 0
+                
+                return LandMark(name: name, address: address, latitude: latitude, longtitude: longitude)
             }
         }
     }

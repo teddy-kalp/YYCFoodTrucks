@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
-    var landMarks = LandMarkRespository();
+    @ObservedObject var landMarks = LandMarkRespository();
     
     
     func makeUIView(context: Context) -> MKMapView{
@@ -29,11 +29,16 @@ struct MapView: UIViewRepresentable {
         map.setRegion(region, animated: true)
         // this is how to add an annotation to a MapKitUI
         //map.addAnnotation(annotation)
+        for lm in landMarks.landmarks{
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: lm.latitude, longitude: lm.longitude)
+            map.addAnnotation(annotation)
         }
     }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
+        }
     }
 }
