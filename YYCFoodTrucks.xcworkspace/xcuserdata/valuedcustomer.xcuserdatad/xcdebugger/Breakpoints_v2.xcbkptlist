@@ -7,6 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+<<<<<<< HEAD
             uuid = "3E56982F-0B1F-48F0-967A-BA7218E0CB72"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -23,6 +24,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+=======
+>>>>>>> JordanBranch
             uuid = "F266EF05-996D-4435-A10F-99752B0FD2D8"
             shouldBeEnabled = "No"
             ignoreCount = "0"

@@ -20,7 +20,8 @@ class LandMarkRespository: ObservableObject{
     func loadData(){
         db.collection("LandMarks").getDocuments{ (querySnapshot, error) in
             if let e = error{
-                print{"There was an issue retrieving data from Firestore.\(e)"}
+                print("Error")
+                //print{"There was an issue retrieving data from Firestore.\(e)"}
             }
             else{
                 if let snapshotDocuments = querySnapshot?.documents{
