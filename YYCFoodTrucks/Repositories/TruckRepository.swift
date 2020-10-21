@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 class TruckRespository: ObservableObject{
     let db = Firestore.firestore()
     
-    @Published var landmarks = [LandMark]()
+    var Trucks = [Truck]()
     
     func loadData(){
         
