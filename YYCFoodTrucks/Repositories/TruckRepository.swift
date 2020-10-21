@@ -10,9 +10,12 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class TruckRespository: ObservableObject{
-    let db = Firestore.firestore()
+    @Published var trucks = [Truck]()
+    private let db = Firestore.firestore()
     
-    var Trucks = [Truck]()
+    init(){
+        self.loadData()
+    }
     
     func loadData(){
         

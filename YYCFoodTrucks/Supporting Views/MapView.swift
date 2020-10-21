@@ -10,6 +10,7 @@ import MapKit
 
 struct MapView: UIViewRepresentable {
     @ObservedObject var landMarks = LandMarkRespository();
+    @ObservedObject var trucks = TruckRespository();
     
     
     func makeUIView(context: Context) -> MKMapView{

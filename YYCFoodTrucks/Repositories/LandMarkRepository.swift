@@ -14,7 +14,7 @@ class LandMarkRespository: ObservableObject{
     @Published var landmarks = [LandMark]()
     
     init() {
-        loadData()
+        self.loadData()
     }
     
     func loadData(){
