@@ -9,36 +9,33 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
+    var landMarks = LandMarkRespository();
     
-
     
     func makeUIView(context: Context) -> MKMapView{
         MKMapView(frame: .zero)
     }
     
     func updateUIView(_ map: MKMapView, context: Context) {
-            let coordinate = CLLocationCoordinate2D(
-                latitude: 51.0447, longitude: -114.0719)
+        
+        let mainCoordinate = CLLocationCoordinate2D(latitude: 51.0447, longitude: -114.0719)
         let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-            let region = MKCoordinateRegion(center: coordinate, span: span)
+        let region = MKCoordinateRegion(center: mainCoordinate, span: span)
+        
         // this is how to make an annotation to a MapKit UI
-            //let annotation = MKPointAnnotation()
-            //annotation.coordinate = CLLocationCoordinate2D(latitude: 50.726300, longitude: -113.988410)
-            map.setRegion(region, animated: true)
+        //let annotation = MKPointAnnotation()
+        //annotation.coordinate = CLLocationCoordinate2D(latitude: 50.726300, longitude: -113.988410)
+        
+        map.setRegion(region, animated: true)
         // this is how to add an annotation to a MapKitUI
-            //map.addAnnotation(annotation)
-            
-            for loc in Locations{
+        //map.addAnnotation(annotation)
+        for lm in landMarks.landmarks{
                 let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2D(latitude: loc.coords.0, longitude: loc.coords.1)
-                print(loc.coords.0)
-                print(loc.coords.1)
-                annotation.title = loc.name
+                print(lm.latitude)
+                print(lm.longitude)
+                annotation.coordinate = CLLocationCoordinate2D(latitude: lm.latitude, longitude: lm.longitude)
                 map.addAnnotation(annotation)
             }
-            
-        
-            
         }
     }
 
@@ -47,4 +44,3 @@ struct MapView_Previews: PreviewProvider {
         MapView()
     }
 }
-

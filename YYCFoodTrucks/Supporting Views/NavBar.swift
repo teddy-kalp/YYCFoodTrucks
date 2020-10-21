@@ -18,41 +18,51 @@ struct NavBar: View {
     var discover: Bool
     var favorite: Bool
     var events: Bool
+    @EnvironmentObject var router: Router
     
     var body: some View {
         HStack(spacing: 30){
                 VStack{
-                    Image(systemName: "map")
+                    Button(action: {self.router.cur_page = "HomePage"}){
+                        Image(systemName: "map")
                         .resizable()
                         .frame(width: 30, height: 30)
                         .foregroundColor(map ? primColor: .black)
                     Text("Truck Tracker")
                         .foregroundColor(map ? primColor: .black)
+                    }
                 }
                 VStack{
-                    Image(systemName: "magnifyingglass")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(discover ? primColor: .black)
-                    Text("Discover")
-                        .foregroundColor(discover ? primColor: .black)
+                    Button(action: {self.router.cur_page = "Discover"}){
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(discover ? primColor: .black)
+                        Text("Discover")
+                            .foregroundColor(discover ? primColor: .black)
+                    }
                 }
                 VStack {
-                    Image(systemName: "heart.fill")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(favorite ? primColor: .black)
-                    Text("Favorites")
-                        .foregroundColor(favorite ? primColor: .black)
+                    Button(action: {self.router.cur_page = "Favorites"}){
+                        Image(systemName: "heart.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(favorite ? primColor: .black)
+                        Text("Favorites")
+                            .foregroundColor(favorite ? primColor: .black)
+                    }
                 }
                 VStack {
-                    Image(systemName: "calendar")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(events ? primColor: .black)
-                    Text("Events")
-                        .foregroundColor(events ? primColor: .black)
-            }
+                    Button(action: {self.router.cur_page = "Events"}){
+                        Image(systemName: "calendar")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(events ? primColor: .black)
+                        Text("Events")
+                            .foregroundColor(events ? primColor: .black)
+                    }
+                }
+            //}
         }
     }
 }

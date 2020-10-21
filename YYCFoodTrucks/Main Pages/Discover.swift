@@ -10,8 +10,11 @@ import SwiftUI
 struct Discover: View {
     var body: some View {
         NavigationView{
-            //return
-            NavBar(map: false, discover: true, favorite: false, events: false)
+            VStack {
+                Text("Sweet Treats")
+                .frame(width: 300, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .border(Color.gray)
+            }
         }
     }
 }

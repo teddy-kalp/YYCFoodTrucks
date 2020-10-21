@@ -3,11 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17312441253EBF6B00A873B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A2253A1C19007D19EF /* AppDelegate.swift */; };
+		173124432540247000A873B4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173124422540247000A873B4 /* Router.swift */; };
+		1731244525402C1300A873B4 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1731244425402C1300A873B4 /* Favorites.swift */; };
+		1731244725402C2200A873B4 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1731244625402C2200A873B4 /* Events.swift */; };
+		7936CE46253F95A3007B17B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7936CE45253F95A3007B17B7 /* GoogleService-Info.plist */; };
+		7961A0CD253F6E5B00CA3431 /* LandMarkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961A0CC253F6E5B00CA3431 /* LandMarkRepository.swift */; };
+		7961A0D0253F706200CA3431 /* TruckRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961A0CF253F706200CA3431 /* TruckRepository.swift */; };
+		7961A0D4253F745B00CA3431 /* LandMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961A0D3253F745B00CA3431 /* LandMarkViewModel.swift */; };
+		799E61A3253A1C19007D19EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A2253A1C19007D19EF /* AppDelegate.swift */; };
 		799E61A5253A1C19007D19EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A4253A1C19007D19EF /* SceneDelegate.swift */; };
 		799E61A7253A1C19007D19EF /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61A6253A1C19007D19EF /* HomePage.swift */; };
 		799E61A9253A1C1C007D19EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799E61A8253A1C1C007D19EF /* Assets.xcassets */; };
@@ -18,9 +25,19 @@
 		799E61C2253A269E007D19EF /* LandMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61C1253A269E007D19EF /* LandMark.swift */; };
 		799E61CA253A39D3007D19EF /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61C9253A39D3007D19EF /* NavBar.swift */; };
 		799E61D4253A7413007D19EF /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61D3253A7413007D19EF /* Discover.swift */; };
+		F13806B80545BCB0E3292EAE /* Pods_YYCFoodTrucks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		173124422540247000A873B4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		1731244425402C1300A873B4 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		1731244625402C2200A873B4 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		623C8089113AC5F676518B6B /* Pods-YYCFoodTrucks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYCFoodTrucks.debug.xcconfig"; path = "Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks.debug.xcconfig"; sourceTree = "<group>"; };
+		6E103D855E34514CCC5A7117 /* Pods-YYCFoodTrucks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYCFoodTrucks.release.xcconfig"; path = "Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks.release.xcconfig"; sourceTree = "<group>"; };
+		7936CE45253F95A3007B17B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7961A0CC253F6E5B00CA3431 /* LandMarkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMarkRepository.swift; sourceTree = "<group>"; };
+		7961A0CF253F706200CA3431 /* TruckRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckRepository.swift; sourceTree = "<group>"; };
+		7961A0D3253F745B00CA3431 /* LandMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMarkViewModel.swift; sourceTree = "<group>"; };
 		799E619F253A1C19007D19EF /* YYCFoodTrucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYCFoodTrucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799E61A2253A1C19007D19EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		799E61A4253A1C19007D19EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +51,7 @@
 		799E61C1253A269E007D19EF /* LandMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMark.swift; sourceTree = "<group>"; };
 		799E61C9253A39D3007D19EF /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		799E61D3253A7413007D19EF /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YYCFoodTrucks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +59,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13806B80545BCB0E3292EAE /* Pods_YYCFoodTrucks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37827B51D44E5FC5D3C3279D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				623C8089113AC5F676518B6B /* Pods-YYCFoodTrucks.debug.xcconfig */,
+				6E103D855E34514CCC5A7117 /* Pods-YYCFoodTrucks.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4B48D609CEB1EACDED464FC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7961A0CA253F6E4000CA3431 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				7961A0CC253F6E5B00CA3431 /* LandMarkRepository.swift */,
+				7961A0CF253F706200CA3431 /* TruckRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		7961A0D2253F737C00CA3431 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				7961A0D3253F745B00CA3431 /* LandMarkViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		799E6196253A1C19007D19EF = {
 			isa = PBXGroup;
 			children = (
 				799E61A1253A1C19007D19EF /* YYCFoodTrucks */,
 				799E61A0253A1C19007D19EF /* Products */,
+				37827B51D44E5FC5D3C3279D /* Pods */,
+				4B48D609CEB1EACDED464FC2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,12 +121,15 @@
 		799E61A1253A1C19007D19EF /* YYCFoodTrucks */ = {
 			isa = PBXGroup;
 			children = (
+				7961A0D2253F737C00CA3431 /* View Model */,
+				7961A0CA253F6E4000CA3431 /* Repositories */,
 				799E61C0253A25B9007D19EF /* Model */,
 				799E61CF253A6F7C007D19EF /* Delegate Group */,
 				799E61CD253A6F6A007D19EF /* Main Pages */,
 				799E61D0253A6F89007D19EF /* Assets */,
 				799E61D1253A6F96007D19EF /* LaunchScreen */,
 				799E61B0253A1C1D007D19EF /* Info.plist */,
+				7936CE45253F95A3007B17B7 /* GoogleService-Info.plist */,
 				799E61AA253A1C1C007D19EF /* Preview Content */,
 				799E61BD253A226C007D19EF /* Supporting Views */,
 			);
@@ -100,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				799E61C1253A269E007D19EF /* LandMark.swift */,
+				173124422540247000A873B4 /* Router.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +168,8 @@
 			children = (
 				799E61A6253A1C19007D19EF /* HomePage.swift */,
 				799E61D3253A7413007D19EF /* Discover.swift */,
+				1731244425402C1300A873B4 /* Favorites.swift */,
+				1731244625402C2200A873B4 /* Events.swift */,
 			);
 			path = "Main Pages";
 			sourceTree = "<group>";
@@ -145,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 799E61B3253A1C1D007D19EF /* Build configuration list for PBXNativeTarget "YYCFoodTrucks" */;
 			buildPhases = (
+				D87197053CC3418FB9FDC0E5 /* [CP] Check Pods Manifest.lock */,
 				799E619B253A1C19007D19EF /* Sources */,
 				799E619C253A1C19007D19EF /* Frameworks */,
 				799E619D253A1C19007D19EF /* Resources */,
+				11658700A492A414FB9C8867 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,7 +236,7 @@
 				};
 			};
 			buildConfigurationList = 799E619A253A1C19007D19EF /* Build configuration list for PBXProject "YYCFoodTrucks" */;
-			compatibilityVersion = "Xcode 11.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -196,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				799E61AF253A1C1C007D19EF /* LaunchScreen.storyboard in Resources */,
+				7936CE46253F95A3007B17B7 /* GoogleService-Info.plist in Resources */,
 				799E61AC253A1C1C007D19EF /* Preview Assets.xcassets in Resources */,
 				799E61A9253A1C1C007D19EF /* Assets.xcassets in Resources */,
 			);
@@ -203,19 +267,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11658700A492A414FB9C8867 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YYCFoodTrucks/Pods-YYCFoodTrucks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D87197053CC3418FB9FDC0E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YYCFoodTrucks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		799E619B253A1C19007D19EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17312441253EBF6B00A873B4 /* AppDelegate.swift in Sources */,
 				799E61D4253A7413007D19EF /* Discover.swift in Sources */,
+				7961A0CD253F6E5B00CA3431 /* LandMarkRepository.swift in Sources */,
 				799E61B8253A1D2E007D19EF /* yycHeader.swift in Sources */,
+				7961A0D0253F706200CA3431 /* TruckRepository.swift in Sources */,
+				1731244725402C2200A873B4 /* Events.swift in Sources */,
+				173124432540247000A873B4 /* Router.swift in Sources */,
+				799E61A3253A1C19007D19EF /* AppDelegate.swift in Sources */,
 				799E61BB253A1E92007D19EF /* MapView.swift in Sources */,
+				7961A0D4253F745B00CA3431 /* LandMarkViewModel.swift in Sources */,
 				799E61A5253A1C19007D19EF /* SceneDelegate.swift in Sources */,
 				799E61CA253A39D3007D19EF /* NavBar.swift in Sources */,
 				799E61C2253A269E007D19EF /* LandMark.swift in Sources */,
 				799E61A7253A1C19007D19EF /* HomePage.swift in Sources */,
+				1731244525402C1300A873B4 /* Favorites.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -339,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -351,6 +463,7 @@
 		};
 		799E61B4253A1C1D007D19EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 623C8089113AC5F676518B6B /* Pods-YYCFoodTrucks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -373,6 +486,7 @@
 		};
 		799E61B5253A1C1D007D19EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E103D855E34514CCC5A7117 /* Pods-YYCFoodTrucks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
