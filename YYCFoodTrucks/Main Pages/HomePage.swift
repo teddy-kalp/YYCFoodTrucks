@@ -26,9 +26,13 @@ struct HomePage: View {
                 } else if router.cur_page == "Favorites"{
                     Favorites()
                     NavBar(map: false, discover: false, favorite: true, events: false)
-                } else {
+                } else if router.cur_page == "Events"{
                     Events()
                     NavBar(map: false, discover: false, favorite: false, events: true)
+                }
+                else{
+                    OperatorLogin()
+                    NavBar(map: false, discover: false, favorite: false, events: false)
                 }
             }
         }
