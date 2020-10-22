@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct Discover: View {
+    @ObservedObject var foodCategoryRepo = FoodCategoryRepository();
     var body: some View {
         NavigationView{
-            VStack {
-                Text("Sweet Treats")
-                .frame(width: 300, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .border(Color.gray)
-            }
+            ScrollView{
+                ForEach (foodCategoryRepo.foodCategories){ category in
+                NavigationLink(destination: TruckList(title: category.name, category_id: category.id)){
+                    HStack{
+                        Image(category.img)
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width - 20, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .clipped()
+                        .cornerRadius(3)
+                        }
+                    }
+                }
+            }.navigationBarTitle("Discover", displayMode: .inline)
+            .font(.custom("",size: 20))
+            
+            
         }
     }
 }
