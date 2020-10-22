@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct yycHeader: View {
+    @EnvironmentObject var router: Router
     var body: some View {
+        Button(action: {self.router.cur_page = "HomePage"}){
         Image("yycfood")
             .resizable()
-            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .frame(width: 80, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }.foregroundColor(Color.black)
     }
 }
 
