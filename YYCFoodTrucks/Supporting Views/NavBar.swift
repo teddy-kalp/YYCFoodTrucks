@@ -11,7 +11,9 @@
 
 import SwiftUI
 
-let primColor = Color(red: 0, green: 0.7, blue: 0.6, opacity: 1)
+let primColor = Color(red: 0, green: 0.73, blue: 0.6, opacity: 1)
+
+
 
 struct NavBar: View {
     var map: Bool
