@@ -19,7 +19,7 @@ struct URLImage: View {
         self.imageLoader.load(url: url)
     }
     
-    var body: some View {
+    var body: Image {
         if let uiImage = self.imageLoader.downloadedImage {
             return Image(uiImage: uiImage).renderingMode(.original)
         } else {

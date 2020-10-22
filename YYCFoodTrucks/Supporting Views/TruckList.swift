@@ -19,9 +19,8 @@ struct TruckList: View {
             ForEach(truck_list){ truck in
                 if truck.category_id == self.category_id{
                     HStack{
-                        NavigationLink(destination: TruckProfile()){
+                        NavigationLink(destination: TruckProfile(truck: truck)){
                             URLImage(url: truck.img)
-                            
                         }
                     }.frame(width: 400, height: 250)
                 }
