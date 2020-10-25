@@ -32,9 +32,9 @@ func convertToCoords(address: String) -> (CLLocationDegrees, CLLocationDegrees){
     geocoder.geocodeAddressString(address){
         placemarks, error in
         let placemark = placemarks?.first
-        print(error)
+        print(error as Any)
         lat = placemark?.location?.coordinate.latitude ?? 0
-        print("Lat", placemark?.location?.coordinate.latitude)
+        print("Lat", placemark?.location?.coordinate.latitude as Any)
         lon = placemark?.location?.coordinate.longitude ?? 0
     }
     print("lat:", lat)
