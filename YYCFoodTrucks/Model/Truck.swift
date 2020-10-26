@@ -11,6 +11,7 @@ import FirebaseFirestore
 //Load image from url
 
 class Truck: Identifiable, Codable {
+    var operatorId: Int?
     var name: String
     var id: Int
     var open: Bool

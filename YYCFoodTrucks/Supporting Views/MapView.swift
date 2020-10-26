@@ -33,6 +33,7 @@ struct MapView: UIViewRepresentable {
         for lm in landMarks.landmarks{
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: lm.latitude, longitude: lm.longitude)
+            annotation.title = lm.name;
             map.addAnnotation(annotation)
         }
     }

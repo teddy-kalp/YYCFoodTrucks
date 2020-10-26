@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct OperatorLogin: View {
+    
     var body: some View {
-        NavigationView{
-            VStack {
-                Text("Operator Login")
-                .frame(width: 300, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .border(Color.gray)
-            }
-        }
+        Text("Hello Operator")
     }
 }
 
@@ -24,3 +19,4 @@ struct OperatorLogin_Previews: PreviewProvider {
         OperatorLogin()
     }
 }
+

@@ -9,14 +9,14 @@ import SwiftUI
 import URLImage
 
 struct TruckList: View {
+    @ObservedObject var truck_list = TruckRespository()
     var title: String
     var category_id: Int
-    var truck_list = trucks
     var body: some View {
         ScrollView{
             Spacer()
                 .frame(height: 50)
-            ForEach(truck_list){ truck in
+            ForEach(truck_list.trucks){ truck in
                 if truck.category_id == self.category_id{
                     HStack{
                         NavigationLink(destination: TruckProfile(truck: truck)){
