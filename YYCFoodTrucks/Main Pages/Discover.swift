@@ -8,12 +8,6 @@
 import SwiftUI
 
 struct Discover: View {
-<<<<<<< HEAD
-    var body: some View {
-        NavigationView{
-            
-            //NavBar(map: false, discover: true, favorite: false, events: false)
-=======
     @ObservedObject var foodCategoryRepo = FoodCategoryRepository();
     var body: some View {
         NavigationView{
@@ -32,9 +26,6 @@ struct Discover: View {
                 }
             }.navigationBarTitle("Discover", displayMode: .inline)
             .font(.custom("",size: 20))
-            
-            
->>>>>>> e6abc10205599d158c4af91cecdd71c28f1c1920
         }
     }
 }
