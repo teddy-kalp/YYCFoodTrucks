@@ -26,12 +26,13 @@ class LandMarkRespository: ObservableObject{
             self.landmarks = documents.map{(queryDocumentSnapshot) -> LandMark in
                 let data = queryDocumentSnapshot.data()
                 
-                let name = data["name"] as? String ?? ""
+                
                 let address = data["address"] as? String ?? ""
                 let latitude = data["latitude"] as? Double ?? 0
                 let longitude = data["longitude"] as? Double ?? 0
+                let locationId = data["locationId"] as? Int ?? -1
                 
-                return LandMark(name: name, address: address, latitude: latitude, longtitude: longitude)
+                return LandMark(address: address, latitude: latitude, longitude: longitude, locationId: locationId)
             }
         }
     }
