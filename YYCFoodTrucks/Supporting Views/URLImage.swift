@@ -11,20 +11,30 @@ import SwiftUI
 struct URLImage: View {
     
     @ObservedObject private var imageLoader = ImageLoader()
-    
     var placeholder: Image
+    var resizable: Bool
     
-    init(url: String, placeholder: Image = Image(systemName: "photo")) {
+    init(url: String, placeholder: Image = Image(systemName: "photo"), resizable: Bool = false) {
         self.placeholder = placeholder
+        self.resizable = resizable
         self.imageLoader.load(url: url)
     }
     
     var body: Image {
-        if let uiImage = self.imageLoader.downloadedImage {
-            return Image(uiImage: uiImage).renderingMode(.original)
+        if resizable{
+            return img.resizable()
         } else {
-            return placeholder
+            return img
         }
+    }
+    
+    var img: Image {
+       if let uiImage = self.imageLoader.downloadedImage {
+           return Image(uiImage: uiImage)
+               .renderingMode(.original)
+       } else {
+           return placeholder
+       }
     }
     
 }

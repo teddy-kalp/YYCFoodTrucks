@@ -11,9 +11,11 @@ struct TruckProfile: View {
     var truck: Truck
     var body: some View {
         ScrollView{
+            HStack{
             VStack(alignment: .leading){
                     URLImage(url: self.truck.img)
                         .frame(width: CGFloat(400), height: 300)
+                Group{
                     HStack{
                         Text(self.truck.name)
                             .font(.title)
@@ -45,17 +47,27 @@ struct TruckProfile: View {
                         Text("No schedule")
                         .padding(.bottom, 20)
                     }
+                    Text("Menu")
+                     .font(.title)
+                    
+                }.padding(.leading, 10)
+                .padding(.trailing, 10)
                     Group{
-                        //Spacer()
-                        Text("Menu")
-                        .font(.title)
-                        URLImage(url: self.truck.menu)
-                            .frame(width: UIScreen.main.bounds.width - 5)
-                            .padding(.bottom, 20)
-                    }
-            }.padding()
+                      //Spacer()
+                     menuView
+                  }
+                
+                }
+            }.padding(20)
         }
     }
+    
+    var menuView: some View {
+     return  URLImage(url: self.truck.menu, resizable: true)
+              .frame(width: UIScreen.main.bounds.width - 5)
+              .padding(.bottom, 20)
+    }
+    
 }
 /*
 struct TruckProfile_Previews: PreviewProvider {
