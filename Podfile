@@ -10,5 +10,9 @@ target 'YYCFoodTrucks' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+<<<<<<< HEAD
+=======
+  pod 'URLImage'
+>>>>>>> e6abc10205599d158c4af91cecdd71c28f1c1920
 
 end

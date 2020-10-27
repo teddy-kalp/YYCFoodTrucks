@@ -332,12 +332,20 @@ PODS:
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.10)
+<<<<<<< HEAD
+=======
+  - URLImage (0.9.19)
+>>>>>>> e6abc10205599d158c4af91cecdd71c28f1c1920
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Firestore
   - FirebaseFirestoreSwift
+<<<<<<< HEAD
+=======
+  - URLImage
+>>>>>>> e6abc10205599d158c4af91cecdd71c28f1c1920
 
 SPEC REPOS:
   trunk:
@@ -360,6 +368,10 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+<<<<<<< HEAD
+=======
+    - URLImage
+>>>>>>> e6abc10205599d158c4af91cecdd71c28f1c1920
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -381,7 +393,13 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+<<<<<<< HEAD
 
 PODFILE CHECKSUM: 9eff01fdc619eca80392cf9237000fba572d7a72
+=======
+  URLImage: 107320dff147321cceb201af24e8a154f24e6aed
+
+PODFILE CHECKSUM: 060e5c7b3bf1b7f4fddd3312471b4fc3bc8b36b5
+>>>>>>> e6abc10205599d158c4af91cecdd71c28f1c1920
 
 COCOAPODS: 1.9.3

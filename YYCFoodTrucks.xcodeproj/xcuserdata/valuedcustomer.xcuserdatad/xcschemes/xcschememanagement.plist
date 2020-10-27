@@ -7,7 +7,11 @@
 		<key>YYCFoodTrucks.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>21</integer>
+=======
+			<integer>22</integer>
+>>>>>>> e6abc10205599d158c4af91cecdd71c28f1c1920
 		</dict>
 	</dict>
 </dict>

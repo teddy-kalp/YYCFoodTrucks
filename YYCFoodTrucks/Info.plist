@@ -20,6 +20,20 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+<<<<<<< HEAD
+=======
+	<key>Launch Screen</key>
+	<dict>
+		<key>Image Name</key>
+		<string>yycfood</string>
+		<key>Image respects safe area insets</key>
+		<false/>
+	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app requires your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app requires your location</string>
+>>>>>>> e6abc10205599d158c4af91cecdd71c28f1c1920
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
