@@ -15,12 +15,15 @@ struct HomePage: View {
     @ObservedObject var LocationRepo = LandMarkRespository()
     @ObservedObject var ScheduleRepo = ScheduleRespository()
     
+    @State var isActive: Bool = false
+    @State var selectedAnnotation: TruckAnnotation?
+    
     var body: some View {
             VStack {
                 yycHeader()
                 if router.cur_page == "HomePage"{
                     GeometryReader { geometry in
-                        MapView(annotations: getAnnotations())
+                        MapView(annotations: getAnnotations(), isActive: $isActive, selectedTruck: $selectedAnnotation)
                         .frame(width: geometry.size.width, height: geometry.size.height - 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .border(Color.gray)
                     }
@@ -77,11 +80,11 @@ struct HomePage: View {
                 
                 if (schedule.openDate < Date() && Date() < schedule.closeDate){
                     truckAnnotation.subtitle = "Open Now! Closes at \(closeTime)"
-                    truckAnnotation.truck.open = false
+                    truckAnnotation.truck.open = true
                 }
                 else if (schedule.openDate > Date()){
                     truckAnnotation.subtitle = "Opens Soon! \(openDate) from \(openTime) to \(closeTime)"
-                    truckAnnotation.truck.open = true
+                    truckAnnotation.truck.open = false
                 }
                 
                 truckAnnotations.append(truckAnnotation);

@@ -11,8 +11,8 @@ import MapKit
 struct MapView: UIViewRepresentable {
     
     var annotations: [TruckAnnotation]
-    //@Binding var isActive: Bool
-    //@Binding var activeTruck: TruckAnnotation
+    @Binding var isActive: Bool
+    @Binding var selectedTruck: TruckAnnotation?
     //var currentLocaiton: CLLocationCoordinate2D
     
     func makeUIView(context: Context) -> MKMapView {
@@ -75,6 +75,12 @@ struct MapView: UIViewRepresentable {
             }
             
             return annotationView
+        }
+        
+        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl)
+        {
+            self.parent.isActive = true
+            self.parent.selectedTruck = (view.annotation as? TruckAnnotation)!
         }
     }
         
