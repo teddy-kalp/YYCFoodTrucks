@@ -10,16 +10,17 @@ import CoreLocation
 
 
 class LandMark: Identifiable, Codable {
-    var name: String
     var address: String
     var latitude: Double
     var longitude: Double
+    var landmarkId: Int
     
-    init(name: String, address: String, latitude: Double, longtitude: Double) {
-        self.name = name
+    init(address: String, latitude: Double, longtitude: Double, landmarkId: Int)
+    {
         self.address = address
         self.latitude = latitude
         self.longitude = longtitude
+        self.landmarkId = landmarkId
     }
 }
 

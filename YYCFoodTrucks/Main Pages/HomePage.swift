@@ -6,18 +6,29 @@
 //
 
 import SwiftUI
+import MapKit
 
 
 struct HomePage: View {
     @EnvironmentObject var router: Router
+    
+    // used for trucks, landmarks and schedules
+    @ObservedObject var TruckRepository = TruckRespository()
+    @ObservedObject var LandMarkRespositoy = LandMarkRespository()
+    @ObservedObject var ScheduleRepo = ScheduleRepository()
+    
+    // used for current location
+    @ObservedObject private var locationManager = LocationManager()
+    
     var body: some View {
             VStack {
                 yycHeader()
+                let coordinate = self.locationManager.location != nil ? self.locationManager.location!.coordinate : CLLocationCoordinate2D()
                 if router.cur_page == "HomePage"{
                     GeometryReader { geometry in
-                    MapView()
-                        .frame(width: geometry.size.width, height: geometry.size.height - 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .border(Color.gray)
+                        MapView(landMarks: LandMarkRespositoy.landmarks, trucks: TruckRepository.trucks, schedules: ScheduleRepo.schedules, coordinate: coordinate)
+                            .frame(width: geometry.size.width, height: geometry.size.height - 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .border(Color.gray)
                     }
                     NavBar(map: true, discover: false, favorite: false, events: false)
                 } else if router.cur_page == "Discover"{
