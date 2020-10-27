@@ -9,35 +9,6 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
-<<<<<<< HEAD
-    var landMarks = LandMarkRespository();
-    
-    
-    func makeUIView(context: Context) -> MKMapView{
-        MKMapView(frame: .zero)
-    }
-    
-    func updateUIView(_ map: MKMapView, context: Context) {
-        landMarks.loadData();
-        let coordinate = CLLocationCoordinate2D(latitude: 51.0447, longitude: -114.0719)
-        let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-        let region = MKCoordinateRegion(center: coordinate, span: span)
-        
-        // this is how to make an annotation to a MapKit UI
-        //let annotation = MKPointAnnotation()
-        //annotation.coordinate = CLLocationCoordinate2D(latitude: 50.726300, longitude: -113.988410)
-        
-        map.setRegion(region, animated: true)
-        // this is how to add an annotation to a MapKitUI
-        //map.addAnnotation(annotation)
-        }
-    }
-
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
-    }
-=======
     var landMarks: [LandMark];
     var trucks: [Truck];
     var schedules: [Schedule];
@@ -92,8 +63,11 @@ struct MapView_Previews: PreviewProvider {
             }
         }
     }
-    
-    
->>>>>>> e6abc10205599d158c4af91cecdd71c28f1c1920
+}
+
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        MapView()
+    } 
 }
 
