@@ -30,7 +30,7 @@ class LandMarkRespository: ObservableObject{
                 let address = data["address"] as? String ?? ""
                 let latitude = data["latitude"] as? Double ?? 0
                 let longitude = data["longitude"] as? Double ?? 0
-                let locationId = data["locationId"] as? Int ?? -1
+                let locationId = data["locationID"] as? Int ?? -1
                 
                 return LandMark(address: address, latitude: latitude, longitude: longitude, locationId: locationId)
             }
