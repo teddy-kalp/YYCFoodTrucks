@@ -18,7 +18,7 @@ struct Discover: View {
                         Image(category.img)
                             .renderingMode(.original)
                             .resizable()
-                            .frame(width: UIScreen.main.bounds.width - 20, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: UIScreen.main.bounds.width - 20, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .clipped()
                         .cornerRadius(3)
                         }
