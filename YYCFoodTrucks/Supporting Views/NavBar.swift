@@ -12,7 +12,6 @@
 import SwiftUI
 
 let primColor = Color(red: 0, green: 0.73, blue: 0.6, opacity: 1)
-let primColorUI = UIColor(red: 0, green: 0.73, blue: 0.6, alpha: 1)
 
 
 

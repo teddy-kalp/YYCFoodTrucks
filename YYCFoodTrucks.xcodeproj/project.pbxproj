@@ -34,7 +34,6 @@
 		79E8749E2548C9E300BAE807 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8749D2548C9E300BAE807 /* Schedule.swift */; };
 		79E874A22548CAD200BAE807 /* ScheduleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E874A12548CAD200BAE807 /* ScheduleRepository.swift */; };
 		79E874A62548CC9F00BAE807 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E874A52548CC9F00BAE807 /* LocationManager.swift */; };
-		79E874B12548D03600BAE807 /* TruckAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E874B02548D03600BAE807 /* TruckAnnotation.swift */; };
 		F13806B80545BCB0E3292EAE /* Pods_YYCFoodTrucks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +69,6 @@
 		79E8749D2548C9E300BAE807 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		79E874A12548CAD200BAE807 /* ScheduleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRepository.swift; sourceTree = "<group>"; };
 		79E874A52548CC9F00BAE807 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		79E874B02548D03600BAE807 /* TruckAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckAnnotation.swift; sourceTree = "<group>"; };
 		B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YYCFoodTrucks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,7 +133,6 @@
 		799E61A1253A1C19007D19EF /* YYCFoodTrucks */ = {
 			isa = PBXGroup;
 			children = (
-				79E874AF2548D02400BAE807 /* Annotations */,
 				79E874A42548CC9100BAE807 /* Managers */,
 				7961A0CA253F6E4000CA3431 /* Repositories */,
 				799E61C0253A25B9007D19EF /* Model */,
@@ -227,14 +224,6 @@
 				79E874A52548CC9F00BAE807 /* LocationManager.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		79E874AF2548D02400BAE807 /* Annotations */ = {
-			isa = PBXGroup;
-			children = (
-				79E874B02548D03600BAE807 /* TruckAnnotation.swift */,
-			);
-			path = Annotations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,7 +365,6 @@
 				799E61C2253A269E007D19EF /* LandMark.swift in Sources */,
 				799E61A7253A1C19007D19EF /* HomePage.swift in Sources */,
 				1731244D2540E68100A873B4 /* FoodCategory.swift in Sources */,
-				79E874B12548D03600BAE807 /* TruckAnnotation.swift in Sources */,
 				1731244525402C1300A873B4 /* Favorites.swift in Sources */,
 				1731244B2540D13F00A873B4 /* TruckList.swift in Sources */,
 				1731245725410A1900A873B4 /* URLImage.swift in Sources */,
