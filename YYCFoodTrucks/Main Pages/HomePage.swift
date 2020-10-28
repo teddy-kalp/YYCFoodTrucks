@@ -27,7 +27,7 @@ struct HomePage: View {
                     NavigationView{
                         GeometryReader {geometry in
                             MapView(annotations: getAnnotations(), isActive: self.$isActive, selectedTruck: self.$selectedAnnotation)
-                            NavigationLink(destination: TruckProfile(truck: selectedAnnotation?.truck ?? testTruck), isActive: self.$isActive) {
+                            NavigationLink(destination: TruckProfile(truck: selectedAnnotation?.truck ?? testTruck, schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks), isActive: self.$isActive) {
                                 EmptyView()
                                     .frame(width: 0, height: 0)
                             }
@@ -40,7 +40,7 @@ struct HomePage: View {
                 
                     NavBar(map: true, discover: false, favorite: false, events: false)
                 } else if router.cur_page == "Discover"{
-                    Discover()
+                    Discover(schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks)
                     NavBar(map: false, discover: true, favorite: false, events: false)
                 } else if router.cur_page == "Favorites"{
                     Favorites()
