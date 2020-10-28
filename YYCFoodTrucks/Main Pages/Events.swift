@@ -12,7 +12,6 @@ struct Events: View {
         NavigationView{
             VStack {
                 Webview(url: "https://www.yycfoodtrucks.com/events")
-                
             }
         }
     }

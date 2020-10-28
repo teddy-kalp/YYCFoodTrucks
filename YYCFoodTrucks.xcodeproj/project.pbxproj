@@ -140,7 +140,7 @@
 				79E874AF2548D02400BAE807 /* Annotations */,
 				79E874A42548CC9100BAE807 /* Managers */,
 				7961A0CA253F6E4000CA3431 /* Repositories */,
-				799E61C0253A25B9007D19EF /* Model */,
+				799E61C0253A25B9007D19EF /* Models */,
 				799E61CF253A6F7C007D19EF /* Delegate Group */,
 				799E61CD253A6F6A007D19EF /* Main Pages */,
 				799E61D0253A6F89007D19EF /* Assets */,
@@ -174,7 +174,7 @@
 			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
-		799E61C0253A25B9007D19EF /* Model */ = {
+		799E61C0253A25B9007D19EF /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				476EB87C2549FDC20069CE49 /* WebpageLoader.swift */,
@@ -185,7 +185,7 @@
 				1731245825410A4D00A873B4 /* ImageLoader.swift */,
 				79E8749D2548C9E300BAE807 /* Schedule.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		799E61CD253A6F6A007D19EF /* Main Pages */ = {
@@ -525,7 +525,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"YYCFoodTrucks/Preview Content\"";
-				DEVELOPMENT_TEAM = 8Y8438377N;
+				DEVELOPMENT_TEAM = 6J244NZGA5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = YYCFoodTrucks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -533,7 +533,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "teddy-kalp.YYCFoodTrucks";
+				PRODUCT_BUNDLE_IDENTIFIER = "teddy-kalp1.YYCFoodTrucks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -548,7 +548,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"YYCFoodTrucks/Preview Content\"";
-				DEVELOPMENT_TEAM = 8Y8438377N;
+				DEVELOPMENT_TEAM = 6J244NZGA5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = YYCFoodTrucks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -556,7 +556,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "teddy-kalp.YYCFoodTrucks";
+				PRODUCT_BUNDLE_IDENTIFIER = "teddy-kalp1.YYCFoodTrucks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

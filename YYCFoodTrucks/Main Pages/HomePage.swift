@@ -8,6 +8,10 @@
 import SwiftUI
 import MapKit
 
+var fillerTruck = Truck(name: "fillerTruck", id: -1, open: false, img: "null", category_id: -1, menu: "null", description: "null")
+
+var fillerLocation = LandMark(address: "null", latitude: 0, longitude: 0, locationId: -1)
+
 
 struct HomePage: View {
     @EnvironmentObject var router: Router
@@ -64,8 +68,8 @@ struct HomePage: View {
                 continue
             }
             else{
-                var foundTruck: Truck?
-                var location: LandMark?
+                var foundTruck = fillerTruck
+                var location = fillerLocation
                 for tr in TruckRepo.trucks{
                     if (tr.id == schedule.truckId){
                         foundTruck = tr
@@ -78,9 +82,9 @@ struct HomePage: View {
                         break
                     }
                 }
-                let truckAnnotation = TruckAnnotation(truck: foundTruck!)
-                truckAnnotation.coordinate = CLLocationCoordinate2D(latitude: location!.latitude, longitude: location!.longitude)
-                truckAnnotation.title = foundTruck!.name
+                let truckAnnotation = TruckAnnotation(truck: foundTruck)
+                truckAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+                truckAnnotation.title = foundTruck.name
                 // different formators for the dates
                 let hoursMinutes = DateFormatter()
                 hoursMinutes.dateFormat = "HH:MM"
