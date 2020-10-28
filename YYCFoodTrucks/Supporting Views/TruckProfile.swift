@@ -14,8 +14,8 @@ struct TruckProfile: View {
     
     
     var body: some View {
-       var currentScheduleLocation = generateTodaySchedule(schedules: schedules, locations: locations, truck: truck)
-       // var upcomingScheduleLocation = generateUpcomingSchedule(schedules: schedules, locations: locations)
+        let currentScheduleLocation = generateTodaySchedule(schedules: schedules, locations: locations, truck: truck)
+        let upcomingScheduleLocation = generateUpcomingSchedule(schedules: schedules, locations: locations, truck: truck)
         
         ScrollView{
             VStack(alignment: .leading){
@@ -63,9 +63,14 @@ struct TruckProfile: View {
                     }
                     Group{
                         //Spacer()
-                        Text("Upcoming schedule").font(.title)
-                        Text("No schedule")
-                        .padding(.bottom, 20)
+                        Text("Upcoming schedule")
+                            .font(.title)
+                        Spacer()
+                        ForEach(upcomingScheduleLocation){ variable in
+                            Text(variable)
+                                .font(.body)
+                            Spacer()
+                        }
                     }
                     Group{
                         if (self.truck.menu != "null"){
@@ -82,35 +87,64 @@ struct TruckProfile: View {
     }
 }
 // need to generate upcoming schedules
-//func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> [(Schedule, LandMark)]{
-//
-//
-//    return nil
-//}
-// need t
+func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> [String]{
+    var scheduleLocations = [String] ()
+    
+    let hoursMinutes = DateFormatter()
+    hoursMinutes.dateFormat = "HH:MM a"
+    
+    let monthDayYear = DateFormatter()
+    monthDayYear.dateFormat = "MMM dd,yyyy"
+    
+    for schedule in schedules{
+        if (schedule.openDate > Date() && schedule.truckId == truck.id){
+            let openTime = hoursMinutes.string(from: schedule.openDate)
+            let openDate = monthDayYear.string(from: schedule.openDate)
+            let closeTime = hoursMinutes.string(from: schedule.closeDate)
+            
+            let sched = "\(openDate) from \(openTime) - \(closeTime)"
+            
+            for location in locations{
+                if (schedule.locationId == location.locationId){
+                    scheduleLocations.append("\(location.address)\n\(sched)")
+                }
+            }
+            
+        }
+    }
+
+    
+    return scheduleLocations
+}
+
 func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String?, String?){
     var AddressToReturn: String?
     var TimeToReturn: String?
     
+    let hoursMinutes = DateFormatter()
+    hoursMinutes.dateFormat = "HH:MM a"
+    
     for schedule in schedules{
-        if (schedule.openDate < Date() && Date() < schedule.closeDate){
-            if (schedule.truckId == truck.id){
-                let hoursMinutes = DateFormatter()
-                hoursMinutes.dateFormat = "HH:MM a"
-                let openTime = hoursMinutes.string(from: schedule.openDate)
-                let closeTime = hoursMinutes.string(from: schedule.closeDate)
-                TimeToReturn = "Today \(openTime) - \(closeTime)"
-                for location in locations{
-                    if (schedule.locationId == location.locationId){
-                        AddressToReturn = location.address
-                        return(TimeToReturn, AddressToReturn)
-                    }
+        if (schedule.openDate < Date() && Date() < schedule.closeDate && schedule.truckId == truck.id){
+            let openTime = hoursMinutes.string(from: schedule.openDate)
+            let closeTime = hoursMinutes.string(from: schedule.closeDate)
+            TimeToReturn = "Today \(openTime) - \(closeTime)"
+            for location in locations{
+                if (schedule.locationId == location.locationId){
+                    AddressToReturn = location.address
+                    return(TimeToReturn, AddressToReturn)
                 }
             }
         }
         
     }
     return (nil, nil)
+}
+
+extension String: Identifiable {
+    public var id: String {
+        self
+    }
 }
 
 /*

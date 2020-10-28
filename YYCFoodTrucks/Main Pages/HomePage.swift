@@ -95,10 +95,19 @@ struct HomePage: View {
                 }
                 else if (schedule.openDate > Date()){
                     truckAnnotation.subtitle = "Opens Soon! \(openDate) from \(openTime) to \(closeTime)"
-                    truckAnnotation.truck.open = false
                 }
                 
-                truckAnnotations.append(truckAnnotation);
+                // we don't want to map the same truck on the map twice in different locations
+                var foundSameTruck = false
+                for ta in truckAnnotations{
+                    if truckAnnotation.truck.id == ta.truck.id{
+                        foundSameTruck = true
+                        break
+                    }
+                }
+                if (!foundSameTruck){
+                    truckAnnotations.append(truckAnnotation);
+                }
             }
         }
         return truckAnnotations;
