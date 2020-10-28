@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TruckProfile: View {
+    @ObservedObject var favoriteRepo = FavoriteRespository();
+    
     var truck: Truck
     var body: some View {
         ScrollView{
@@ -54,11 +56,22 @@ struct TruckProfile: View {
                    .font(.title)
                    .fontWeight(.bold)
            Spacer()
-           Image(systemName: "heart")
-               .resizable()
-               .frame(width: CGFloat(30), height: CGFloat(30))
-               .foregroundColor(.black)
-           }
+                    if self.favoriteRepo.checkTruckID(truck_id: self.truck.id){
+                        Button(action: {self.favoriteRepo.removeFavorite(truck_id: self.truck.id)}){
+                            Image(systemName: "heart.fill")
+                               .resizable()
+                               .frame(width: CGFloat(30), height: CGFloat(30))
+                               .foregroundColor(primColor)
+                        }
+                    } else {
+                        Button(action: {self.favoriteRepo.addFavorite(truck_id: self.truck.id)}){
+                            Image(systemName: "heart")
+                                .resizable()
+                                .frame(width: CGFloat(30), height: CGFloat(30))
+                                .foregroundColor(.black)
+                        }
+                    }
+            }
         }
     }
     
