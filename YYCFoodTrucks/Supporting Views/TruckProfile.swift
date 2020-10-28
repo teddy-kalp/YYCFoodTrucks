@@ -11,30 +11,15 @@ struct TruckProfile: View {
     var truck: Truck
     var body: some View {
         ScrollView{
-            HStack{
-            VStack(alignment: .leading){
-                    URLImage(url: self.truck.img)
-                        .frame(width: CGFloat(400), height: 300)
+            HStack(alignment: .top){
+                VStack(alignment: .leading){
+                FirebaseImage(id: "FreshlySqueezedBanner1.jpg", width: Int(UIScreen.main.bounds.width), height: 300)
+                
                 Group{
-                    HStack{
-                        Text(self.truck.name)
-                            .font(.title)
-                            .fontWeight(.bold)
-                    Spacer()
-                    Image(systemName: "heart")
-                        .resizable()
-                        .frame(width: CGFloat(30), height: CGFloat(30))
-                        .foregroundColor(.black)
-                    }
+                    truckNameView
                     /*Text(self.truck.address)
                         .font(.subheading)*/
-                    Group{
-                        Text("2500 University Avenue, Calgary, AB T2N1N4")
-                            .font(.headline)
-                        Text("2PM - 6PM")
-                            .font(.headline)
-                            .padding(.bottom, 20)
-                    }
+                    currentLocationView
                 
                     Text(self.truck.description)
                         .font(.body)
@@ -62,9 +47,35 @@ struct TruckProfile: View {
         }
     }
     
+    var truckNameView: some View{
+        Group{
+            HStack{
+               Text(self.truck.name)
+                   .font(.title)
+                   .fontWeight(.bold)
+           Spacer()
+           Image(systemName: "heart")
+               .resizable()
+               .frame(width: CGFloat(30), height: CGFloat(30))
+               .foregroundColor(.black)
+           }
+        }
+    }
+    
+    var currentLocationView: some View{
+        Group{
+            Text("2500 University Avenue, Calgary, AB T2N1N4")
+             .font(.subheadline)
+                .foregroundColor(Color.gray)
+             Text("2PM - 6PM")
+                .font(.subheadline)
+                .padding(.bottom, 20)
+                .foregroundColor(Color.gray)
+        }
+    }
     var menuView: some View {
      return  URLImage(url: self.truck.menu, resizable: true)
-              .frame(width: UIScreen.main.bounds.width - 5)
+        .frame(width: UIScreen.main.bounds.width, height: 500)
               .padding(.bottom, 20)
     }
     

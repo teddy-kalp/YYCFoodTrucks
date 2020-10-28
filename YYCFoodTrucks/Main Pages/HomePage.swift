@@ -12,8 +12,8 @@ struct HomePage: View {
     @EnvironmentObject var router: Router
     var body: some View {
             VStack {
-                yycHeader()
                 if router.cur_page == "HomePage"{
+                    yycHeader()
                     GeometryReader { geometry in
                     MapView()
                         .frame(width: geometry.size.width, height: geometry.size.height - 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

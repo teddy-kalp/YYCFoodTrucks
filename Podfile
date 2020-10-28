@@ -10,6 +10,6 @@ target 'YYCFoodTrucks' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
-  pod 'URLImage'
+  pod 'Firebase/Storage'
 
 end
