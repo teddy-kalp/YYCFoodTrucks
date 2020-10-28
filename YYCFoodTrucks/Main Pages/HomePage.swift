@@ -103,7 +103,7 @@ struct HomePage: View {
                     truckAnnotation.truck.open = true
                 }
                 else if (schedule.openDate > Date()){
-                    truckAnnotation.subtitle = "Opens Soon! \(openDate) from \(openTime) to \(closeTime)"
+                    truckAnnotation.subtitle = "Opens on \(openDate) from \(openTime) to \(closeTime)"
                 }
                 
                 // we don't want to map the same truck on the map twice in different locations

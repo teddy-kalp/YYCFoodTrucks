@@ -39,18 +39,19 @@ struct TruckProfile: View {
                         Text("Today's Schedule")
                             .font(.title)
                         Spacer()
-                        if (currentScheduleLocation != (nil,nil)){
-                            Text(currentScheduleLocation.1!)
+                        if (currentScheduleLocation != ("","")){
+                            Text(currentScheduleLocation.1)
                                 .font(.headline)
-                            Text(currentScheduleLocation.0!)
+                            Text(currentScheduleLocation.0)
                                 .font(.headline)
                                 .padding(.bottom, 20)
                                 .foregroundColor(primColor)
                         }
                         else{
-                            Text("No Schedule For Today")
+                            Text("Closed Today")
                                 .font(.headline)
                                 .padding(.bottom, 20)
+                                .foregroundColor(.red)
                         }
                     }
                     Group{
@@ -117,9 +118,9 @@ func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truc
     return scheduleLocations
 }
 
-func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String?, String?){
-    var AddressToReturn: String?
-    var TimeToReturn: String?
+func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String, String){
+    var AddressToReturn = ""
+    var TimeToReturn = ""
     
     let hoursMinutes = DateFormatter()
     hoursMinutes.dateFormat = "HH:MM a"
@@ -138,7 +139,7 @@ func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: 
         }
         
     }
-    return (nil, nil)
+    return (TimeToReturn, AddressToReturn)
 }
 
 extension String: Identifiable {

@@ -82,6 +82,7 @@ struct MapView: UIViewRepresentable {
                  annotationView?.image = UIGraphicsImageRenderer(size:size).image {
                      _ in image.draw(in:CGRect(origin:.zero, size:size))
                  }
+                annotationView?.canShowCallout = false
             }
             
             return annotationView
