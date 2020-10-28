@@ -24,9 +24,9 @@ struct HomePage: View {
     
     var body: some View {
             VStack {
-                yycHeader()
                 let coordinate = self.locationManager.location != nil ? self.locationManager.location!.coordinate : CLLocationCoordinate2D()
                 if router.cur_page == "HomePage"{
+                    yycHeader()
                     NavigationView{
                         GeometryReader {geometry in
                             MapView(annotations: getAnnotations(), isActive: self.$isActive, selectedTruck: self.$selectedAnnotation, currentLocation: coordinate)
@@ -43,9 +43,11 @@ struct HomePage: View {
                 
                     NavBar(map: true, discover: false, favorite: false, events: false)
                 } else if router.cur_page == "Discover"{
+                    yycHeader()
                     Discover(schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks)
                     NavBar(map: false, discover: true, favorite: false, events: false)
                 } else if router.cur_page == "Favorites"{
+                    yycHeader()
                     Favorites()
                     NavBar(map: false, discover: false, favorite: true, events: false)
                 } else {
