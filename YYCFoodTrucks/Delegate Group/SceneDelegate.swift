@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import WebKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

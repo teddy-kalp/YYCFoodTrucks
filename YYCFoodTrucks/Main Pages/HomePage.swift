@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomePage: View {
     @EnvironmentObject var router: Router
+    @State var showAlert = false
     var body: some View {
             VStack {
                 yycHeader()
@@ -34,7 +35,6 @@ struct HomePage: View {
         }
 }
     
-
 
 
 struct ContentView_Previews: PreviewProvider {
