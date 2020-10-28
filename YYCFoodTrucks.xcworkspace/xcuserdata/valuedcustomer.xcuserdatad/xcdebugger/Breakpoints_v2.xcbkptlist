@@ -14,6 +14,7 @@
             filePath = "YYCFoodTrucks/Supporting Views/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "14"
             endingLineNumber = "14"
             landmarkName = "MapView"
@@ -34,6 +35,12 @@
             endingLineNumber = "22"
             landmarkName = "updateUIView(_:context:)"
             landmarkType = "7">
+=======
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "MapView"
+            landmarkType = "14">
+>>>>>>> 5d8ed984f5b689bcf04deb2af2a41b1985e9e0af
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -148,5 +155,56 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+<<<<<<< HEAD
+=======
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6C08653-3CFF-483C-97B2-D3B292BC9E11"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YYCFoodTrucks/Main Pages/HomePage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "getAnnotations()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF602941-FB32-4165-BE77-D90F38571966"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YYCFoodTrucks/Supporting Views/MapView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "updateUIView(_:context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9ABAB324-E27C-4F6A-9265-38A58721917A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YYCFoodTrucks/Supporting Views/MapView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "mapView(_:annotationView:calloutAccessoryControlTapped:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+>>>>>>> 5d8ed984f5b689bcf04deb2af2a41b1985e9e0af
    </Breakpoints>
 </Bucket>
