@@ -11,7 +11,12 @@ struct TruckProfile: View {
     var truck: Truck
     var schedules: [Schedule]
     var locations: [LandMark]
+    
+    
     var body: some View {
+       var currentScheduleLocation = generateTodaySchedule(schedules: schedules, locations: locations, truck: truck)
+       // var upcomingScheduleLocation = generateUpcomingSchedule(schedules: schedules, locations: locations)
+        
         ScrollView{
             VStack(alignment: .leading){
                     URLImage(url: self.truck.img)
@@ -33,12 +38,20 @@ struct TruckProfile: View {
                         Spacer()
                         Text("Today's Schedule")
                             .font(.title)
-                        Text("2500 University Avenue, Calgary, AB T2N1N4")
-                            .font(.headline)
-                        Text("Today 2PM - 6PM")
-                            .font(.headline)
-                            .padding(.bottom, 20)
-                            .foregroundColor(primColor)
+                        Spacer()
+                        if (currentScheduleLocation != (nil,nil)){
+                            Text(currentScheduleLocation.1!)
+                                .font(.headline)
+                            Text(currentScheduleLocation.0!)
+                                .font(.headline)
+                                .padding(.bottom, 20)
+                                .foregroundColor(primColor)
+                        }
+                        else{
+                            Text("No Schedule For Today")
+                                .font(.headline)
+                                .padding(.bottom, 20)
+                        }
                     }
                     Group{
                         Text("About Us")
@@ -68,14 +81,37 @@ struct TruckProfile: View {
         }
     }
 }
-//// need to generate upcoming schedules
-//func generateUpcomingSchedule(schedules: [Schedule]) -> [(Schedule, LandMark)]{
-//    
+// need to generate upcoming schedules
+//func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> [(Schedule, LandMark)]{
+//
+//
+//    return nil
 //}
-//// need t
-//func generateTodaySchedule(schedules: [Schedule], locations: [LandMark]) -> (Schedule, LandMark){
-//    
-//}
+// need t
+func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String?, String?){
+    var AddressToReturn: String?
+    var TimeToReturn: String?
+    
+    for schedule in schedules{
+        if (schedule.openDate < Date() && Date() < schedule.closeDate){
+            if (schedule.truckId == truck.id){
+                let hoursMinutes = DateFormatter()
+                hoursMinutes.dateFormat = "HH:MM a"
+                let openTime = hoursMinutes.string(from: schedule.openDate)
+                let closeTime = hoursMinutes.string(from: schedule.closeDate)
+                TimeToReturn = "Today \(openTime) - \(closeTime)"
+                for location in locations{
+                    if (schedule.locationId == location.locationId){
+                        AddressToReturn = location.address
+                        return(TimeToReturn, AddressToReturn)
+                    }
+                }
+            }
+        }
+        
+    }
+    return (nil, nil)
+}
 
 /*
 struct TruckProfile_Previews: PreviewProvider {
