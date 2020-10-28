@@ -15,6 +15,8 @@ struct HomePage: View {
     @ObservedObject var LocationRepo = LandMarkRespository()
     @ObservedObject var ScheduleRepo = ScheduleRespository()
     
+    @ObservedObject private var locationManager = LocationManager();
+    
     @State var isActive: Bool = false
     @State var selectedAnnotation: TruckAnnotation?
     
@@ -23,10 +25,11 @@ struct HomePage: View {
     var body: some View {
             VStack {
                 yycHeader()
+                let coordinate = self.locationManager.location != nil ? self.locationManager.location!.coordinate : CLLocationCoordinate2D()
                 if router.cur_page == "HomePage"{
                     NavigationView{
                         GeometryReader {geometry in
-                            MapView(annotations: getAnnotations(), isActive: self.$isActive, selectedTruck: self.$selectedAnnotation)
+                            MapView(annotations: getAnnotations(), isActive: self.$isActive, selectedTruck: self.$selectedAnnotation, currentLocation: coordinate)
                             NavigationLink(destination: TruckProfile(truck: selectedAnnotation?.truck ?? testTruck, schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks), isActive: self.$isActive) {
                                 EmptyView()
                                     .frame(width: 0, height: 0)

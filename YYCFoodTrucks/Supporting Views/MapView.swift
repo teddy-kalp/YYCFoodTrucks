@@ -13,10 +13,11 @@ struct MapView: UIViewRepresentable {
     var annotations: [TruckAnnotation]
     @Binding var isActive: Bool
     @Binding var selectedTruck: TruckAnnotation?
-    //var currentLocaiton: CLLocationCoordinate2D
+    var currentLocation: CLLocationCoordinate2D
     
     func makeUIView(context: Context) -> MKMapView {
             let mapView = MKMapView()
+            mapView.showsUserLocation = true
             mapView.delegate = context.coordinator
             return mapView
     }
@@ -25,7 +26,7 @@ struct MapView: UIViewRepresentable {
         let calgary = CLLocationCoordinate2D(latitude: 51.0447, longitude: -114.0719)
         let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
         // use this to center the map on user's current location
-        // let region = MKCoordinateRegion(center: coodinate, span: span)
+        //let region = MKCoordinateRegion(center: currentLocation, span: span)
         let region = MKCoordinateRegion(center: calgary, span: span)
         map.setRegion(region, animated: true)
         
@@ -65,13 +66,22 @@ struct MapView: UIViewRepresentable {
                 annotationView?.annotation = annotation
             }
             
-            // change color of pin depending of if its open or not
-            let truckAnnotation = annotation as? TruckAnnotation
-            let circle = truckAnnotation!.truck.open ? UIImage(systemName:"mappin.circle.fill")!.withTintColor(primColorUI):
-                UIImage(systemName:"mappin.circle.fill")!.withTintColor(.red)
-            let size = CGSize(width: 40, height: 40)
-            annotationView?.image = UIGraphicsImageRenderer(size:size).image {
-                _ in circle.draw(in:CGRect(origin:.zero, size:size))
+            // change color of truckannotation depending of if its open or not
+            if let truckAnnotation = annotation as? TruckAnnotation{
+               let circle = truckAnnotation.truck.open ? UIImage(systemName:"mappin.circle.fill")!.withTintColor(primColorUI):
+                    UIImage(systemName:"mappin.circle.fill")!.withTintColor(.red)
+                let size = CGSize(width: 40, height: 40)
+                annotationView?.image = UIGraphicsImageRenderer(size:size).image {
+                    _ in circle.draw(in:CGRect(origin:.zero, size:size))
+                }
+            }
+            // if its not a truck annotation, it is a pin for user
+            else{
+                let image =  UIImage(systemName:"largecircle.fill.circle")!.withTintColor(.systemBlue)
+                 let size = CGSize(width: 20, height: 20)
+                 annotationView?.image = UIGraphicsImageRenderer(size:size).image {
+                     _ in image.draw(in:CGRect(origin:.zero, size:size))
+                 }
             }
             
             return annotationView
