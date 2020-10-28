@@ -18,15 +18,26 @@ struct HomePage: View {
     @State var isActive: Bool = false
     @State var selectedAnnotation: TruckAnnotation?
     
+    var testTruck = Truck(name: "testTruck", id: 3, open: false, img: "nul", category_id: 0, menu: "null", description: "null")
+    
     var body: some View {
             VStack {
                 yycHeader()
                 if router.cur_page == "HomePage"{
-                    GeometryReader { geometry in
-                        MapView(annotations: getAnnotations(), isActive: $isActive, selectedTruck: $selectedAnnotation)
-                        .frame(width: geometry.size.width, height: geometry.size.height - 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .border(Color.gray)
+                    NavigationView{
+                        GeometryReader {geometry in
+                            MapView(annotations: getAnnotations(), isActive: self.$isActive, selectedTruck: self.$selectedAnnotation)
+                            NavigationLink(destination: TruckProfile(truck: selectedAnnotation?.truck ?? testTruck), isActive: self.$isActive) {
+                                EmptyView()
+                                    .frame(width: 0, height: 0)
+                            }
+                            .frame(width: geometry.size.width, height: geometry.size.height - 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .border(Color.gray)
+                        }
+                        .navigationBarTitle("Truck Tracker")
+                        .navigationBarHidden(true)
                     }
+                
                     NavBar(map: true, discover: false, favorite: false, events: false)
                 } else if router.cur_page == "Discover"{
                     Discover()
