@@ -12,6 +12,10 @@ struct MapView: UIViewRepresentable {
     @ObservedObject var landMarks = LandMarkRespository();
     @ObservedObject var trucks = TruckRespository();
     
+    var annotations: [TruckAnnotation]
+    @Binding var isActive: Bool
+    @Binding var selectedTruck: TruckAnnotation?
+    //var currentLocaiton: CLLocationCoordinate2D
     
     func makeUIView(context: Context) -> MKMapView{
         MKMapView(frame: .zero)
@@ -36,10 +40,18 @@ struct MapView: UIViewRepresentable {
             map.addAnnotation(annotation)
         }
     }
-
+/*
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
         }
+        
+        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl)
+        {
+            self.parent.isActive = true
+            self.parent.selectedTruck = (view.annotation as? TruckAnnotation)!
+        }
     }
+}
+*/
 }

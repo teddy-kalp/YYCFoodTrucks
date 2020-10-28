@@ -9,6 +9,8 @@ import SwiftUI
 import URLImage
 
 struct TruckList: View {
+    var locations: [LandMark]
+    var schedules: [Schedule]
     var title: String
     var category_id: Int
     //var truck_list = trucks
@@ -20,7 +22,7 @@ struct TruckList: View {
             ForEach(truck_list.trucks){ truck in
                 if truck.category_id == self.category_id{
                     HStack{
-                        NavigationLink(destination: TruckProfile(truck: truck)){
+                        NavigationLink(destination: TruckProfile(truck: truck, schedules: self.schedules, locations: self.locations)){
                             URLImage(url: truck.img)
                         }
                     }.frame(width: 400, height: 250)
@@ -32,6 +34,6 @@ struct TruckList: View {
 
 struct TruckList_Previews: PreviewProvider {
     static var previews: some View {
-        TruckList(title: "title", category_id: -1)
+        TruckList(locations: testLocations, schedules: testSchedules, title: "title", category_id: -1)
     }
 }

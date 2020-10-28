@@ -11,41 +11,47 @@ struct TruckProfile: View {
     @ObservedObject var favoriteRepo = FavoriteRespository();
     
     var truck: Truck
+    var schedules: [Schedule]
+    var locations: [LandMark]
+    
+    
     var body: some View {
-        ScrollView{
-            HStack(alignment: .top){
-                VStack(alignment: .leading){
-                FirebaseImage(id: "FreshlySqueezedBanner1.jpg", width: Int(UIScreen.main.bounds.width), height: 300)
-                
-                Group{
-                    truckNameView
-                    /*Text(self.truck.address)
-                        .font(.subheading)*/
-                    currentLocationView
-                
-                    Text(self.truck.description)
-                        .font(.body)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.bottom, 20)
+        let currentScheduleLocation = generateTodaySchedule(schedules: schedules, locations: locations, truck: truck)
+        let upcomingScheduleLocation = generateUpcomingSchedule(schedules: schedules, locations: locations, truck: truck)
+        
+        return ScrollView{
+            FirebaseImage(id: "FreshlySqueezedBanner1.jpg", width: Int(UIScreen.main.bounds.width), height: 300)
+            VStack(alignment: .leading){
+                truckNameView
                         
+                currentLocationView
+                    Group{
+                        Text("About Us")
+                            .font(.title)
+                        Text(self.truck.description)
+                            .font(.body)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.bottom, 20)
+                    }
                     Group{
                         //Spacer()
-                        Text("Schedule").font(.title)
-                        Text("No schedule")
-                        .padding(.bottom, 20)
+                        Text("Upcoming schedule")
+                            .font(.title)
+                        Spacer()
+                        ForEach(upcomingScheduleLocation){ variable in
+                            Text(variable)
+                                .font(.body)
+                            Spacer()
+                        }
                     }
                     Text("Menu")
                      .font(.title)
-                    
+                   
                 }.padding(.leading, 10)
                 .padding(.trailing, 10)
-                    Group{
-                      //Spacer()
-                     menuView
-                  }
-                
+                Group{
+                 menuView
                 }
-            }.padding(20)
         }
     }
     
@@ -93,6 +99,67 @@ struct TruckProfile: View {
     }
     
 }
+// need to generate upcoming schedules
+func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> [String]{
+    var scheduleLocations = [String] ()
+    
+    let hoursMinutes = DateFormatter()
+    hoursMinutes.dateFormat = "HH:MM a"
+    
+    let monthDayYear = DateFormatter()
+    monthDayYear.dateFormat = "MMM dd,yyyy"
+    
+    for schedule in schedules{
+        if (schedule.openDate > Date() && schedule.truckId == truck.id){
+            let openTime = hoursMinutes.string(from: schedule.openDate)
+            let openDate = monthDayYear.string(from: schedule.openDate)
+            let closeTime = hoursMinutes.string(from: schedule.closeDate)
+            
+            let sched = "\(openDate) from \(openTime) - \(closeTime)"
+            
+            for location in locations{
+                if (schedule.locationId == location.locationId){
+                    scheduleLocations.append("\(location.address)\n\(sched)")
+                }
+            }
+            
+        }
+    }
+
+    
+    return scheduleLocations
+}
+
+func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String?, String?){
+    var AddressToReturn: String?
+    var TimeToReturn: String?
+    
+    let hoursMinutes = DateFormatter()
+    hoursMinutes.dateFormat = "HH:MM a"
+    
+    for schedule in schedules{
+        if (schedule.openDate < Date() && Date() < schedule.closeDate && schedule.truckId == truck.id){
+            let openTime = hoursMinutes.string(from: schedule.openDate)
+            let closeTime = hoursMinutes.string(from: schedule.closeDate)
+            TimeToReturn = "Today \(openTime) - \(closeTime)"
+            for location in locations{
+                if (schedule.locationId == location.locationId){
+                    AddressToReturn = location.address
+                    return(TimeToReturn, AddressToReturn)
+                }
+            }
+        }
+        
+    }
+    return (nil, nil)
+}
+
+extension String: Identifiable {
+    public var id: String {
+        self
+    }
+}
+
 /*
 struct TruckProfile_Previews: PreviewProvider {
     static var previews: some View {

@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct Discover: View {
+    var schedules: [Schedule]
+    var locations: [LandMark]
+    
     @ObservedObject var foodCategoryRepo = FoodCategoryRepository();
     var body: some View {
         NavigationView{
             ScrollView{
-                ForEach (foodCategoryRepo.foodCategories){ category in
-                NavigationLink(destination: TruckList(title: category.name, category_id: category.id)){
+                ForEach (self.foodCategoryRepo.foodCategories){ category in
+                    NavigationLink(destination: TruckList(locations: self.locations, schedules: self.schedules, title: category.name, category_id: category.id)){
                     HStack{
                         Image(category.img)
                             .renderingMode(.original)
@@ -34,6 +37,7 @@ struct Discover: View {
 
 struct Discover_Previews: PreviewProvider {
     static var previews: some View {
-        Discover()
+        Discover(schedules: testSchedules, locations: testLocations)
     }
 }
+

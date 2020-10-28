@@ -23,3 +23,8 @@ class Schedule: Identifiable, Codable {
     }
     
 }
+
+let testSchedules =
+    [Schedule(locationId: 1, truckId: 1, openDate: Date(), closeDate: Date() + (10*60)),
+     Schedule(locationId: 0, truckId: 2, openDate: Date(), closeDate: Date() + (60*60))
+    ]

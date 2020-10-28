@@ -5,6 +5,7 @@
 //  Created by Bojana on 2020-10-27.
 //  Code written by Mohammad Azam 10/24/2019: "Displaying WebView in SwiftUI"
 //
+//  Created by admin on 2020-10-28.
 //
 
 import SwiftUI
@@ -33,10 +34,4 @@ struct Webview: UIViewRepresentable {
 
     }
     
-    
-
-    
-    
 }
-
-
