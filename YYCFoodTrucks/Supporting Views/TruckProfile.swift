@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TruckProfile: View {
+    @ObservedObject var favoriteRepo = FavoriteRespository();
+    
     var truck: Truck
     var schedules: [Schedule]
     var locations: [LandMark]
@@ -18,20 +20,9 @@ struct TruckProfile: View {
         let upcomingScheduleLocation = generateUpcomingSchedule(schedules: schedules, locations: locations, truck: truck)
         
         ScrollView{
+            FirebaseImage(id: truck.img, width: Int(UIScreen.main.bounds.width), height: 300)
             VStack(alignment: .leading){
-                    URLImage(url: self.truck.img)
-                        .frame(width: CGFloat(400), height: 300)
-                    HStack{
-                        Text(self.truck.name)
-                            .font(.title)
-                            .fontWeight(.bold)
-                    Spacer()
-
-                    Image(systemName: "heart")
-                        .resizable()
-                        .frame(width: CGFloat(30), height: CGFloat(30))
-                        .foregroundColor(.black)
-                    }
+                    truckNameView
                     /*Text(self.truck.address)
                         .font(.subheading)*/
                     Group{
@@ -57,7 +48,7 @@ struct TruckProfile: View {
                     Group{
                         Text("About Us")
                             .font(.title)
-                        Text(self.truck.description)
+                        Text(truck.description)
                             .font(.body)
                             .fixedSize(horizontal: false, vertical: true)
                             .padding(.bottom, 20)
@@ -67,25 +58,73 @@ struct TruckProfile: View {
                         Text("Upcoming schedule")
                             .font(.title)
                         Spacer()
-                        ForEach(upcomingScheduleLocation){ variable in
-                            Text(variable)
+                        if (upcomingScheduleLocation.count == 0){
+                            Text("Nothing scheduled yet but check back soon!")
                                 .font(.body)
-                            Spacer()
+                            
+                        }
+                        else{
+                            ForEach(upcomingScheduleLocation){ variable in
+                                Text(variable)
+                                    .font(.body)
+                                Spacer()
+                            }
                         }
                     }
-                    Group{
-                        if (self.truck.menu != "null"){
-                            //Spacer()
-                            Text("Menu")
-                            .font(.title)
-                            URLImage(url: self.truck.menu)
-                                .frame(width: UIScreen.main.bounds.width - 5)
-                                .padding(.bottom, 20)
-                        }
-                    }
-            }.padding()
+                    Text("Menu")
+                     .font(.title)
+                   
+                }.padding(.leading, 10)
+                .padding(.trailing, 10)
+                Group{
+                 menuView
+                }
         }
     }
+    
+    var truckNameView: some View{
+        Group{
+            HStack{
+               Text(truck.name)
+                   .font(.title)
+                   .fontWeight(.bold)
+           Spacer()
+                    if favoriteRepo.checkTruckID(truck_id: truck.id){
+                        Button(action: {favoriteRepo.removeFavorite(truck_id: truck.id)}){
+                            Image(systemName: "heart.fill")
+                               .resizable()
+                               .frame(width: CGFloat(30), height: CGFloat(30))
+                               .foregroundColor(primColor)
+                        }
+                    } else {
+                        Button(action: {favoriteRepo.addFavorite(truck_id: truck.id)}){
+                            Image(systemName: "heart")
+                                .resizable()
+                                .frame(width: CGFloat(30), height: CGFloat(30))
+                                .foregroundColor(.black)
+                        }
+                    }
+            }
+        }
+    }
+    
+    var currentLocationView: some View{
+        Group{
+            Text("2500 University Avenue, Calgary, AB T2N1N4")
+             .font(.subheadline)
+                .foregroundColor(Color.gray)
+             Text("2PM - 6PM")
+                .font(.subheadline)
+                .padding(.bottom, 20)
+                .foregroundColor(Color.gray)
+        }
+    }
+    var menuView: some View {
+     return  URLImage(url: self.truck.menu, resizable: true)
+        .frame(width: UIScreen.main.bounds.width, height: 500)
+              .padding(.bottom, 20)
+    }
+    
 }
 // need to generate upcoming schedules
 func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> [String]{

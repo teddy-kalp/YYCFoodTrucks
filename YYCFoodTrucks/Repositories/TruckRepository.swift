@@ -34,7 +34,6 @@ class TruckRespository: ObservableObject{
                 let menu = data["menu"] as? String ?? ""
                 let description = data["description"] as? String ?? ""
                 
-                
                 return Truck(name: name, id: id, open: open, img: img, category_id: category_id, menu: menu, description: description)
             }
         }

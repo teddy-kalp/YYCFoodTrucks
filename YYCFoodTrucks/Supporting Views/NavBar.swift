@@ -11,11 +11,6 @@
 
 import SwiftUI
 
-let primColor = Color(red: 0, green: 0.73, blue: 0.6, opacity: 1)
-let primColorUI = UIColor(red: 0, green: 0.73, blue: 0.6, alpha: 1)
-
-
-
 struct NavBar: View {
     var map: Bool
     var discover: Bool
@@ -66,10 +61,10 @@ struct NavBar: View {
                             .foregroundColor(events ? primColor: .black)
                     }
                 }
-            //}
+            }
         }
-    }
 }
+
 
 
 struct NavBar_Previews: PreviewProvider {

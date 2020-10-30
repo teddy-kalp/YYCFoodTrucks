@@ -1,0 +1,207 @@
+//
+//  TruckProfile.swift
+//  YYCFoodTrucks
+//
+//  Created by Jordan on 2020-10-21.
+//
+
+import SwiftUI
+
+struct TruckProfile: View {
+    @ObservedObject var favoriteRepo = FavoriteRespository();
+    
+    var truck: Truck
+    var schedules: [Schedule]
+    var locations: [LandMark]
+    
+    
+    var body: some View {
+        let currentScheduleLocation = generateTodaySchedule(schedules: schedules, locations: locations, truck: truck)
+        let upcomingScheduleLocation = generateUpcomingSchedule(schedules: schedules, locations: locations, truck: truck)
+        
+        return ScrollView{
+            FirebaseImage(id: "FreshlySqueezedBanner1.jpg", width: Int(UIScreen.main.bounds.width), height: 300)
+            VStack(alignment: .leading){
+<<<<<<< HEAD
+                    URLImage(url: self.truck.img)
+                        .frame(width: CGFloat(400), height: 300)
+                    HStack{
+                        Text(self.truck.name)
+                            .font(.title)
+                            .fontWeight(.bold)
+                    Spacer()
+
+                    Image(systemName: "heart")
+                        .resizable()
+                        .frame(width: CGFloat(30), height: CGFloat(30))
+                        .foregroundColor(.black)
+                    }
+                    /*Text(self.truck.address)
+                        .font(.subheading)*/
+                    Group{
+                        Spacer()
+                        Text("Today's Schedule")
+                            .font(.title)
+                        Spacer()
+                        if (currentScheduleLocation != ("","")){
+                            Text(currentScheduleLocation.1)
+                                .font(.headline)
+                            Text(currentScheduleLocation.0)
+                                .font(.headline)
+                                .padding(.bottom, 20)
+                                .foregroundColor(primColor)
+                        }
+                        else{
+                            Text("Closed Today")
+                                .font(.headline)
+                                .padding(.bottom, 20)
+                                .foregroundColor(.red)
+                        }
+                    }
+=======
+                truckNameView
+                        
+                currentLocationView
+>>>>>>> remotes/origin/JordanNewBranch
+                    Group{
+                        Text("About Us")
+                            .font(.title)
+                        Text(self.truck.description)
+                            .font(.body)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.bottom, 20)
+                    }
+                    Group{
+                        //Spacer()
+                        Text("Upcoming schedule")
+                            .font(.title)
+                        Spacer()
+                        ForEach(upcomingScheduleLocation){ variable in
+                            Text(variable)
+                                .font(.body)
+                            Spacer()
+                        }
+                    }
+                    Text("Menu")
+                     .font(.title)
+                   
+                }.padding(.leading, 10)
+                .padding(.trailing, 10)
+                Group{
+                 menuView
+                }
+        }
+    }
+    
+    var truckNameView: some View{
+        Group{
+            HStack{
+               Text(self.truck.name)
+                   .font(.title)
+                   .fontWeight(.bold)
+           Spacer()
+                    if self.favoriteRepo.checkTruckID(truck_id: self.truck.id){
+                        Button(action: {self.favoriteRepo.removeFavorite(truck_id: self.truck.id)}){
+                            Image(systemName: "heart.fill")
+                               .resizable()
+                               .frame(width: CGFloat(30), height: CGFloat(30))
+                               .foregroundColor(primColor)
+                        }
+                    } else {
+                        Button(action: {self.favoriteRepo.addFavorite(truck_id: self.truck.id)}){
+                            Image(systemName: "heart")
+                                .resizable()
+                                .frame(width: CGFloat(30), height: CGFloat(30))
+                                .foregroundColor(.black)
+                        }
+                    }
+            }
+        }
+    }
+    
+    var currentLocationView: some View{
+        Group{
+            Text("2500 University Avenue, Calgary, AB T2N1N4")
+             .font(.subheadline)
+                .foregroundColor(Color.gray)
+             Text("2PM - 6PM")
+                .font(.subheadline)
+                .padding(.bottom, 20)
+                .foregroundColor(Color.gray)
+        }
+    }
+    var menuView: some View {
+     return  URLImage(url: self.truck.menu, resizable: true)
+        .frame(width: UIScreen.main.bounds.width, height: 500)
+              .padding(.bottom, 20)
+    }
+    
+}
+// need to generate upcoming schedules
+func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> [String]{
+    var scheduleLocations = [String] ()
+    
+    let hoursMinutes = DateFormatter()
+    hoursMinutes.dateFormat = "HH:MM a"
+    
+    let monthDayYear = DateFormatter()
+    monthDayYear.dateFormat = "MMM dd,yyyy"
+    
+    for schedule in schedules{
+        if (schedule.openDate > Date() && schedule.truckId == truck.id){
+            let openTime = hoursMinutes.string(from: schedule.openDate)
+            let openDate = monthDayYear.string(from: schedule.openDate)
+            let closeTime = hoursMinutes.string(from: schedule.closeDate)
+            
+            let sched = "\(openDate) from \(openTime) - \(closeTime)"
+            
+            for location in locations{
+                if (schedule.locationId == location.locationId){
+                    scheduleLocations.append("\(location.address)\n\(sched)")
+                }
+            }
+            
+        }
+    }
+
+    
+    return scheduleLocations
+}
+
+func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String, String){
+    var AddressToReturn = ""
+    var TimeToReturn = ""
+    
+    let hoursMinutes = DateFormatter()
+    hoursMinutes.dateFormat = "HH:MM a"
+    
+    for schedule in schedules{
+        if (schedule.openDate < Date() && Date() < schedule.closeDate && schedule.truckId == truck.id){
+            let openTime = hoursMinutes.string(from: schedule.openDate)
+            let closeTime = hoursMinutes.string(from: schedule.closeDate)
+            TimeToReturn = "Today \(openTime) - \(closeTime)"
+            for location in locations{
+                if (schedule.locationId == location.locationId){
+                    AddressToReturn = location.address
+                    return(TimeToReturn, AddressToReturn)
+                }
+            }
+        }
+        
+    }
+    return (TimeToReturn, AddressToReturn)
+}
+
+extension String: Identifiable {
+    public var id: String {
+        self
+    }
+}
+
+/*
+struct TruckProfile_Previews: PreviewProvider {
+    static var previews: some View {
+        TruckProfile(truck: truck)
+    }
+}
+*/

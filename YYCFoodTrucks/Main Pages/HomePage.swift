@@ -8,16 +8,13 @@
 import SwiftUI
 import MapKit
 
-var fillerTruck = Truck(name: "fillerTruck", id: -1, open: false, img: "null", category_id: -1, menu: "null", description: "null")
-
-var fillerLocation = LandMark(address: "null", latitude: 0, longitude: 0, locationId: -1)
-
-
 struct HomePage: View {
     @EnvironmentObject var router: Router
+
     @ObservedObject var TruckRepo = TruckRespository()
     @ObservedObject var LocationRepo = LandMarkRespository()
     @ObservedObject var ScheduleRepo = ScheduleRespository()
+    @ObservedObject var favoriteRepo = FavoriteRespository();
     
     @ObservedObject private var locationManager = LocationManager();
     
@@ -26,15 +23,17 @@ struct HomePage: View {
     
     var testTruck = Truck(name: "testTruck", id: 3, open: false, img: "nul", category_id: 0, menu: "null", description: "null")
     
+    
+    
     var body: some View {
             VStack {
-                let coordinate = self.locationManager.location != nil ? self.locationManager.location!.coordinate : CLLocationCoordinate2D()
                 if router.cur_page == "HomePage"{
+                    let userCoords = locationManager.location != nil ? locationManager.location!.coordinate : CLLocationCoordinate2D()
                     yycHeader()
                     NavigationView{
                         GeometryReader {geometry in
-                            MapView(annotations: getAnnotations(), isActive: self.$isActive, selectedTruck: self.$selectedAnnotation, currentLocation: coordinate)
-                            NavigationLink(destination: TruckProfile(truck: selectedAnnotation?.truck ?? testTruck, schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks), isActive: self.$isActive) {
+                            MapView(annotations: self.getAnnotations(), isActive: self.$isActive, selectedTruck: self.$selectedAnnotation, currentLocation: userCoords)
+                            NavigationLink(destination: TruckProfile(truck: self.selectedAnnotation?.truck ?? self.testTruck, schedules: self.ScheduleRepo.schedules, locations: self.LocationRepo.landmarks), isActive: self.$isActive) {
                                 EmptyView()
                                     .frame(width: 0, height: 0)
                             }
@@ -51,8 +50,7 @@ struct HomePage: View {
                     Discover(schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks)
                     NavBar(map: false, discover: true, favorite: false, events: false)
                 } else if router.cur_page == "Favorites"{
-                    yycHeader()
-                    Favorites()
+                    Favorites(favoriteRepo: favoriteRepo,truckRepo: TruckRepo,schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks)
                     NavBar(map: false, discover: false, favorite: true, events: false)
                 } else {
                     Events()
@@ -60,7 +58,7 @@ struct HomePage: View {
                 }
             }
         }
-    
+
     func getAnnotations() -> [TruckAnnotation]{
         var truckAnnotations = [TruckAnnotation]()
         for schedule in ScheduleRepo.schedules{
@@ -82,6 +80,7 @@ struct HomePage: View {
                         break
                     }
                 }
+                
                 let truckAnnotation = TruckAnnotation(truck: foundTruck)
                 truckAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
                 truckAnnotation.title = foundTruck.name
