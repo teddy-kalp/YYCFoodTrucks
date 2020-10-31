@@ -20,7 +20,7 @@ struct TruckProfile: View {
         let upcomingScheduleLocation = generateUpcomingSchedule(schedules: schedules, locations: locations, truck: truck)
         
         ScrollView{
-            FirebaseImage(id: truck.img, width: Int(UIScreen.main.bounds.width), height: 300)
+            FirebaseImage(id:(truck.logo), width: Int(UIScreen.main.bounds.width), height: 300)
             VStack(alignment: .leading){
                     truckNameView
                     /*Text(self.truck.address)
@@ -126,60 +126,7 @@ struct TruckProfile: View {
     }
     
 }
-// need to generate upcoming schedules
-func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> [String]{
-    var scheduleLocations = [String] ()
-    
-    let hoursMinutes = DateFormatter()
-    hoursMinutes.dateFormat = "HH:MM a"
-    
-    let monthDayYear = DateFormatter()
-    monthDayYear.dateFormat = "MMM dd,yyyy"
-    
-    for schedule in schedules{
-        if (schedule.openDate > Date() && schedule.truckId == truck.id){
-            let openTime = hoursMinutes.string(from: schedule.openDate)
-            let openDate = monthDayYear.string(from: schedule.openDate)
-            let closeTime = hoursMinutes.string(from: schedule.closeDate)
-            
-            let sched = "\(openDate) from \(openTime) - \(closeTime)"
-            
-            for location in locations{
-                if (schedule.locationId == location.locationId){
-                    scheduleLocations.append("\(location.address)\n\(sched)")
-                }
-            }
-            
-        }
-    }
 
-    
-    return scheduleLocations
-}
-
-func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String, String){
-    var AddressToReturn = ""
-    var TimeToReturn = ""
-    
-    let hoursMinutes = DateFormatter()
-    hoursMinutes.dateFormat = "HH:MM a"
-    
-    for schedule in schedules{
-        if (schedule.openDate < Date() && Date() < schedule.closeDate && schedule.truckId == truck.id){
-            let openTime = hoursMinutes.string(from: schedule.openDate)
-            let closeTime = hoursMinutes.string(from: schedule.closeDate)
-            TimeToReturn = "Today \(openTime) - \(closeTime)"
-            for location in locations{
-                if (schedule.locationId == location.locationId){
-                    AddressToReturn = location.address
-                    return(TimeToReturn, AddressToReturn)
-                }
-            }
-        }
-        
-    }
-    return (TimeToReturn, AddressToReturn)
-}
 
 extension String: Identifiable {
     public var id: String {

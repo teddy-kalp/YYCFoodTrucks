@@ -57,7 +57,7 @@ struct favoriteTruckLogo: View{
                 Group{
                     if self.favorite.truck_id == truck.id{
                         NavigationLink(destination: TruckProfile(truck: truck, schedules: self.schedules, locations: self.locations)){
-                            URLImage(url: truck.img)
+                            FirebaseImage(id: truck.logo, width: Int(UIScreen.main.bounds.width), height: 300)
                         }
                     }
                 }

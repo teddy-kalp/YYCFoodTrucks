@@ -22,9 +22,9 @@ struct TruckList: View {
                 if truck.category_id == self.category_id{
                     HStack{
                         NavigationLink(destination: TruckProfile(truck: truck, schedules: schedules, locations: locations)){
-                            URLImage(url: truck.img)
+                            FirebaseImage(id:(truck.logo), width: Int(UIScreen.main.bounds.width), height: 350)
                         }
-                    }.frame(width: 400, height: 250)
+                    }.frame(width: 400, height: 350)
                 }
             }.navigationBarTitle(Text(title))
         }

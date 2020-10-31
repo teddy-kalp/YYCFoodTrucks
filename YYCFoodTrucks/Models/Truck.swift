@@ -14,17 +14,17 @@ class Truck: Identifiable, Codable {
     var name: String
     var id: Int
     var open: Bool
-    var img: String
+    var logo: String
     var category_id: Int //Foreign key of category.id
     
     var menu: String
     var description: String
     
-    init(name: String, id: Int, open: Bool, img: String, category_id: Int, menu: String, description: String) {
+    init(name: String, id: Int, open: Bool, logo: String, category_id: Int, menu: String, description: String) {
         self.name = name
         self.id = id
         self.open = open
-        self.img = img
+        self.logo = logo
         self.category_id = category_id
         self.menu = menu
         self.description = description
