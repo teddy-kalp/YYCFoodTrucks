@@ -21,7 +21,7 @@ struct HomePage: View {
     @State var isActive: Bool = false
     @State var selectedAnnotation: TruckAnnotation?
     
-    var testTruck = Truck(name: "testTruck", id: 3, open: false, logo: "null", category_id: 0, menu: "null", description: "null")
+    var testTruck = Truck(name: "testTruck", id: 3, logo: "null", category_id: 0, menu: "null", description: "null")
     
     
     

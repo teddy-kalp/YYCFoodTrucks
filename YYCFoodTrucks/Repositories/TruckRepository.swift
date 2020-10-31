@@ -28,13 +28,12 @@ class TruckRespository: ObservableObject{
                 
                 let name = data["name"] as? String ?? ""
                 let id = data["id"] as? Int ?? -1
-                let open = data["open"] as? Bool ?? false
                 let logo = data["logo"] as? String ?? ""
                 let category_id = data["categoryId"] as? Int ?? -1
                 let menu = data["menu"] as? String ?? ""
                 let description = data["description"] as? String ?? ""
                 
-                return Truck(name: name, id: id, open: open, logo: logo, category_id: category_id, menu: menu, description: description)
+                return Truck(name: name, id: id, logo: logo, category_id: category_id, menu: menu, description: description)
             }
         }
     }

@@ -23,6 +23,7 @@ struct TruckList: View {
                     HStack{
                         NavigationLink(destination: TruckProfile(truck: truck, schedules: schedules, locations: locations)){
                             FirebaseImage(id:(truck.logo), width: Int(UIScreen.main.bounds.width), height: 350)
+                            Spacer()
                         }
                     }.frame(width: 400, height: 350)
                 }
