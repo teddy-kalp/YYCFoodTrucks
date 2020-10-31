@@ -18,7 +18,7 @@ class FoodCategoryRepository: ObservableObject{
     }
     
     func loadData(){
-        db.collection("FoodCategories").addSnapshotListener{(querySnapshot, error) in
+        db.collection("FoodCategories").order(by: "name").addSnapshotListener{(querySnapshot, error) in
             guard let documents = querySnapshot?.documents else{
                 print("No Documents")
                 return
