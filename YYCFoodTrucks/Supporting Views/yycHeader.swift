@@ -13,7 +13,7 @@ struct yycHeader: View {
     
     var body: some View {
         Button(action: {self.router.cur_page = "HomePage"}){
-        Image("yycfood")
+            Image(colorScheme == .light ? "yycfood":"yycfood_white")
             .resizable()
             .frame(width: 80, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
