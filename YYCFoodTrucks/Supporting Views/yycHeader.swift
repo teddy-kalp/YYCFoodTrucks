@@ -9,15 +9,19 @@ import SwiftUI
 
 struct yycHeader: View {
     @EnvironmentObject var router: Router
+    // this variable is used for the colorScheme that the iPhone uses
+    // the colorScheme variable can either be .dark or .light
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        Button(action: {self.router.cur_page = "HomePage"}){
-        Image("yycfood")
-            .resizable()
-            .frame(width: 80, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        Group{
+            Button(action: {self.router.cur_page = "HomePage"}){
+            Image("yycfood")
+                .resizable()
+                .frame(width: 80, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            }
+            .foregroundColor(.black)
         }
-        .foregroundColor(.black)
     }
 }
 

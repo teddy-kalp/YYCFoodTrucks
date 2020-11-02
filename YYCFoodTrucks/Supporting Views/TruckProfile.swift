@@ -46,12 +46,14 @@ struct TruckProfile: View {
                         }
                     }
                     Group{
-                        Text("About Us")
-                            .font(.title)
-                        Text(truck.description)
-                            .font(.body)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.bottom, 20)
+                        if (truck.description != ""){
+                            Text("About Us")
+                                .font(.title)
+                            Text(truck.description)
+                                .font(.body)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(.bottom, 20)
+                        }
                     }
                     Group{
                         //Spacer()
@@ -61,7 +63,6 @@ struct TruckProfile: View {
                         if (upcomingScheduleLocation.count == 0){
                             Text("Nothing scheduled yet but check back soon!")
                                 .font(.body)
-                            
                         }
                         else{
                             ForEach(upcomingScheduleLocation){ variable in
