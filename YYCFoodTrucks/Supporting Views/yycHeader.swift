@@ -14,21 +14,14 @@ struct yycHeader: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        Group{
-            Button(action: {self.router.cur_page = "HomePage"}){
-            Image("yycfood")
-                .resizable()
-                .frame(width: 80, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            }
-            .foregroundColor(.black)
         Button(action: {self.router.cur_page = "HomePage"}){
             Image(colorScheme == .light ? "yycfood":"yycfood_white")
             .resizable()
             .frame(width: 80, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             }
-        }
     }
 }
+
 
 struct yycHeader_Previews: PreviewProvider {
     static var previews: some View {
