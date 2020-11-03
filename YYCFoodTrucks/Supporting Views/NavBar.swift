@@ -17,17 +17,19 @@ struct NavBar: View {
     var favorite: Bool
     var events: Bool
     @EnvironmentObject var router: Router
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         HStack(spacing: 30){
+                var baseColor = (colorScheme == .light) ? Color.black : Color.white
                 Button(action: {self.router.cur_page = "HomePage"}){
                     VStack{
                         Image(systemName: "map")
                         .resizable()
                         .frame(width: 30, height: 30)
-                        .foregroundColor(map ? primColor: .black)
+                        .foregroundColor(map ? primColor: baseColor)
                     Text("Truck Tracker")
-                        .foregroundColor(map ? primColor: .black)
+                        .foregroundColor(map ? primColor: baseColor)
                     }
                     
                 }
@@ -36,9 +38,9 @@ struct NavBar: View {
                         Image(systemName: "magnifyingglass")
                             .resizable()
                             .frame(width: 30, height: 30)
-                            .foregroundColor(discover ? primColor: .black)
+                            .foregroundColor(discover ? primColor: baseColor)
                         Text("Discover")
-                            .foregroundColor(discover ? primColor: .black)
+                            .foregroundColor(discover ? primColor: baseColor)
                     }
                 }
                 Button(action: {self.router.cur_page = "Favorites"}){
@@ -46,9 +48,9 @@ struct NavBar: View {
                         Image(systemName: "heart.fill")
                             .resizable()
                             .frame(width: 30, height: 30)
-                            .foregroundColor(favorite ? primColor: .black)
+                            .foregroundColor(favorite ? primColor: baseColor)
                         Text("Favorites")
-                            .foregroundColor(favorite ? primColor: .black)
+                            .foregroundColor(favorite ? primColor: baseColor)
                     }
                 }
                 Button(action: {self.router.cur_page = "Events"}){
@@ -56,9 +58,9 @@ struct NavBar: View {
                         Image(systemName: "calendar")
                             .resizable()
                             .frame(width: 30, height: 30)
-                            .foregroundColor(events ? primColor: .black)
+                            .foregroundColor(events ? primColor: baseColor)
                         Text("Events")
-                            .foregroundColor(events ? primColor: .black)
+                            .foregroundColor(events ? primColor: baseColor)
                     }
                 }
             }
