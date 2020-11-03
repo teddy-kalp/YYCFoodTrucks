@@ -104,6 +104,14 @@ struct TruckProfile: View {
                                 .foregroundColor(.black)
                         }
                     }
+                
+            }
+            if #available(iOS 14.0, *) {
+                Link(destination: URL(string: "https://www.yycfoodtrucks.com/bookthetrucks")!) {
+                    Text("Book This Truck")
+                }
+            } else {
+                // Fallback on earlier versions
             }
         }
     }
