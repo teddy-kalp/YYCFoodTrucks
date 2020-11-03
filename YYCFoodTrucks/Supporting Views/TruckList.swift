@@ -10,15 +10,15 @@ import SwiftUI
 struct TruckList: View {
     var locations: [LandMark]
     var schedules: [Schedule]
+    var trucks: [Truck]
     var title: String
     var category_id: Int
     //var truck_list = trucks
-    @ObservedObject var truck_list = TruckRespository()
     var body: some View {
         ScrollView{
             Spacer()
                 .frame(height: 50)
-            ForEach(truck_list.trucks){ truck in
+            ForEach(trucks){ truck in
                 if truck.category_id == self.category_id{
                     HStack{
                         NavigationLink(destination: TruckProfile(truck: truck, schedules: schedules, locations: locations)){
@@ -31,9 +31,3 @@ struct TruckList: View {
     }
 }
 
-
-struct TruckList_Previews: PreviewProvider {
-    static var previews: some View {
-        TruckList(locations: testLocations, schedules: testSchedules, title: "title", category_id: -1)
-    }
-}

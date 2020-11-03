@@ -17,6 +17,9 @@ let primColorUI = UIColor(red: 0, green: 0.73, blue: 0.6, alpha: 1)
 var fillerTruck = Truck(name: "fillerTruck", id: -1,logo: "null", category_id: -1, menu: "null", description: "null")
 var fillerLocation = LandMark(address: "null", latitude: 0, longitude: 0, locationId: -1)
 
+// all data repositories
+
+
 
 // need to generate upcoming schedules
 func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> [String]{

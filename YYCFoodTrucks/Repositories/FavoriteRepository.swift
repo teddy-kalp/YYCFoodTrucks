@@ -13,31 +13,35 @@ import FirebaseFirestoreSwift
 class FavoriteRespository: ObservableObject{
     private let db = Firestore.firestore()
     @Published var favorites = [Favorite]()
+    var user = Auth.auth().currentUser
+    
     
     init() {
         self.loadData()
     }
     
     func loadData(){
-        let userId = String(Auth.auth().currentUser!.uid)
-        
-        db.collection("Favorites").whereField("user_id", isEqualTo: userId).addSnapshotListener{ (favoriteList, error) in
-            guard let documents = favoriteList?.documents else{
-                   print("No Documents")
-                   return
-               }
-               print("Documents", documents)
-               self.favorites = documents.map{(queryDocumentSnapshot) -> Favorite in
-                   let data = queryDocumentSnapshot.data()
-                   let id = queryDocumentSnapshot.documentID
-                   let user_id = data["user_id"] as? String ?? ""
-                   let truck_id = data["truck_id"] as? Int ?? -1
-                   let img = data["img"] as? String ?? ""
-                   let fav = Favorite(user_id: user_id, truck_id: truck_id, img: img)
-                   fav.id = id
-                return fav
-               }
-         print("Got favorites list", self.favorites)
+        let userId = (user != nil) ? String(Auth.auth().currentUser!.uid): ""
+        //print("User Id: \(userId)")
+        if (userId != ""){
+            db.collection("Favorites").whereField("user_id", isEqualTo: userId).addSnapshotListener{ (favoriteList, error) in
+                guard let documents = favoriteList?.documents else{
+                       print("No Documents")
+                       return
+                   }
+                   print("Documents", documents)
+                   self.favorites = documents.map{(queryDocumentSnapshot) -> Favorite in
+                       let data = queryDocumentSnapshot.data()
+                       let id = queryDocumentSnapshot.documentID
+                       let user_id = data["user_id"] as? String ?? ""
+                       let truck_id = data["truck_id"] as? Int ?? -1
+                       let img = data["img"] as? String ?? ""
+                       let fav = Favorite(user_id: user_id, truck_id: truck_id, img: img)
+                       fav.id = id
+                    return fav
+                   }
+             //print("Got favorites list", self.favorites)
+            }
         }
        
     }
