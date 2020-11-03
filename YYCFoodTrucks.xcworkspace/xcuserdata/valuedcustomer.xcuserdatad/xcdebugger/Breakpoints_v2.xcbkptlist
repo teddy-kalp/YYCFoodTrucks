@@ -142,9 +142,9 @@
             filePath = "YYCFoodTrucks/Supporting Views/TruckProfile.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "truckNameView"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "currentLocationView"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
