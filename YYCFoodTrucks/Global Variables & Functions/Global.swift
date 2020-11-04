@@ -29,7 +29,7 @@ func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truc
     hoursMinutes.dateFormat = "HH:MM a"
     
     let monthDayYear = DateFormatter()
-    monthDayYear.dateFormat = "MMM dd,yyyy"
+    monthDayYear.dateFormat = "MMM dd yyyy"
     
     for schedule in schedules{
         if (schedule.openDate > Date() && schedule.truckId == truck.id){

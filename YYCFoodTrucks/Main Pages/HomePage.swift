@@ -104,17 +104,19 @@ struct HomePage: View {
                     truckAnnotation.subtitle = "Opens on \(openDate) from \(openTime) to \(closeTime)"
                 }
                 
+                truckAnnotations.append(truckAnnotation)
                 // we don't want to map the same truck on the map twice in different locations
-                var foundSameTruck = false
-                for ta in truckAnnotations{
-                    if truckAnnotation.truck.id == ta.truck.id{
-                        foundSameTruck = true
-                        break
-                    }
-                }
-                if (!foundSameTruck){
-                    truckAnnotations.append(truckAnnotation);
-                }
+                // this is why we don't have two trucks in two different places
+//                var foundSameTruck = false
+//                for ta in truckAnnotations{
+//                    if truckAnnotation.truck.id == ta.truck.id{
+//                        foundSameTruck = true
+//                        break
+//                    }
+//                }
+//                if (!foundSameTruck){
+//                    truckAnnotations.append(truckAnnotation);
+//                }
             }
         }
         return truckAnnotations;

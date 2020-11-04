@@ -39,7 +39,7 @@ class LandMarkRespository: ObservableObject{
         }
     }
     
-    // function to convert an address to coordinatess
+// function to convert an address to coordinatess
     func convertAddressToCoordinatesAndStore(address: String){
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address) {
