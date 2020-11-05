@@ -19,7 +19,7 @@ struct Favorites: View {
                 VStack{
                     if favoriteRepo.favorites.count > 0{
                         ForEach(favoriteRepo.favorites){ favorite in
-                            favoriteTruckLogo(favorite: favorite, truckRepo: self.truckRepo, schedules: self.schedules, locations: self.locations)
+                            favoriteTruckLogo(favorite: favorite, trucks: self.truckRepo.trucks, schedules: self.schedules, locations: self.locations)
                         }
                     }
                      else {
@@ -47,23 +47,42 @@ struct Favorites: View {
 
 struct favoriteTruckLogo: View{
     var favorite: Favorite
-    @ObservedObject var truckRepo = TruckRespository();
+    var trucks: [Truck]
     var schedules: [Schedule]
     var locations: [LandMark]
     
     var body: some View{
         return
-            ForEach(self.truckRepo.trucks){ truck in
+            ForEach(trucks){ truck in
                 Group{
                     if self.favorite.truck_id == truck.id{
-                        NavigationLink(destination: TruckProfile(truck: truck, schedules: self.schedules, locations: self.locations)){
-                            FirebaseImage(id: truck.logo, width: Int(UIScreen.main.bounds.width), height: 300)
-                            Spacer()
+                        HStack{
+                            NavigationLink(destination: TruckProfile(truck: truck, schedules: schedules, locations: locations)){
+                            FirebaseImage(id:(truck.logo), width: Int(UIScreen.main.bounds.width/4), height: 175/2)
+                            VStack{
+                                Text(truck.name)
+                                    .foregroundColor(.black)
+                                    .font(.system(size: 24))
+                                if (truck.open){
+                                    Text("Open Now")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(primColor)
+                                }
+                                else{
+                                    Text("Closed Now")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.red)
+                                }
+                            }
+                            .frame(width: 200, height: 200, alignment: .center)
                         }
                     }
+                    .frame(width: 400, height: 200)
+                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 }
             }
         
+        }
     }
 }
 /*
