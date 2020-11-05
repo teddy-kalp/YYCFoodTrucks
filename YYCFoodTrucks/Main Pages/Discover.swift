@@ -11,17 +11,15 @@ struct Discover: View {
     var schedules: [Schedule]
     var locations: [LandMark]
     var trucks: [Truck]
+    var foodCategories: [FoodCategory]
     
-    @ObservedObject var foodCategoryRepo = FoodCategoryRepository();
     var body: some View {
         NavigationView{
             ScrollView{
-                ForEach (foodCategoryRepo.foodCategories){ category in
+                ForEach (foodCategories){ category in
                     NavigationLink(destination: TruckList(locations: locations, schedules: schedules, trucks: trucks, title: category.name, category_id: category.id)){
                     HStack{
-                        Image(category.img)
-                            .renderingMode(.original)
-                            .resizable()
+                        FirebaseImage(id: category.img, width: Int(UIScreen.main.bounds.width) - 20, height: 150)
                             .frame(width: UIScreen.main.bounds.width - 20, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .clipped()
                         .cornerRadius(3)

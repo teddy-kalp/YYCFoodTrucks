@@ -16,6 +16,7 @@ struct HomePage: View {
     @ObservedObject var ScheduleRepo = ScheduleRespository()
     @ObservedObject var favoriteRepo = FavoriteRespository();
     @ObservedObject private var locationManager = LocationManager();
+    @ObservedObject var foodCategoryRepo = FoodCategoryRepository();
     
     @State var isActive: Bool = false
     @State var selectedAnnotation: TruckAnnotation?
@@ -46,7 +47,7 @@ struct HomePage: View {
                     NavBar(map: true, discover: false, favorite: false, events: false)
                 } else if router.cur_page == "Discover"{
                     yycHeader()
-                    Discover(schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks, trucks: TruckRepo.trucks)
+                    Discover(schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks, trucks: TruckRepo.trucks, foodCategories: foodCategoryRepo.foodCategories)
                     NavBar(map: false, discover: true, favorite: false, events: false)
                 } else if router.cur_page == "Favorites"{
                     Favorites(favoriteRepo: favoriteRepo,truckRepo: TruckRepo,schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks)
