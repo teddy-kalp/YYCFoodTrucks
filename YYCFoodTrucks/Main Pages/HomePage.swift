@@ -11,10 +11,11 @@ import MapKit
 struct HomePage: View {
     @EnvironmentObject var router: Router
 
-    @ObservedObject var TruckRepo = TruckRespository()
+    
     @ObservedObject var LocationRepo = LandMarkRespository()
     @ObservedObject var ScheduleRepo = ScheduleRespository()
-    @ObservedObject var favoriteRepo = FavoriteRespository();
+    @ObservedObject var favoriteRepo = FavoriteRespository()
+    @ObservedObject var TruckRepo = TruckRespository()
     @ObservedObject private var locationManager = LocationManager();
     @ObservedObject var foodCategoryRepo = FoodCategoryRepository();
     
@@ -97,9 +98,8 @@ struct HomePage: View {
                 //let closeDate = monthDayYear.string(from: schedule.closeDate)
                 
                 
-                if (schedule.openDate < Date() && Date() < schedule.closeDate){
+                if (truckAnnotation.truck.open){
                     truckAnnotation.subtitle = "Open Now! Closes at \(closeTime)"
-                    truckAnnotation.truck.open = true
                 }
                 else if (schedule.openDate > Date()){
                     truckAnnotation.subtitle = "Opens on \(openDate) from \(openTime) to \(closeTime)"

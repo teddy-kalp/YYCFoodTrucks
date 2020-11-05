@@ -6,12 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class TruckRespository: ObservableObject{
+    @ObservedObject var scheduleRepo = ScheduleRespository()
+    @ObservedObject var landmarkRepo = LandMarkRespository()
     @Published var trucks = [Truck]()
     private let db = Firestore.firestore()
+    
+    
     
     init(){
         self.loadData()
@@ -33,7 +38,17 @@ class TruckRespository: ObservableObject{
                 let menu = data["menu"] as? String ?? ""
                 let description = data["description"] as? String ?? ""
                 
-                return Truck(name: name, id: id, logo: logo, category_id: category_id, menu: menu, description: description)
+                
+                let truck = Truck(name: name, id: id, logo: logo, category_id: category_id, menu: menu, description: description)
+                // Check to see if there is a current schedule
+                let currentScheduleLocation = generateTodaySchedule(schedules: self.scheduleRepo.schedules, locations: self.landmarkRepo.landmarks, truck: truck)
+                
+                if (currentScheduleLocation != ("","")){
+                    truck.open = true
+                }
+                
+                return truck
+                
             }
         }
     }

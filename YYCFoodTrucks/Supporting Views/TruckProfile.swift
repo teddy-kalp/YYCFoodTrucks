@@ -72,14 +72,14 @@ struct TruckProfile: View {
                             }
                         }
                     }
+                if (truck.menu != "null"){
                     Text("Menu")
                      .font(.title)
-                   
-                }.padding(.leading, 10)
-                .padding(.trailing, 10)
-                Group{
-                 menuView
+                    menuView
+                    }
                 }
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
         }
     }
     
@@ -129,9 +129,11 @@ struct TruckProfile: View {
         }
     }
     var menuView: some View {
-     return  URLImage(url: self.truck.menu, resizable: true)
-        .frame(width: UIScreen.main.bounds.width, height: 500)
-              .padding(.bottom, 20)
+        
+        return FirebaseImage(id: self.truck.menu, width: Int(UIScreen.main.bounds.width), height: 500)
+//     return  URLImage(url: self.truck.menu, resizable: true)
+//        .frame(width: UIScreen.main.bounds.width, height: 500)
+//              .padding(.bottom, 20)
     }
     
 }
