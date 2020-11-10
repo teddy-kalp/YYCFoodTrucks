@@ -7,6 +7,8 @@
 
 import SwiftUI
 import MapKit
+import FirebaseStorage
+
 struct MapView: UIViewRepresentable {
     var annotations: [TruckAnnotation]
     @Binding var isActive: Bool
@@ -19,6 +21,7 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         return mapView
     }
+
 
     func updateUIView(_ map: MKMapView, context: Context) {
         let calgary = CLLocationCoordinate2D(latitude: 51.0447, longitude: -114.0719)
@@ -52,37 +55,50 @@ struct MapView: UIViewRepresentable {
 
             if annotationView == nil {
             // we didn't find one; make a new one
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
 
-            // allow this to show pop up information
-            annotationView?.canShowCallout = true
-
-            // attach an information button to the view
-            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            } else {
+                // allow this to show pop up information
+                annotationView?.canShowCallout = true
+                    
+                if let truckAnnotation = annotation as? TruckAnnotation{
+                    let circle = truckAnnotation.truck.open ? UIImage(systemName:"mappin.circle.fill")!.withTintColor(primColorUI):
+                    UIImage(systemName:"mappin.circle.fill")!.withTintColor(.red)
+                    let size = CGSize(width: 40, height: 40)
+                    annotationView?.image = UIGraphicsImageRenderer(size:size).image {
+                    _ in circle.draw(in:CGRect(origin:.zero, size:size))
+                    }
+                    
+                    let imageFromStore = FirebaseImage(id: truckAnnotation.truck.logo, width: 100, height: 100)
+                    let logo = imageFromStore.image
+                    
+                    if logo != nil{
+                        let logoView = UIImageView(image: logo)
+                        logoView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+                        annotationView?.leftCalloutAccessoryView = logoView
+                    }
+                    else{
+                        let logoView = UIImageView(image: UIImage(named: "yycfood"))
+                        logoView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+                        annotationView?.leftCalloutAccessoryView = logoView
+                    }
+                    
+                    
+                    annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                }
+                // if its not a truck annotation, it is a pin for user
+                else{
+                    let image =  UIImage(systemName:"largecircle.fill.circle")!.withTintColor(.systemBlue)
+                    let size = CGSize(width: 20, height: 20)
+                    annotationView?.image = UIGraphicsImageRenderer(size:size).image {
+                    _ in image.draw(in:CGRect(origin:.zero, size:size))
+                            }
+                    annotationView?.canShowCallout = false
+                    }
+            }
+            else {
             // we have a view to reuse, so give it the new annotation
             annotationView?.annotation = annotation
             }
-
-            // change color of truckannotation depending of if its open or not
-            if let truckAnnotation = annotation as? TruckAnnotation{
-            let circle = truckAnnotation.truck.open ? UIImage(systemName:"mappin.circle.fill")!.withTintColor(primColorUI):
-            UIImage(systemName:"mappin.circle.fill")!.withTintColor(.red)
-            let size = CGSize(width: 40, height: 40)
-            annotationView?.image = UIGraphicsImageRenderer(size:size).image {
-            _ in circle.draw(in:CGRect(origin:.zero, size:size))
-            }
-            }
-            // if its not a truck annotation, it is a pin for user
-            else{
-            let image =  UIImage(systemName:"largecircle.fill.circle")!.withTintColor(.systemBlue)
-            let size = CGSize(width: 20, height: 20)
-            annotationView?.image = UIGraphicsImageRenderer(size:size).image {
-            _ in image.draw(in:CGRect(origin:.zero, size:size))
-            }
-            annotationView?.canShowCallout = false
-            }
-
             return annotationView
         }
 
@@ -92,4 +108,19 @@ struct MapView: UIViewRepresentable {
         }
     }
 }
+
+extension MKAnnotationView {
+
+    func container(arrangedSubviews: [UIView]) {
+        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.spacing = 5
+        stackView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleWidth, .flexibleHeight]
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        self.detailCalloutAccessoryView = stackView
+    }
+}
+
 

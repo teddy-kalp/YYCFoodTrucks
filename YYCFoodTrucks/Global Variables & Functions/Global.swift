@@ -52,9 +52,11 @@ func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truc
     return scheduleLocations
 }
 
-func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String, String){
+func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String, String, Double, Double){
     var AddressToReturn = ""
     var TimeToReturn = ""
+    var latitude: Double = 0
+    var longitude: Double = 1
     
     let hoursMinutes = DateFormatter()
     hoursMinutes.dateFormat = "HH:MM a"
@@ -67,11 +69,13 @@ func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: 
             for location in locations{
                 if (schedule.locationId == location.locationId){
                     AddressToReturn = location.address
-                    return(TimeToReturn, AddressToReturn)
+                    latitude = location.latitude
+                    longitude = location.longitude
+                    return(TimeToReturn, AddressToReturn, latitude, longitude)
                 }
             }
         }
         
     }
-    return (TimeToReturn, AddressToReturn)
+    return(TimeToReturn, AddressToReturn, latitude, longitude)
 }

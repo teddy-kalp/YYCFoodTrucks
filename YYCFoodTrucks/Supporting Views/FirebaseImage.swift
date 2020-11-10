@@ -12,10 +12,11 @@ import ActivityIndicatorView
 let placeholder = UIImage(named: "Loading")!
 let primColor2 = Color(red: 0, green: 0.73, blue: 0.6, opacity: 0.1)
 
-struct FirebaseImage : View {
+struct FirebaseImage : View{
     var width: CGFloat
     var height: CGFloat
     @State var animate = true
+    @ObservedObject var imageLoader : Loader
     
     
     init(id: String, width: Int, height: Int) {
@@ -24,8 +25,6 @@ struct FirebaseImage : View {
         self.imageLoader = Loader(id)
     }
 
-    @ObservedObject private var imageLoader : Loader
-    
     var image: UIImage? {
         imageLoader.data.flatMap(UIImage.init)
     }

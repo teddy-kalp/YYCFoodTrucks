@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import MapKit
 struct TruckProfile: View {
     @ObservedObject var favoriteRepo = FavoriteRespository();
     
@@ -30,13 +30,28 @@ struct TruckProfile: View {
                         Text("Today's Schedule")
                             .font(.title)
                         Spacer()
-                        if (currentScheduleLocation != ("","")){
-                            Text(currentScheduleLocation.1)
-                                .font(.headline)
+                        if ((currentScheduleLocation != ("","", 0, 1))){
+                            HStack{
+                                Text(currentScheduleLocation.1)
+                                    .font(.headline)
+                                Button(action:{
+                                    let coordinate = CLLocationCoordinate2DMake(currentScheduleLocation.2,currentScheduleLocation.3)
+                                    let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+                                    mapItem.name = currentScheduleLocation.1
+                                    mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+                                }){
+                                Text("Directions")
+                                    .padding(.leading, UIScreen.main.bounds.size.width/4)
+                                }
+                                Image(systemName: "arrow.triangle.turn.up.right.diamond")
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(.blue)
+                            }
                             Text(currentScheduleLocation.0)
                                 .font(.headline)
                                 .padding(.bottom, 20)
                                 .foregroundColor(primColor)
+                            
                         }
                         else{
                             Text("Closed Today")
@@ -55,6 +70,7 @@ struct TruckProfile: View {
                                 .padding(.bottom, 20)
                         }
                     }
+                    .frame(alignment: .center)
                     Group{
                         //Spacer()
                         Text("Upcoming schedule")
@@ -78,9 +94,8 @@ struct TruckProfile: View {
                     menuView
                     }
                 }
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
         }
+        .frame(width: UIScreen.main.bounds.size.width/4 - 20)
     }
     
     var truckNameView: some View{
@@ -108,9 +123,15 @@ struct TruckProfile: View {
                 
             }
             if #available(iOS 14.0, *) {
-                Link(destination: URL(string: "https://www.yycfoodtrucks.com/bookthetrucks")!) {
-                    Text("Book This Truck")
+                Group{
+                    Link(destination: URL(string: "https://www.yycfoodtrucks.com/bookthetrucks")!) {
+                        Text("Book This Truck")
+                            .padding()
+                            .border(Color.blue, width: 4)
+                    }
                 }
+                .frame(width: (UIScreen.main.bounds.size.width), height: 80, alignment: .center)
+                
             } else {
                 // Fallback on earlier versions
             }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,6 +36,7 @@
 		799E61C2253A269E007D19EF /* LandMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61C1253A269E007D19EF /* LandMark.swift */; };
 		799E61CA253A39D3007D19EF /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61C9253A39D3007D19EF /* NavBar.swift */; };
 		799E61D4253A7413007D19EF /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799E61D3253A7413007D19EF /* Discover.swift */; };
+		79C260F6255A189C0091388D /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 79C260F5255A189C0091388D /* TextView */; };
 		79E293632541F8AE00C234E0 /* FoodCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E293622541F8AE00C234E0 /* FoodCategoryRepository.swift */; };
 		79E8749E2548C9E300BAE807 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8749D2548C9E300BAE807 /* Schedule.swift */; };
 		79E874A22548CAD200BAE807 /* ScheduleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E874A12548CAD200BAE807 /* ScheduleRepository.swift */; };
@@ -91,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C260F6255A189C0091388D /* TextView in Frameworks */,
 				F13806B80545BCB0E3292EAE /* Pods_YYCFoodTrucks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +284,7 @@
 			);
 			name = YYCFoodTrucks;
 			packageProductDependencies = (
+				79C260F5255A189C0091388D /* TextView */,
 			);
 			productName = YYCFoodTrucks;
 			productReference = 799E619F253A1C19007D19EF /* YYCFoodTrucks.app */;
@@ -311,6 +314,7 @@
 			);
 			mainGroup = 799E6196253A1C19007D19EF;
 			packageReferences = (
+				79C260F4255A189C0091388D /* XCRemoteSwiftPackageReference "TextView" */,
 			);
 			productRefGroup = 799E61A0253A1C19007D19EF /* Products */;
 			projectDirPath = "";
@@ -613,6 +617,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		79C260F4255A189C0091388D /* XCRemoteSwiftPackageReference "TextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kenmueller/TextView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79C260F5255A189C0091388D /* TextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C260F4255A189C0091388D /* XCRemoteSwiftPackageReference "TextView" */;
+			productName = TextView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 799E6197253A1C19007D19EF /* Project object */;
 }
