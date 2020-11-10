@@ -33,7 +33,7 @@ struct MapView: UIViewRepresentable {
         map.setRegion(region, animated: true)
 
         for annotation in self.annotations{
-        map.addAnnotation(annotation)
+            map.addAnnotation(annotation)
         }
     }
 
@@ -59,18 +59,16 @@ struct MapView: UIViewRepresentable {
             if annotationView == nil {
             // we didn't find one; make a new one
                 annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-
                 // allow this to show pop up information
                 annotationView?.canShowCallout = true
-                    
                 if let truckAnnotation = annotation as? TruckAnnotation{
-                    
                     let circle = truckAnnotation.truck.open ? UIImage(systemName:"mappin.circle.fill")!.withTintColor(primColorUI):
                     UIImage(systemName:"mappin.circle.fill")!.withTintColor(.red)
                     let size = CGSize(width: 40, height: 40)
                     annotationView?.image = UIGraphicsImageRenderer(size:size).image {
                     _ in circle.draw(in:CGRect(origin:.zero, size:size))
                     }
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     
                     let firebaseImage = FirebaseImage(id: truckAnnotation.truck.logo, width: 50, height: 50)
                     let logo = firebaseImage.image
@@ -86,6 +84,7 @@ struct MapView: UIViewRepresentable {
                         annotationView?.leftCalloutAccessoryView = logoView
                     }
                     
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     
                     annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
                     
@@ -113,10 +112,7 @@ struct MapView: UIViewRepresentable {
                     annotationView?.canShowCallout = false
                     }
             }
-            else {
-            // we have a view to reuse, so give it the new annotation
-            annotationView?.annotation = annotation
-            }
+            
             return annotationView
         }
 

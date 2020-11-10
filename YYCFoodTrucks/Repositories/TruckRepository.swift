@@ -51,5 +51,6 @@ class TruckRespository: ObservableObject{
             }
         }
     }
+    
 }
     

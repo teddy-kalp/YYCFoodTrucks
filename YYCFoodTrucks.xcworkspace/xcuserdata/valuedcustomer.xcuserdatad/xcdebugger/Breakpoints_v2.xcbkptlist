@@ -126,8 +126,8 @@
             filePath = "YYCFoodTrucks/Supporting Views/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "mapView(_:annotationView:calloutAccessoryControlTapped:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -510,8 +510,8 @@
             filePath = "YYCFoodTrucks/Supporting Views/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -519,32 +519,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DDFF6F98-9DBA-45E6-9C25-A61812FB6FD7"
-            shouldBeEnabled = "Yes"
+            uuid = "B6FC0AD9-97DF-45FF-8FC5-22F7DBBB5FBC"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YYCFoodTrucks/Supporting Views/MapView.swift"
+            filePath = "YYCFoodTrucks/Models/FirebaseImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "mapView(_:viewFor:)"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B6FC0AD9-97DF-45FF-8FC5-22F7DBBB5FBC - fea01cab2806972a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "YYCFoodTrucks.Loader.__allocating_init(Swift.String) -&gt; YYCFoodTrucks.Loader"
+                  moduleName = "YYCFoodTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/valuedcustomer/Documents/TestProject/YYCFoodTrucks/YYCFoodTrucks/Models/FirebaseImageLoader.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "10">
+               </Location>
+               <Location
+                  uuid = "B6FC0AD9-97DF-45FF-8FC5-22F7DBBB5FBC - a6053eb6f80dd5e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "YYCFoodTrucks.Loader.init(Swift.String) -&gt; YYCFoodTrucks.Loader"
+                  moduleName = "YYCFoodTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/valuedcustomer/Documents/TestProject/YYCFoodTrucks/YYCFoodTrucks/Models/FirebaseImageLoader.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "146">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AC9B633C-DC23-497E-896D-7FCE5548F831"
-            shouldBeEnabled = "Yes"
+            uuid = "782448EF-4310-430B-810A-9BA5C1E9CF3F"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YYCFoodTrucks/Supporting Views/MapView.swift"
+            filePath = "YYCFoodTrucks/Models/FirebaseImageLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "mapView(_:viewFor:)"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "init(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
