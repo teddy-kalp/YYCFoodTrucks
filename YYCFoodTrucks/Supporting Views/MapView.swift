@@ -13,6 +13,7 @@ struct MapView: UIViewRepresentable {
     var annotations: [TruckAnnotation]
     @Binding var isActive: Bool
     @Binding var selectedTruck: TruckAnnotation?
+    
     var currentLocation: CLLocationCoordinate2D
 
     func makeUIView(context: Context) -> MKMapView {
@@ -21,7 +22,7 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         return mapView
     }
-
+    
 
     func updateUIView(_ map: MKMapView, context: Context) {
         let calgary = CLLocationCoordinate2D(latitude: 51.0447, longitude: -114.0719)
@@ -42,8 +43,10 @@ struct MapView: UIViewRepresentable {
 
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: MapView
+        
+        
         init(_ parent: MapView) {
-        self.parent = parent
+            self.parent = parent
         }
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -52,7 +55,7 @@ struct MapView: UIViewRepresentable {
 
             // attempt to find a cell we can recycle
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-
+            
             if annotationView == nil {
             // we didn't find one; make a new one
                 annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
@@ -61,6 +64,7 @@ struct MapView: UIViewRepresentable {
                 annotationView?.canShowCallout = true
                     
                 if let truckAnnotation = annotation as? TruckAnnotation{
+                    
                     let circle = truckAnnotation.truck.open ? UIImage(systemName:"mappin.circle.fill")!.withTintColor(primColorUI):
                     UIImage(systemName:"mappin.circle.fill")!.withTintColor(.red)
                     let size = CGSize(width: 40, height: 40)
@@ -68,8 +72,8 @@ struct MapView: UIViewRepresentable {
                     _ in circle.draw(in:CGRect(origin:.zero, size:size))
                     }
                     
-                    let imageFromStore = FirebaseImage(id: truckAnnotation.truck.logo, width: 100, height: 100)
-                    let logo = imageFromStore.image
+                    let firebaseImage = FirebaseImage(id: truckAnnotation.truck.logo, width: 50, height: 50)
+                    let logo = firebaseImage.image
                     
                     if logo != nil{
                         let logoView = UIImageView(image: logo)
@@ -84,6 +88,20 @@ struct MapView: UIViewRepresentable {
                     
                     
                     annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                    
+                    var directionsButton = UIButton(type: .detailDisclosure)
+                    
+                    if #available(iOS 14.0, *) {
+                        directionsButton = UIButton(type: .system, primaryAction: UIAction(title: "Directions", handler: { _ in
+                            // this will put the coordinates in the map and deploty the map to open in maps
+                            let coordinate = CLLocationCoordinate2DMake(annotation.coordinate.latitude,annotation.coordinate.longitude)
+                            let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+                            mapItem.name = annotation.title!!
+                            mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+                            
+                        }))
+                    }
+                    annotationView?.container(arrangedSubviews: [directionsButton])
                 }
                 // if its not a truck annotation, it is a pin for user
                 else{
@@ -114,7 +132,7 @@ extension MKAnnotationView {
     func container(arrangedSubviews: [UIView]) {
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .horizontal
-        stackView.alignment = .fill
+        stackView.alignment = .center
         stackView.spacing = 5
         stackView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleWidth, .flexibleHeight]
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -122,5 +140,10 @@ extension MKAnnotationView {
         self.detailCalloutAccessoryView = stackView
     }
 }
+
+func directionsPress(){
+        print("Button has been pressed")
+}
+
 
 
