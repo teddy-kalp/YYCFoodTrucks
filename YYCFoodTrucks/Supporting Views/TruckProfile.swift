@@ -66,7 +66,6 @@ struct TruckProfile: View {
                                 .font(.title)
                             Text(truck.description)
                                 .font(.body)
-                                .fixedSize(horizontal: false, vertical: true)
                                 .padding(.bottom, 20)
                         }
                     }
@@ -104,7 +103,7 @@ struct TruckProfile: View {
                Text(truck.name)
                    .font(.title)
                    .fontWeight(.bold)
-           Spacer()
+            Spacer()
                     if favoriteRepo.checkTruckID(truck_id: truck.id){
                         Button(action: {favoriteRepo.removeFavorite(truck_id: truck.id)}){
                             Image(systemName: "heart.fill")
@@ -134,6 +133,7 @@ struct TruckProfile: View {
                 
             } else {
                 // Fallback on earlier versions
+                
             }
         }
     }
