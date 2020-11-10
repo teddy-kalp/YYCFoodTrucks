@@ -14,13 +14,16 @@ struct HomePage: View {
     
     @ObservedObject var LocationRepo = LandMarkRespository()
     @ObservedObject var ScheduleRepo = ScheduleRespository()
+    @ObservedObject var EventScheduleRepo = EventScheduleRespository()
     @ObservedObject var favoriteRepo = FavoriteRespository()
     @ObservedObject var TruckRepo = TruckRespository()
+    @ObservedObject var EventRepo = EventRespository()
     @ObservedObject private var locationManager = LocationManager();
     @ObservedObject var foodCategoryRepo = FoodCategoryRepository();
     
     @State var isActive: Bool = false
     @State var selectedAnnotation: TruckAnnotation?
+    @State var selectedEventAnnotation: EventAnnotation?
     
     var testTruck = Truck(name: "testTruck", id: 3, logo: "null", category_id: 0, menu: "null", description: "null")
     
