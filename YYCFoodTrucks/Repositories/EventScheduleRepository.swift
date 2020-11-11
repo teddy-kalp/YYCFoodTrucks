@@ -14,7 +14,7 @@ class EventScheduleRespository: ObservableObject{
     @Published var schedules = [EventSchedule]()
     
     init() {
-        removeOldSchedules()
+        //removeOldSchedules()
         loadData()
     }
     

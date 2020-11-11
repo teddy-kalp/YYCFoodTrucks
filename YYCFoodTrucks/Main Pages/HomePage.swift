@@ -38,7 +38,7 @@ struct HomePage: View {
                     yycHeader()
                     NavigationView{
                         GeometryReader {geometry in
-                            MapView(annotations: self.getAnnotations(), isActive: self.$isActive, selectedTruck: self.$selectedAnnotation, currentLocation: userCoords)
+                            MapView(annotations: self.getAnnotations(), eventAnnotations: self.getEventAnnotations(), isActive: self.$isActive, selectedTruck: self.$selectedAnnotation, currentLocation: userCoords)
                             NavigationLink(destination: TruckProfile(truck: self.selectedAnnotation?.truck ?? self.testTruck, schedules: self.ScheduleRepo.schedules, locations: self.LocationRepo.landmarks), isActive: self.$isActive) {
                                 EmptyView()
                                     .frame(width: 0, height: 0)
@@ -127,10 +127,59 @@ struct HomePage: View {
         }
         return truckAnnotations;
     }
+    
+    func getEventAnnotations() -> [EventAnnotation]{
+        var eventAnnotations = [EventAnnotation]()
+        for schedule in EventScheduleRepo.schedules{
+            if (schedule.closeDate < Date()){
+                continue
+            }
+            else{
+                var foundEvent = fillerEvent
+                var location = fillerLocation
+                for event in EventRepo.events{
+                    if (event.id == schedule.eventId){
+                        foundEvent = event
+                        break
+                    }
+                }
+                for lc in LocationRepo.landmarks{
+                    if (lc.locationId == schedule.locationId){
+                        location = lc
+                        break
+                    }
+                }
+                
+                let eventAnnotation = EventAnnotation(event: foundEvent)
+                eventAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+                eventAnnotation.title = foundEvent.name
+                // different formators for the dates
+                let hoursMinutes = DateFormatter()
+                hoursMinutes.dateFormat = "HH:MM"
+                // different formators for the dates
+                let monthDayYear = DateFormatter()
+                monthDayYear.dateFormat = "MMM dd,yyyy"
+                
+                let openTime = hoursMinutes.string(from: schedule.openDate)
+                let closeTime = hoursMinutes.string(from: schedule.closeDate)
+                let openDate = monthDayYear.string(from: schedule.openDate)
+                //let closeDate = monthDayYear.string(from: schedule.closeDate)
+                
+                
+                if (eventAnnotation.event.open){
+                    eventAnnotation.subtitle = "Open Now! Closes at \(closeTime)"
+                }
+                else if (schedule.openDate > Date()){
+                    eventAnnotation.subtitle = "Opens on \(openDate) from \(openTime) to \(closeTime)"
+                }
+                
+                eventAnnotations.append(eventAnnotation)
+            }
+        }
+        return eventAnnotations
+    }
 }
     
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

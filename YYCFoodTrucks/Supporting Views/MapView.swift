@@ -11,6 +11,7 @@ import FirebaseStorage
 
 struct MapView: UIViewRepresentable {
     var annotations: [TruckAnnotation]
+    var eventAnnotations: [EventAnnotation]
     @Binding var isActive: Bool
     @Binding var selectedTruck: TruckAnnotation?
     
@@ -34,6 +35,10 @@ struct MapView: UIViewRepresentable {
 
         for annotation in self.annotations{
             map.addAnnotation(annotation)
+        }
+        
+        for eventAnnotation in self.eventAnnotations{
+            map.addAnnotation(eventAnnotation)
         }
     }
 
@@ -100,9 +105,56 @@ struct MapView: UIViewRepresentable {
                             
                         }))
                     }
+                    
+//                    let textView = UITextView()
+//                    let subtitle = (annotation.subtitle!!)
+//                    textView.text = textView.text + "This is a test"
+//                    textView.textColor = UIColor.gray
+//                    textView.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
                     annotationView?.container(arrangedSubviews: [directionsButton])
                 }
                 // if its not a truck annotation, it is a pin for user
+                
+                else if let eventAnnotation = annotation as? EventAnnotation{
+                    annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    // allow this to show pop up information
+                    annotationView?.canShowCallout = true
+                    
+                    let circle = eventAnnotation.event.open ? UIImage(systemName:"star.fill")!.withTintColor(.purple):
+                    UIImage(systemName:"star")!.withTintColor(.purple)
+                    let size = CGSize(width: 40, height: 40)
+                    annotationView?.image = UIGraphicsImageRenderer(size:size).image {
+                    _ in circle.draw(in:CGRect(origin:.zero, size:size))
+                    }
+                    
+                    let firebaseImage = FirebaseImage(id: eventAnnotation.event.logo, width: 50, height: 50)
+                    let logo = firebaseImage.image
+                    
+                    if logo != nil{
+                        let logoView = UIImageView(image: logo)
+                        logoView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+                        annotationView?.leftCalloutAccessoryView = logoView
+                    }
+                    else{
+                        let logoView = UIImageView(image: UIImage(named: "yycfood"))
+                        logoView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+                        annotationView?.leftCalloutAccessoryView = logoView
+                    }
+                    
+                    var directionsButton = UIButton(type: .detailDisclosure)
+                    
+                    if #available(iOS 14.0, *) {
+                        directionsButton = UIButton(type: .system, primaryAction: UIAction(title: "Directions", handler: { _ in
+                            // this will put the coordinates in the map and deploty the map to open in maps
+                            let coordinate = CLLocationCoordinate2DMake(annotation.coordinate.latitude,annotation.coordinate.longitude)
+                            let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+                            mapItem.name = annotation.title!!
+                            mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+                            
+                        }))
+                    }
+                    annotationView?.container(arrangedSubviews: [directionsButton])
+                }
                 else{
                     let image =  UIImage(systemName:"largecircle.fill.circle")!.withTintColor(.systemBlue)
                     let size = CGSize(width: 20, height: 20)
@@ -127,7 +179,7 @@ extension MKAnnotationView {
 
     func container(arrangedSubviews: [UIView]) {
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.alignment = .center
         stackView.spacing = 5
         stackView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleWidth, .flexibleHeight]
