@@ -43,6 +43,12 @@
 		79E874A22548CAD200BAE807 /* ScheduleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E874A12548CAD200BAE807 /* ScheduleRepository.swift */; };
 		79E874A62548CC9F00BAE807 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E874A52548CC9F00BAE807 /* LocationManager.swift */; };
 		79EFFCAC254B970D00250518 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EFFCAB254B970D00250518 /* Global.swift */; };
+		84147AAA2558AE7E007352F7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84147AA92558AE7E007352F7 /* Event.swift */; };
+		84147AAD2558AF91007352F7 /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84147AAC2558AF91007352F7 /* EventAnnotation.swift */; };
+		84147AB02558B46D007352F7 /* EventSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84147AAF2558B46D007352F7 /* EventSchedule.swift */; };
+		84147AB32558B5B7007352F7 /* EventScheduleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84147AB22558B5B7007352F7 /* EventScheduleRepository.swift */; };
+		84147AB62558B6EE007352F7 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84147AB52558B6EE007352F7 /* EventRepository.swift */; };
+		84147ABD2559F2A2007352F7 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84147ABC2559F2A2007352F7 /* EventList.swift */; };
 		F13806B80545BCB0E3292EAE /* Pods_YYCFoodTrucks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +92,12 @@
 		79E874A12548CAD200BAE807 /* ScheduleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRepository.swift; sourceTree = "<group>"; };
 		79E874A52548CC9F00BAE807 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		79EFFCAB254B970D00250518 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		84147AA92558AE7E007352F7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		84147AAC2558AF91007352F7 /* EventAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
+		84147AAF2558B46D007352F7 /* EventSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSchedule.swift; sourceTree = "<group>"; };
+		84147AB22558B5B7007352F7 /* EventScheduleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventScheduleRepository.swift; sourceTree = "<group>"; };
+		84147AB52558B6EE007352F7 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
+		84147ABC2559F2A2007352F7 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		B3C92F35424DFBA1BBBDD4C8 /* Pods_YYCFoodTrucks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YYCFoodTrucks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				172DE327254A0A56003F71A1 /* TruckAnnotation.swift */,
+				84147AAC2558AF91007352F7 /* EventAnnotation.swift */,
 			);
 			path = Annotations;
 			sourceTree = "<group>";
@@ -134,6 +147,8 @@
 				7961A0CF253F706200CA3431 /* TruckRepository.swift */,
 				79E293622541F8AE00C234E0 /* FoodCategoryRepository.swift */,
 				79E874A12548CAD200BAE807 /* ScheduleRepository.swift */,
+				84147AB22558B5B7007352F7 /* EventScheduleRepository.swift */,
+				84147AB52558B6EE007352F7 /* EventRepository.swift */,
 				17312460254929C000A873B4 /* FavoriteRepository.swift */,
 			);
 			path = Repositories;
@@ -192,6 +207,7 @@
 				799E61C9253A39D3007D19EF /* NavBar.swift */,
 				799E61B7253A1D2E007D19EF /* yycHeader.swift */,
 				1731244A2540D13F00A873B4 /* TruckList.swift */,
+				84147ABC2559F2A2007352F7 /* EventList.swift */,
 				1731244F2540F5C800A873B4 /* TruckProfile.swift */,
 				1731245625410A1900A873B4 /* URLImage.swift */,
 				1731245A2548F76500A873B4 /* FirebaseImage.swift */,
@@ -207,10 +223,12 @@
 				799E61C1253A269E007D19EF /* LandMark.swift */,
 				173124422540247000A873B4 /* Router.swift */,
 				173124482540AE7600A873B4 /* Truck.swift */,
+				84147AA92558AE7E007352F7 /* Event.swift */,
 				1731244C2540E68100A873B4 /* FoodCategory.swift */,
 				1731245825410A4D00A873B4 /* ImageLoader.swift */,
 				1731245C2548F7A900A873B4 /* FirebaseImageLoader.swift */,
 				79E8749D2548C9E300BAE807 /* Schedule.swift */,
+				84147AAF2558B46D007352F7 /* EventSchedule.swift */,
 				173124622549440B00A873B4 /* Favorite.swift */,
 			);
 			path = Models;
@@ -393,15 +411,20 @@
 				799E61D4253A7413007D19EF /* Discover.swift in Sources */,
 				1731245B2548F76500A873B4 /* FirebaseImage.swift in Sources */,
 				7961A0CD253F6E5B00CA3431 /* LandMarkRepository.swift in Sources */,
+				84147AB62558B6EE007352F7 /* EventRepository.swift in Sources */,
 				79E8749E2548C9E300BAE807 /* Schedule.swift in Sources */,
 				1731245925410A4D00A873B4 /* ImageLoader.swift in Sources */,
 				173124492540AE7600A873B4 /* Truck.swift in Sources */,
 				799E61B8253A1D2E007D19EF /* yycHeader.swift in Sources */,
 				79EFFCAC254B970D00250518 /* Global.swift in Sources */,
+				84147AB02558B46D007352F7 /* EventSchedule.swift in Sources */,
 				476EB87D2549FDC20069CE49 /* WebpageLoader.swift in Sources */,
 				172DE328254A0A56003F71A1 /* TruckAnnotation.swift in Sources */,
 				79E874A62548CC9F00BAE807 /* LocationManager.swift in Sources */,
+				84147AB32558B5B7007352F7 /* EventScheduleRepository.swift in Sources */,
 				7961A0D0253F706200CA3431 /* TruckRepository.swift in Sources */,
+				84147AAD2558AF91007352F7 /* EventAnnotation.swift in Sources */,
+				84147AAA2558AE7E007352F7 /* Event.swift in Sources */,
 				1731244725402C2200A873B4 /* Events.swift in Sources */,
 				173124432540247000A873B4 /* Router.swift in Sources */,
 				799E61A3253A1C19007D19EF /* AppDelegate.swift in Sources */,
@@ -409,6 +432,7 @@
 				79C260F9255A50D50091388D /* FirebaseAnnotationImage.swift in Sources */,
 				79E293632541F8AE00C234E0 /* FoodCategoryRepository.swift in Sources */,
 				173124502540F5C800A873B4 /* TruckProfile.swift in Sources */,
+				84147ABD2559F2A2007352F7 /* EventList.swift in Sources */,
 				799E61A5253A1C19007D19EF /* SceneDelegate.swift in Sources */,
 				799E61CA253A39D3007D19EF /* NavBar.swift in Sources */,
 				799E61C2253A269E007D19EF /* LandMark.swift in Sources */,

@@ -56,6 +56,9 @@ func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truc
     return scheduleLocations
 }
 
+<<<<<<< HEAD
+func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String, String, Double, Double){
+=======
 //generate upcoming event schedule
 
 func generateUpcomingEventSchedule(schedules: [EventSchedule], locations: [LandMark], event: Event) -> [String]{
@@ -88,7 +91,8 @@ func generateUpcomingEventSchedule(schedules: [EventSchedule], locations: [LandM
 }
 
 
-func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String, String, Double, Double){
+func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String, String){
+>>>>>>> remotes/origin/b1
     var AddressToReturn = ""
     var TimeToReturn = ""
     var latitude: Double = 0
