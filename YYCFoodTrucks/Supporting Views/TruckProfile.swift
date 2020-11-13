@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 struct TruckProfile: View {
     @ObservedObject var favoriteRepo = FavoriteRespository();
-    
+    @State var directionsAlert = false
     var truck: Truck
     var schedules: [Schedule]
     var locations: [LandMark]
@@ -25,41 +25,7 @@ struct TruckProfile: View {
                     truckNameView
                     /*Text(self.truck.address)
                         .font(.subheading)*/
-                    Group{
-                        Spacer()
-                        Text("Today's Schedule")
-                            .font(.title)
-                        Spacer()
-                        if ((currentScheduleLocation != ("","", 0, 1))){
-                            HStack{
-                                Text(currentScheduleLocation.1)
-                                    .font(.headline)
-                                Button(action:{
-                                    let coordinate = CLLocationCoordinate2DMake(currentScheduleLocation.2,currentScheduleLocation.3)
-                                    let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-                                    mapItem.name = currentScheduleLocation.1
-                                    mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
-                                }){
-                                Text("Directions")
-                                    .padding(.leading, UIScreen.main.bounds.size.width/4)
-                                }
-                                Image(systemName: "arrow.triangle.turn.up.right.diamond")
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.blue)
-                            }
-                            Text(currentScheduleLocation.0)
-                                .font(.headline)
-                                .padding(.bottom, 20)
-                                .foregroundColor(primColor)
-                            
-                        }
-                        else{
-                            Text("Closed Today")
-                                .font(.headline)
-                                .padding(.bottom, 20)
-                                .foregroundColor(.red)
-                        }
-                    }
+                    schedulesView
                     Group{
                         if (truck.description != ""){
                             Text("About Us")
@@ -95,6 +61,54 @@ struct TruckProfile: View {
                 }
         }
         .frame(width: UIScreen.main.bounds.size.width/4 - 20)
+    }
+    
+    var schedulesView: some View{
+        let currentScheduleLocation = generateTodaySchedule(schedules: schedules, locations: locations, truck: truck)
+        return Group{
+            Spacer()
+            Text("Today's Schedule")
+                .font(.title)
+            Spacer()
+            if ((currentScheduleLocation != ("","", 0, 1))){
+                HStack{
+                    Text(currentScheduleLocation.1)
+                        .font(.headline)
+                    Button(action:{
+                        directionsAlert.toggle()
+                    }){
+                    Text("Directions")
+                        .padding(.leading, UIScreen.main.bounds.size.width/4)
+                    }
+                    Image(systemName: "arrow.triangle.turn.up.right.diamond")
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.blue)
+                }
+                .alert(isPresented: $directionsAlert) { () -> Alert in
+                            let primaryButton = Alert.Button.default(Text("Yes")) {
+                                let coordinate = CLLocationCoordinate2DMake(currentScheduleLocation.2,currentScheduleLocation.3)
+                                let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+                                mapItem.name = currentScheduleLocation.1
+                                mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+                            }
+                            let secondaryButton = Alert.Button.cancel(Text("No")) {
+                                directionsAlert.toggle()
+                            }
+                            return Alert(title: Text("Leaving Application To Maps"), message: Text("Do you want to leave?"), primaryButton: primaryButton, secondaryButton: secondaryButton)
+                        }
+                Text(currentScheduleLocation.0)
+                    .font(.headline)
+                    .padding(.bottom, 20)
+                    .foregroundColor(primColor)
+                
+            }
+            else{
+                Text("Closed Today")
+                    .font(.headline)
+                    .padding(.bottom, 20)
+                    .foregroundColor(.red)
+            }
+        }
     }
     
     var truckNameView: some View{

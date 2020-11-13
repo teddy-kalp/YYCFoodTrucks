@@ -11,12 +11,12 @@ import Foundation
 class Schedule: Identifiable, Codable {
     
     var locationId: Int
-    var truckId: Int
+    var truckId: String
     var openDate: Date
     var closeDate: Date
 
     
-    init(locationId: Int, truckId: Int, openDate: Date, closeDate: Date){
+    init(locationId: Int, truckId: String, openDate: Date, closeDate: Date){
         self.locationId = locationId
         self.truckId = truckId
         self.openDate = openDate
@@ -27,6 +27,6 @@ class Schedule: Identifiable, Codable {
 }
 
 let testSchedules =
-    [Schedule(locationId: 1, truckId: 1, openDate: Date(), closeDate: Date() + (10*60)),
-     Schedule(locationId: 0, truckId: 2, openDate: Date(), closeDate: Date() + (60*60))
+    [Schedule(locationId: 1, truckId: "testTruck1", openDate: Date(), closeDate: Date() + (10*60)),
+     Schedule(locationId: 0, truckId: "testTruck2", openDate: Date(), closeDate: Date() + (60*60))
     ]

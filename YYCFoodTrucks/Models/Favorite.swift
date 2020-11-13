@@ -12,10 +12,10 @@ import FirebaseFirestoreSwift
 class Favorite: Identifiable, Codable {
     @DocumentID var id: String?
     var user_id: String
-    var truck_id: Int
+    var truck_id: String
     var img: String?
     
-    init(user_id: String, truck_id: Int, img: String?) {
+    init(user_id: String, truck_id: String, img: String?) {
         self.user_id = user_id
         self.truck_id = truck_id
         self.img = img

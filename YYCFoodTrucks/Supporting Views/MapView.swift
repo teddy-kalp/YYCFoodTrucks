@@ -66,15 +66,17 @@ struct MapView: UIViewRepresentable {
                 annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 // allow this to show pop up information
                 annotationView?.canShowCallout = true
+                // check to see if there is an Event Annotation
                 if let truckAnnotation = annotation as? TruckAnnotation{
+                    // setting the image of the annotation on the map
                     let circle = truckAnnotation.truck.open ? UIImage(systemName:"mappin.circle.fill")!.withTintColor(primColorUI):
                     UIImage(systemName:"mappin.circle.fill")!.withTintColor(.red)
                     let size = CGSize(width: 40, height: 40)
                     annotationView?.image = UIGraphicsImageRenderer(size:size).image {
                     _ in circle.draw(in:CGRect(origin:.zero, size:size))
                     }
-                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     
+                    //attempt to set the image of the popup to truck logo
                     let firebaseImage = FirebaseImage(id: truckAnnotation.truck.logo, width: 50, height: 50)
                     let logo = firebaseImage.image
                     
@@ -89,10 +91,10 @@ struct MapView: UIViewRepresentable {
                         annotationView?.leftCalloutAccessoryView = logoView
                     }
                     
-                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    
+                    // navigation link to truck profile
                     annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
                     
+                    // button to navigate for the map
                     var directionsButton = UIButton(type: .detailDisclosure)
                     
                     if #available(iOS 14.0, *) {
@@ -105,16 +107,9 @@ struct MapView: UIViewRepresentable {
                             
                         }))
                     }
-                    
-//                    let textView = UITextView()
-//                    let subtitle = (annotation.subtitle!!)
-//                    textView.text = textView.text + "This is a test"
-//                    textView.textColor = UIColor.gray
-//                    textView.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
                     annotationView?.container(arrangedSubviews: [directionsButton])
                 }
-                // if its not a truck annotation, it is a pin for user
-                
+                // check to see if there is an Event Annotation
                 else if let eventAnnotation = annotation as? EventAnnotation{
                     annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                     // allow this to show pop up information
@@ -145,7 +140,7 @@ struct MapView: UIViewRepresentable {
                     
                     if #available(iOS 14.0, *) {
                         directionsButton = UIButton(type: .system, primaryAction: UIAction(title: "Directions", handler: { _ in
-                            // this will put the coordinates in the map and deploty the map to open in maps
+                            // this will put the coordinates in the map and deploy the map to open in maps
                             let coordinate = CLLocationCoordinate2DMake(annotation.coordinate.latitude,annotation.coordinate.longitude)
                             let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
                             mapItem.name = annotation.title!!
@@ -155,6 +150,7 @@ struct MapView: UIViewRepresentable {
                     }
                     annotationView?.container(arrangedSubviews: [directionsButton])
                 }
+                // if its not a truck annotation, it is a pin for user
                 else{
                     let image =  UIImage(systemName:"largecircle.fill.circle")!.withTintColor(.systemBlue)
                     let size = CGSize(width: 20, height: 20)

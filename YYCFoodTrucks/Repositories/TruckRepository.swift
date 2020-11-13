@@ -29,9 +29,8 @@ class TruckRespository: ObservableObject{
             }
             self.trucks = documents.map{(queryDocumentSnapshot) -> Truck in
                 let data = queryDocumentSnapshot.data()
-                
+                let id = queryDocumentSnapshot.documentID
                 let name = data["name"] as? String ?? ""
-                let id = data["id"] as? Int ?? -1
                 let logo = data["logo"] as? String ?? ""
                 let category_id = data["categoryId"] as? Int ?? -1
                 let menu = data["menu"] as? String ?? ""

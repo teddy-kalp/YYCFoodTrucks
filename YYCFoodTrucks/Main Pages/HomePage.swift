@@ -27,7 +27,7 @@ struct HomePage: View {
     
     @State var text = ""
     
-    var testTruck = Truck(name: "testTruck", id: 3, logo: "null", category_id: 0, menu: "null", description: "null")
+    var testTruck = Truck(name: "testTruck", id: "test", logo: "null", category_id: 0, menu: "null", description: "null")
     
     
     

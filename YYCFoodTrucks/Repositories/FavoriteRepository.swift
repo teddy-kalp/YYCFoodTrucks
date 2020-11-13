@@ -34,7 +34,7 @@ class FavoriteRespository: ObservableObject{
                        let data = queryDocumentSnapshot.data()
                        let id = queryDocumentSnapshot.documentID
                        let user_id = data["user_id"] as? String ?? ""
-                       let truck_id = data["truck_id"] as? Int ?? -1
+                       let truck_id = data["truck_id"] as? String ?? ""
                        let img = data["img"] as? String ?? ""
                        let fav = Favorite(user_id: user_id, truck_id: truck_id, img: img)
                        fav.id = id
@@ -47,7 +47,7 @@ class FavoriteRespository: ObservableObject{
     }
     
     
-    func addFavorite(truck_id: Int){
+    func addFavorite(truck_id: String){
         do{
             let userId = String(Auth.auth().currentUser!.uid)
             let addedFavorite = Favorite(user_id: userId, truck_id: truck_id, img: "")
@@ -57,7 +57,7 @@ class FavoriteRespository: ObservableObject{
         }
     }
     
-    func removeFavorite(truck_id: Int){
+    func removeFavorite(truck_id: String){
         let doc_id = self.getDocID(truck_id: truck_id)
         if let doc_id = doc_id {
             do{
@@ -68,7 +68,7 @@ class FavoriteRespository: ObservableObject{
         }
     }
     
-    func getDocID(truck_id: Int) -> String?{
+    func getDocID(truck_id: String) -> String?{
         for favorite in self.favorites{
               if favorite.truck_id == truck_id{
                 print("Found Document ID")
@@ -78,7 +78,7 @@ class FavoriteRespository: ObservableObject{
           return nil
     }
     
-    func checkTruckID(truck_id: Int) -> Bool{
+    func checkTruckID(truck_id: String) -> Bool{
         for favorite in self.favorites{
             if favorite.truck_id == truck_id{
                 return true
