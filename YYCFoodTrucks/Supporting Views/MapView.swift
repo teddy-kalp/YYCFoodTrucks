@@ -15,6 +15,9 @@ struct MapView: UIViewRepresentable {
     @Binding var isActive: Bool
     @Binding var selectedTruck: TruckAnnotation?
     
+//    @Binding var directionsAlert: Bool
+//    @Binding var annotation: MKAnnotation
+    
     var currentLocation: CLLocationCoordinate2D
 
     func makeUIView(context: Context) -> MKMapView {
