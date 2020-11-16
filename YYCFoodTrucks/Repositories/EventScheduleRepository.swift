@@ -32,7 +32,7 @@ class EventScheduleRespository: ObservableObject{
                 let openDate = openTimestamp!.dateValue()
                 let closeTimestamp = data["closeDate"] as? Timestamp ?? nil
                 let closeDate = closeTimestamp!.dateValue()
-                let locationId = data["locationId"] as? Int ?? -1
+                let locationId = data["locationId"] as? String ?? ""
                 let eventId = data["eventId"] as? Int ?? -1
                 
                 return EventSchedule(locationId: locationId, eventId: eventId, openDate: openDate, closeDate: closeDate)

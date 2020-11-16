@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Discover: View {
     var schedules: [Schedule]
-    var locations: [LandMark]
+    var locations: [Location]
     var trucks: [Truck]
     var foodCategories: [FoodCategory]
     
@@ -50,7 +50,7 @@ struct Discover: View {
 }
 
 struct FoodCategoryCard: View {
-    var locations: [LandMark]
+    var locations: [Location]
     var schedules: [Schedule]
     var trucks: [Truck]
     var category: FoodCategory

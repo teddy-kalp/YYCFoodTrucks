@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EventList: View {
-    var locations: [LandMark]
+    var locations: [Location]
     var schedules: [EventSchedule]
     var events: [Event]
 

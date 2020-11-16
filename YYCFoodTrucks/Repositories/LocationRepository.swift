@@ -10,9 +10,9 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import CoreLocation
 
-class LandMarkRespository: ObservableObject{
+class LocationRepository: ObservableObject{
     private let db = Firestore.firestore()
-    @Published var landmarks = [LandMark]()
+    @Published var landmarks = [Location]()
     
     init() {
         self.loadData()
@@ -25,16 +25,17 @@ class LandMarkRespository: ObservableObject{
                 print("No Documents")
                 return
             }
-            self.landmarks = documents.map{(queryDocumentSnapshot) -> LandMark in
+            self.landmarks = documents.map{(queryDocumentSnapshot) -> Location in
                 let data = queryDocumentSnapshot.data()
-                
-                
+                let locationId = queryDocumentSnapshot.documentID
                 let address = data["address"] as? String ?? ""
                 let latitude = data["latitude"] as? Double ?? 0
                 let longitude = data["longitude"] as? Double ?? 0
-                let locationId = data["locationId"] as? Int ?? -1
                 
-                return LandMark(address: address, latitude: latitude, longitude: longitude, locationId: locationId)
+                
+                var location = Location(address: address, latitude: latitude, longitude: longitude)
+                location.locationId = locationId
+                return location
             }
         }
     }
@@ -58,8 +59,7 @@ class LandMarkRespository: ObservableObject{
             // if the location is not in the database, store it
             if (!locationInDB){
                 do{
-                    let newId = self.landmarks[self.landmarks.count-1].locationId + 1
-                    let landmarkToAdd = LandMark(address: address, latitude: lat!, longitude: lon!, locationId: newId)
+                    let landmarkToAdd = Location(address: address, latitude: lat!, longitude: lon!)
                     let _ = try self.db.collection("LandMarks").addDocument(from: landmarkToAdd)
                 } catch {
                     fatalError("Unable to encode task: \(error.localizedDescription)")

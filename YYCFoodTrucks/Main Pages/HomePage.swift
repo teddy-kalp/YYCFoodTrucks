@@ -12,7 +12,7 @@ struct HomePage: View {
     @EnvironmentObject var router: Router
 
     
-    @ObservedObject var LocationRepo = LandMarkRespository()
+    @ObservedObject var LocationRepo = LocationRepository()
     @ObservedObject var ScheduleRepo = ScheduleRespository()
     @ObservedObject var EventScheduleRepo = EventScheduleRespository()
     @ObservedObject var favoriteRepo = FavoriteRespository()

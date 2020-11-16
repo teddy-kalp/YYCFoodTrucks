@@ -12,50 +12,18 @@ struct TruckProfile: View {
     @State var directionsAlert = false
     var truck: Truck
     var schedules: [Schedule]
-    var locations: [LandMark]
+    var locations: [Location]
     
     
     var body: some View {
-        let currentScheduleLocation = generateTodaySchedule(schedules: schedules, locations: locations, truck: truck)
-        let upcomingScheduleLocation = generateUpcomingSchedule(schedules: schedules, locations: locations, truck: truck)
-        
         ScrollView{
             FirebaseImage(id:(truck.logo), width: Int(UIScreen.main.bounds.width), height: 300)
             VStack(alignment: .leading){
                     truckNameView
-                    /*Text(self.truck.address)
-                        .font(.subheading)*/
                     schedulesView
-                    Group{
-                        if (truck.description != ""){
-                            Text("About Us")
-                                .font(.title)
-                            Text(truck.description)
-                                .font(.body)
-                                .padding(.bottom, 20)
-                        }
-                    }
-                    .frame(alignment: .center)
-                    Group{
-                        //Spacer()
-                        Text("Upcoming schedule")
-                            .font(.title)
-                        Spacer()
-                        if (upcomingScheduleLocation.count == 0){
-                            Text("Nothing scheduled yet but check back soon!")
-                                .font(.body)
-                        }
-                        else{
-                            ForEach(upcomingScheduleLocation){ variable in
-                                Text(variable)
-                                    .font(.body)
-                                Spacer()
-                            }
-                        }
-                    }
+                    truckDescriptionView
+                    upcomingSchedulesView
                 if (truck.menu != "null"){
-                    Text("Menu")
-                     .font(.title)
                     menuView
                     }
                 }
@@ -115,8 +83,9 @@ struct TruckProfile: View {
         Group{
             HStack{
                Text(truck.name)
-                   .font(.title)
-                   .fontWeight(.bold)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
             Spacer()
                     if favoriteRepo.checkTruckID(truck_id: truck.id){
                         Button(action: {favoriteRepo.removeFavorite(truck_id: truck.id)}){
@@ -151,24 +120,47 @@ struct TruckProfile: View {
             }
         }
     }
-    
-    var currentLocationView: some View{
-        Group{
-            Text("2500 University Avenue, Calgary, AB T2N1N4")
-             .font(.subheadline)
-                .foregroundColor(Color.gray)
-             Text("2PM - 6PM")
-                .font(.subheadline)
-                .padding(.bottom, 20)
-                .foregroundColor(Color.gray)
+
+    var menuView: some View {
+        return Group{
+            Text("Menu")
+             .font(.title)
+            FirebaseImage(id: self.truck.menu, width: Int(UIScreen.main.bounds.width), height: 500)
         }
     }
-    var menuView: some View {
-        
-        return FirebaseImage(id: self.truck.menu, width: Int(UIScreen.main.bounds.width), height: 500)
-//     return  URLImage(url: self.truck.menu, resizable: true)
-//        .frame(width: UIScreen.main.bounds.width, height: 500)
-//              .padding(.bottom, 20)
+    
+    var truckDescriptionView: some View {
+        return Group{
+            if (truck.description != ""){
+                Text("About Us")
+                    .font(.title)
+                Text(truck.description)
+                    .font(.body)
+                    .padding(.bottom, 20)
+            }
+        }
+        .frame(alignment: .center)
+    }
+    
+    var upcomingSchedulesView: some View{
+        let upcomingScheduleLocation = generateUpcomingSchedule(schedules: schedules, locations: locations, truck: truck)
+        return Group{
+            //Spacer()
+            Text("Upcoming schedule")
+                .font(.title)
+            Spacer()
+            if (upcomingScheduleLocation.count == 0){
+                Text("Nothing scheduled yet but check back soon!")
+                    .font(.body)
+            }
+            else{
+                ForEach(upcomingScheduleLocation){ variable in
+                    Text(variable)
+                        .font(.body)
+                    Spacer()
+                }
+            }
+        }
     }
     
 }

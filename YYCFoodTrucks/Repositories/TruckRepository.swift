@@ -13,7 +13,7 @@ import FirebaseFirestoreSwift
 
 class TruckRespository: ObservableObject{
     @ObservedObject var scheduleRepo = ScheduleRespository()
-    @ObservedObject var landmarkRepo = LandMarkRespository()
+    @ObservedObject var landmarkRepo = LocationRepository()
     @Published var trucks = [Truck]()
     private let db = Firestore.firestore()
     

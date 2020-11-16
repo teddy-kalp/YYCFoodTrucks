@@ -11,30 +11,18 @@ import SwiftUI
 
 struct FirebaseAnnotationImage: UIViewRepresentable{
     
-    @ObservedObject var imageLoader : Loader
+    @ObservedObject var imageLoader: Loader
+    var id: String
     
+    func makeUIView(context: Context) -> UIImageView {
+        
+        return UIImageView()
+    }
     
-    init(id: String){
+    func updateUIView(_ uiView: UIImageView, context: Context) {
         self.imageLoader = Loader(id)
-    }
-    
-    var image: UIImage?{
-        imageLoader.data.flatMap(UIImage.init)
-    }
-
-    
-    func makeUIView(context: Context) -> some UIView {
-    
-        let img = UIImageView(image: image)
-        return img
         
-    }
-    
-    func updateUIView(_ uiView: UIViewType, context: Context) {
         
+        UIImageView.
     }
-    
-    
-    
-    
 }

@@ -11,7 +11,7 @@ struct Favorites: View {
     @ObservedObject var favoriteRepo = FavoriteRespository();
     @ObservedObject var truckRepo = TruckRespository();
     var schedules: [Schedule]
-    var locations: [LandMark]
+    var locations: [Location]
     
     var body: some View {
         NavigationView{
@@ -49,7 +49,7 @@ struct favoriteTruckLogo: View{
     var favorite: Favorite
     var trucks: [Truck]
     var schedules: [Schedule]
-    var locations: [LandMark]
+    var locations: [Location]
     
     var body: some View{
         return

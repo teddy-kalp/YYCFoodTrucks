@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 
 class EventRespository: ObservableObject{
     @ObservedObject var scheduleRepo = EventScheduleRespository()
-    @ObservedObject var landmarkRepo = LandMarkRespository()
+    @ObservedObject var landmarkRepo = LocationRepository()
     @Published var events = [Event]()
     private let db = Firestore.firestore()
     

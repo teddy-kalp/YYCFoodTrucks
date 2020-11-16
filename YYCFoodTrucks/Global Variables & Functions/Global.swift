@@ -16,7 +16,7 @@ let primColorUI = UIColor(red: 0, green: 0.73, blue: 0.6, alpha: 1)
 
 // variables used for fillers if an object is not found
 var fillerTruck = Truck(name: "fillerTruck", id: "XXXX",logo: "null", category_id: -1, menu: "null", description: "null")
-var fillerLocation = LandMark(address: "null", latitude: 0, longitude: 0, locationId: -1)
+var fillerLocation = Location(address: "null", latitude: 0, longitude: 0)
 
 //variables for fillers if an event object is not found
 var fillerEvent = Event(name: "fillerEvent", id: -2, logo: "null", eventDate: "null", eventTime: "null", description: "null")
@@ -26,7 +26,7 @@ var fillerEvent = Event(name: "fillerEvent", id: -2, logo: "null", eventDate: "n
 
 
 // need to generate upcoming schedules
-func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> [String]{
+func generateUpcomingSchedule(schedules: [Schedule], locations: [Location], truck: Truck) -> [String]{
     var scheduleLocations = [String] ()
     
     let hoursMinutes = DateFormatter()
@@ -58,7 +58,7 @@ func generateUpcomingSchedule(schedules: [Schedule], locations: [LandMark], truc
 
 //generate upcoming event schedule
 
-func generateUpcomingEventSchedule(schedules: [EventSchedule], locations: [LandMark], event: Event) -> [String]{
+func generateUpcomingEventSchedule(schedules: [EventSchedule], locations: [Location], event: Event) -> [String]{
     var scheduleLocations = [String] ()
     
     let hoursMinutes = DateFormatter()
@@ -88,7 +88,7 @@ func generateUpcomingEventSchedule(schedules: [EventSchedule], locations: [LandM
 }
 
 
-func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: Truck) -> (String, String, Double, Double){
+func generateTodaySchedule(schedules: [Schedule], locations: [Location], truck: Truck) -> (String, String, Double, Double){
     var AddressToReturn = ""
     var TimeToReturn = ""
     var latitude: Double = 0
@@ -118,7 +118,7 @@ func generateTodaySchedule(schedules: [Schedule], locations: [LandMark], truck: 
 
 //generate the events for today
 
-func generateTodayEventSchedule(schedules: [EventSchedule], locations: [LandMark], event: Event) -> (String, String){
+func generateTodayEventSchedule(schedules: [EventSchedule], locations: [Location], event: Event) -> (String, String){
     var AddressToReturn = ""
     var TimeToReturn = ""
     

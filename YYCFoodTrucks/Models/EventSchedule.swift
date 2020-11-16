@@ -8,13 +8,13 @@
 import Foundation
 class EventSchedule: Identifiable, Codable {
     
-    var locationId: Int
+    var locationId: String
     var eventId: Int
     var openDate: Date
     var closeDate: Date
 
     
-    init(locationId: Int, eventId: Int, openDate: Date, closeDate: Date){
+    init(locationId: String, eventId: Int, openDate: Date, closeDate: Date){
         self.locationId = locationId
         self.eventId = eventId
         self.openDate = openDate

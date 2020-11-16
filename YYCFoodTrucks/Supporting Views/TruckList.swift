@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TruckList: View {
-    var locations: [LandMark]
+    var locations: [Location]
     var schedules: [Schedule]
     var trucks: [Truck]
     var title: String
@@ -35,7 +35,7 @@ struct TruckList: View {
 struct TruckCard: View{
     var truck: Truck
     var schedules: [Schedule]
-    var locations: [LandMark]
+    var locations: [Location]
     
     var body: some View{
             HStack{
