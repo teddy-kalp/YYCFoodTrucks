@@ -28,7 +28,51 @@ struct TruckProfile: View {
                     }
                 }
         }
-        .frame(width: UIScreen.main.bounds.size.width/4 - 20)
+    }
+    
+    
+    var truckNameView: some View{
+        Group{
+            HStack{
+               Text(truck.name)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.leading, 10)
+            Spacer()
+                    if favoriteRepo.checkTruckID(truck_id: truck.id){
+                        Button(action: {favoriteRepo.removeFavorite(truck_id: truck.id)}){
+                            Image(systemName: "heart.fill")
+                               .resizable()
+                               .frame(width: CGFloat(30), height: CGFloat(30))
+                               .foregroundColor(primColor)
+                               .padding(.trailing, 10)
+                        }
+                    } else {
+                        Button(action: {favoriteRepo.addFavorite(truck_id: truck.id)}){
+                            Image(systemName: "heart")
+                                .resizable()
+                                .frame(width: CGFloat(30), height: CGFloat(30))
+                                .foregroundColor(.black)
+                                .padding(.trailing, 10)
+                        }
+                    }
+                
+            }
+            if #available(iOS 14.0, *) {
+                Group{
+                    Link(destination: URL(string: "https://www.yycfoodtrucks.com/bookthetrucks")!) {
+                        Text("Book This Truck")
+                            .padding()
+                            .border(Color.blue, width: 4)
+                    }
+                }
+                .frame(width: (UIScreen.main.bounds.size.width), height: 80, alignment: .center)
+                
+            } else {
+                // Fallback on earlier versions
+                
+            }
+        }
     }
     
     var schedulesView: some View{
@@ -37,11 +81,13 @@ struct TruckProfile: View {
             Spacer()
             Text("Today's Schedule")
                 .font(.title)
+                .padding(.leading, 5)
             Spacer()
             if ((currentScheduleLocation != ("","", 0, 1))){
                 HStack{
                     Text(currentScheduleLocation.1)
                         .font(.headline)
+                        .padding(.leading, 5)
                     Button(action:{
                         directionsAlert.toggle()
                     }){
@@ -73,70 +119,23 @@ struct TruckProfile: View {
             else{
                 Text("Closed Today")
                     .font(.headline)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 10)
+                    .padding(.leading, 5)
                     .foregroundColor(.red)
             }
         }
     }
-    
-    var truckNameView: some View{
-        Group{
-            HStack{
-               Text(truck.name)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-            Spacer()
-                    if favoriteRepo.checkTruckID(truck_id: truck.id){
-                        Button(action: {favoriteRepo.removeFavorite(truck_id: truck.id)}){
-                            Image(systemName: "heart.fill")
-                               .resizable()
-                               .frame(width: CGFloat(30), height: CGFloat(30))
-                               .foregroundColor(primColor)
-                        }
-                    } else {
-                        Button(action: {favoriteRepo.addFavorite(truck_id: truck.id)}){
-                            Image(systemName: "heart")
-                                .resizable()
-                                .frame(width: CGFloat(30), height: CGFloat(30))
-                                .foregroundColor(.black)
-                        }
-                    }
-                
-            }
-            if #available(iOS 14.0, *) {
-                Group{
-                    Link(destination: URL(string: "https://www.yycfoodtrucks.com/bookthetrucks")!) {
-                        Text("Book This Truck")
-                            .padding()
-                            .border(Color.blue, width: 4)
-                    }
-                }
-                .frame(width: (UIScreen.main.bounds.size.width), height: 80, alignment: .center)
-                
-            } else {
-                // Fallback on earlier versions
-                
-            }
-        }
-    }
 
-    var menuView: some View {
-        return Group{
-            Text("Menu")
-             .font(.title)
-            FirebaseImage(id: self.truck.menu, width: Int(UIScreen.main.bounds.width), height: 500)
-        }
-    }
-    
     var truckDescriptionView: some View {
         return Group{
             if (truck.description != ""){
                 Text("About Us")
                     .font(.title)
+                    .padding(.leading, 5)
                 Text(truck.description)
                     .font(.body)
                     .padding(.bottom, 20)
+                    .padding(.leading, 5)
             }
         }
         .frame(alignment: .center)
@@ -148,18 +147,30 @@ struct TruckProfile: View {
             //Spacer()
             Text("Upcoming schedule")
                 .font(.title)
+                .padding(.leading, 5)
             Spacer()
             if (upcomingScheduleLocation.count == 0){
                 Text("Nothing scheduled yet but check back soon!")
                     .font(.body)
+                    .padding(.leading, 5)
             }
             else{
-                ForEach(upcomingScheduleLocation){ variable in
-                    Text(variable)
+                ForEach(upcomingScheduleLocation){ schedule in
+                    Text(schedule)
                         .font(.body)
+                        .padding(.leading, 5)
                     Spacer()
                 }
             }
+        }
+    }
+    
+    var menuView: some View {
+        return Group{
+            Text("Menu")
+             .font(.title)
+                .padding(.leading, 5)
+            FirebaseImage(id: self.truck.menu, width: Int(UIScreen.main.bounds.width), height: 500)
         }
     }
     

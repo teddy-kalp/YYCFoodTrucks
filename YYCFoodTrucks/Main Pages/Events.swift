@@ -19,19 +19,25 @@ struct Events: View {
               ScrollView{
                 GeometryReader{ geo in
                     ForEach(eventRepo.events){ event in
-                        VStack{
-                                FirebaseImage(id: event.logo, width: Int(UIScreen.main.bounds.width) - 20, height: 250).frame(width: UIScreen.main.bounds.width - 20, height: 250, alignment: .center)
-                                        .padding()
+                        VStack(alignment: .leading){
+                                FirebaseImage(id:(event.logo), width: Int(UIScreen.main.bounds.width), height: 300)
                                 Text(event.name)
-                                        .foregroundColor(.black)
-                                        .font(.system(size: 24))
+                                    .foregroundColor(.black)
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .padding(.leading, 5)
+                                Spacer()
+                                Text("About this Event")
+                                    .font(.title)
+                                    .padding(.leading, 5)
                                 Text(event.description)
                                         //having trouble getting the text to wrap
-                                        .foregroundColor(.black)
-                                        .font(.system(size: 18))
-                                        .fixedSize(horizontal: false, vertical: true)
-                                        .padding()
-                                       
+                                    .font(.body)
+                                    .padding(.bottom, 20)
+                                    .padding(.leading, 5)
+                                Text("Event Schedule")
+                                    .font(.title)
+                                    .padding(.leading, 5)
                                 HStack{
                                     VStack(alignment: .leading){
                                         Text(event.eventDate)
@@ -54,14 +60,9 @@ struct Events: View {
                                         .padding()
                                     }
                                 }
-                                
-                                .padding()
                             }
                         }
-                    
                       }
-                        .frame(width: 400, height: 200)
-                        
             }.navigationBarTitle("Events", displayMode: .inline)
               .font(.title)
         }
