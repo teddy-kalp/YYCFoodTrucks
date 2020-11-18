@@ -14,7 +14,7 @@ class ScheduleRespository: ObservableObject{
     @Published var schedules = [Schedule]()
     
     init() {
-        //removeOldSchedules()
+        updateOldSchedules()
         loadData()
     }
     
@@ -34,20 +34,20 @@ class ScheduleRespository: ObservableObject{
                 let closeDate = closeTimestamp!.dateValue()
                 let locationId = data["locationId"] as? String ?? ""
                 let truckId = data["truckId"] as? String ?? ""
-                
+                let deleted = data["deleted"] as? Bool ?? true
+
                 return Schedule(locationId: locationId, truckId: truckId, openDate: openDate, closeDate: closeDate)
             }
         }
     }
     
-    func removeOldSchedules(){
+    func updateOldSchedules(){
         var idsToRemove = [String]()
         db.collection("Schedules").addSnapshotListener{(querySnapshot, error) in
             guard let documents = querySnapshot?.documents else{
                 print("No Documents")
                 return
             }
-            
             for doc in documents{
                 let data = doc.data()
                 let id = doc.documentID
@@ -59,7 +59,7 @@ class ScheduleRespository: ObservableObject{
             }
             
             for id in idsToRemove{
-                self.db.collection("Schedules").document(id).delete()
+                self.db.collection("Schedules").document(id).updateData(["deleted": true])
             }
         }
     }
