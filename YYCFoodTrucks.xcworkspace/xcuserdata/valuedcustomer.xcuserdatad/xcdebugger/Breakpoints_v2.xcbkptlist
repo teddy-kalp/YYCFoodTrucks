@@ -94,8 +94,8 @@
             filePath = "YYCFoodTrucks/Main Pages/HomePage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "getAnnotations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -160,8 +160,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "loadData()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "110F4960-7D06-4954-8166-F787830D1C71 - 1211ef0ff34aa81c"
@@ -222,8 +222,8 @@
             filePath = "YYCFoodTrucks/Main Pages/HomePage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "getAnnotations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,8 +238,8 @@
             filePath = "YYCFoodTrucks/Main Pages/HomePage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "getAnnotations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,8 +254,8 @@
             filePath = "YYCFoodTrucks/Main Pages/HomePage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "getAnnotations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "YYCFoodTrucks/Main Pages/HomePage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "getAnnotations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,8 +286,8 @@
             filePath = "YYCFoodTrucks/Main Pages/HomePage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "getAnnotations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -302,8 +302,8 @@
             filePath = "YYCFoodTrucks/Main Pages/HomePage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "getAnnotations()"
             landmarkType = "7">
          </BreakpointContent>

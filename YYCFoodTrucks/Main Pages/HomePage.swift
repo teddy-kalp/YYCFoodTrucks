@@ -28,10 +28,6 @@ struct HomePage: View {
     
     @State var text = ""
     
-    var testTruck = Truck(name: "testTruck", id: "test", logo: "null", category_id: 0, menu: "null", description: "null")
-    
-    
-    
     var body: some View {
             VStack {
                 if router.cur_page == "HomePage"{
@@ -40,7 +36,7 @@ struct HomePage: View {
                     NavigationView{
                         GeometryReader {geometry in
                             MapView(annotations: self.getAnnotations(), eventAnnotations: self.getEventAnnotations(), isActive: self.$isActive, selectedTruck: self.$selectedAnnotation, currentLocation: userCoords)
-                            NavigationLink(destination: TruckProfile(truck: self.selectedAnnotation?.truck ?? self.testTruck, schedules: self.ScheduleRepo.schedules, locations: self.LocationRepo.landmarks), isActive: self.$isActive) {
+                            NavigationLink(destination: TruckProfile(truck: self.selectedAnnotation?.truck ?? fillerTruck, schedules: self.ScheduleRepo.schedules, locations: self.LocationRepo.landmarks), isActive: self.$isActive) {
                                 EmptyView()
                                     .frame(width: 0, height: 0)
                             }

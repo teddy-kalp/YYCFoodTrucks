@@ -67,6 +67,7 @@ struct TruckProfile: View {
                     }
                 }
                 .frame(width: (UIScreen.main.bounds.size.width), height: 80, alignment: .center)
+                .shadow(radius: 3)
                 
             } else {
                 // Fallback on earlier versions

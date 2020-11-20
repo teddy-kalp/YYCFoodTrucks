@@ -62,7 +62,10 @@ struct Events: View {
                                 }
                             }
                         }
+                    
                       }
+                        .frame(width: 400, height: 200)
+                        
             }.navigationBarTitle("Events", displayMode: .inline)
               .font(.title)
         }

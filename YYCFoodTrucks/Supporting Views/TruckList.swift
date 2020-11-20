@@ -57,8 +57,10 @@ struct TruckCard: View{
                 .frame(width: 200, height: 200, alignment: .center)
             }
         }
-        .frame(width: 400, height: 200)
-        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+            .frame(width: (UIScreen.main.bounds.size.width), height: 100)
+        .border(primColor, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+        .shadow(radius: 5)
+        .padding(.bottom, -10)
     }
 }
 
