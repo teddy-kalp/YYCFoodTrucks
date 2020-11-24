@@ -51,9 +51,11 @@ class ScheduleRespository: ObservableObject{
             for doc in documents{
                 let data = doc.data()
                 let id = doc.documentID
+                let openTimeStamp = data["openDate"] as? Timestamp ?? nil
+                let openDate = openTimeStamp!.dateValue()
                 let closeTimestamp = data["closeDate"] as? Timestamp ?? nil
                 let closeDate = closeTimestamp!.dateValue()
-                if (closeDate < Date()){
+                if (closeDate < Date() && openDate < Date()){
                     idsToRemove.append(id)
                 }
             }

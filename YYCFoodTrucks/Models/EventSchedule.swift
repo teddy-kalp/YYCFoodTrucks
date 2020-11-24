@@ -12,7 +12,6 @@ class EventSchedule: Identifiable, Codable {
     var eventId: Int
     var openDate: Date
     var closeDate: Date
-
     
     init(locationId: String, eventId: Int, openDate: Date, closeDate: Date){
         self.locationId = locationId
@@ -20,6 +19,4 @@ class EventSchedule: Identifiable, Codable {
         self.openDate = openDate
         self.closeDate = closeDate
     }
-    
-    
 }

@@ -79,20 +79,22 @@ struct MapView: UIViewRepresentable {
                     _ in circle.draw(in:CGRect(origin:.zero, size:size))
                     }
                     
+                    var logo = UIImage()
+                    let storage = Storage.storage()
+                    var ref = storage.reference().child(truckAnnotation.truck.logo)
+                    ref.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                        if let error = error {
+                            print("Failed to load image \(error)")
+                        }
+
+                        DispatchQueue.main.async {
+                            logo = UIImage(data: data!)!
+                            logo = resizeImage(image: logo, targetSize: CGSize(width: 50, height: 50))
+                            let logoView = UIImageView(image: logo)
+                            annotationView?.leftCalloutAccessoryView = logoView
+                        }
+                    }
                     //attempt to set the image of the popup to truck logo
-                    let firebaseImage = FirebaseImage(id: truckAnnotation.truck.logo, width: 50, height: 50)
-                    let logo = firebaseImage.image
-                    
-                    if logo != nil{
-                        let logoView = UIImageView(image: logo)
-                        logoView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-                        annotationView?.leftCalloutAccessoryView = logoView
-                    }
-                    else{
-                        let logoView = UIImageView(image: UIImage(named: "yycfood"))
-                        logoView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-                        annotationView?.leftCalloutAccessoryView = logoView
-                    }
                     
                     // navigation link to truck profile
                     annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
@@ -190,6 +192,32 @@ extension MKAnnotationView {
 
 func directionsPress(){
         print("Button has been pressed")
+}
+
+func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+   let size = image.size
+
+   let widthRatio  = targetSize.width  / size.width
+   let heightRatio = targetSize.height / size.height
+
+   // Figure out what our orientation is, and use that to form the rectangle
+   var newSize: CGSize
+   if(widthRatio > heightRatio) {
+       newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+   } else {
+       newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+   }
+
+   // This is the rect that we've calculated out and this is what is actually used below
+   let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+   // Actually do the resizing to the rect using the ImageContext stuff
+   UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+   image.draw(in: rect)
+   let newImage = UIGraphicsGetImageFromCurrentImageContext()
+   UIGraphicsEndImageContext()
+
+   return newImage!
 }
 
 
