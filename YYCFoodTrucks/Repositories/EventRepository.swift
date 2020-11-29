@@ -37,8 +37,9 @@ class EventRespository: ObservableObject{
                 let eventDate = data["eventDate"] as? String ?? ""
                 let eventTime = data["eventTime"] as? String ?? ""
                 let description = data["description"] as? String ?? ""
+                let location = data["location"] as? String ?? ""
                 
-                let event = Event(name: name, id: id, logo: logo, eventDate: eventDate, eventTime: eventTime, description: description)
+                let event = Event(name: name, id: id, logo: logo, eventDate: eventDate, eventTime: eventTime, description: description, location: location)
                 // Check to see if there is a current schedule
                 let currentScheduleLocation = generateTodayEventSchedule(schedules: self.scheduleRepo.schedules, locations: self.landmarkRepo.landmarks, event: event)
                 

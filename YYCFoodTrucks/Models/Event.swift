@@ -19,13 +19,15 @@ class Event: Identifiable, Codable {
     var eventDate: String
     var eventTime: String
     var description: String
+    var location: String
     
-    init(name: String, id: Int, logo: String, eventDate: String, eventTime: String, description: String) {
+    init(name: String, id: Int, logo: String, eventDate: String, eventTime: String, description: String, location: String) {
         self.name = name
         self.id = id
         self.logo = logo
         self.eventDate = eventDate
         self.eventTime = eventTime
         self.description = description
+        self.location = location
     }
 }

@@ -19,7 +19,7 @@ var fillerTruck = Truck(name: "fillerTruck", id: "XXXX",logo: "null", category_i
 var fillerLocation = Location(address: "null", latitude: 0, longitude: 0)
 
 //variables for fillers if an event object is not found
-var fillerEvent = Event(name: "fillerEvent", id: -2, logo: "null", eventDate: "null", eventTime: "null", description: "null")
+var fillerEvent = Event(name: "fillerEvent", id: -2, logo: "null", eventDate: "null", eventTime: "null", description: "null", location: "null")
 
 // all data repositories
 
