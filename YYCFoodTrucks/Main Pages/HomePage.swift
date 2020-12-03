@@ -15,6 +15,7 @@ struct HomePage: View {
     @ObservedObject var LocationRepo = LocationRepository()
     @ObservedObject var ScheduleRepo = ScheduleRespository()
     @ObservedObject var EventScheduleRepo = EventScheduleRespository()
+    @ObservedObject var eventRepo = EventRespository()
     @ObservedObject var favoriteRepo = FavoriteRespository()
     @ObservedObject var TruckRepo = TruckRespository()
     @ObservedObject var EventRepo = EventRespository()
@@ -56,7 +57,7 @@ struct HomePage: View {
                     Favorites(favoriteRepo: favoriteRepo,truckRepo: TruckRepo,schedules: ScheduleRepo.schedules, locations: LocationRepo.landmarks)
                     NavBar(map: false, discover: false, favorite: true, events: false)
                 } else {
-                    Events()
+                    Events(events: EventRepo.events)
                     NavBar(map: false, discover: false, favorite: false, events: true)
                 }
             }
@@ -87,39 +88,13 @@ struct HomePage: View {
                 let truckAnnotation = TruckAnnotation(truck: foundTruck)
                 truckAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
                 truckAnnotation.title = foundTruck.name
-                // different formators for the dates
-                let hoursMinutes = DateFormatter()
-                hoursMinutes.dateFormat = "HH:MM"
-                // different formators for the dates
-                let monthDayYear = DateFormatter()
-                monthDayYear.dateFormat = "MMM dd,yyyy"
-                
-                let openTime = hoursMinutes.string(from: schedule.openDate)
-                let closeTime = hoursMinutes.string(from: schedule.closeDate)
-                let openDate = monthDayYear.string(from: schedule.openDate)
-                //let closeDate = monthDayYear.string(from: schedule.closeDate)
-                
-                
-                if (truckAnnotation.truck.open){
-                    truckAnnotation.subtitle = "Open Now! Closes at \(closeTime)"
+                if schedule.openDate > Date() && schedule.closeDate > Date(){
+                    truckAnnotation.open = false
                 }
-                else if (schedule.openDate > Date()){
-                    truckAnnotation.subtitle = "Opens on \(openDate) from \(openTime) to \(closeTime)"
+                else if (schedule.openDate < Date() && schedule.closeDate > Date()){
+                    truckAnnotation.open = true
                 }
-                
                 truckAnnotations.append(truckAnnotation)
-                // we don't want to map the same truck on the map twice in different locations
-                // this is why we don't have two trucks in two different places
-//                var foundSameTruck = false
-//                for ta in truckAnnotations{
-//                    if truckAnnotation.truck.id == ta.truck.id{
-//                        foundSameTruck = true
-//                        break
-//                    }
-//                }
-//                if (!foundSameTruck){
-//                    truckAnnotations.append(truckAnnotation);
-//                }
             }
         }
         return truckAnnotations;

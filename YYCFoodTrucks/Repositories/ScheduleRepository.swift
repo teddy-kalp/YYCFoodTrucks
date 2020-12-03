@@ -34,7 +34,8 @@ class ScheduleRespository: ObservableObject{
                 let closeDate = closeTimestamp!.dateValue()
                 let locationId = data["locationId"] as? String ?? ""
                 let truckId = data["truckId"] as? String ?? ""
-                let deleted = data["deleted"] as? Bool ?? true
+                
+                let deleted = data["deleted"] as? Bool ?? false
 
                 return Schedule(locationId: locationId, truckId: truckId, openDate: openDate, closeDate: closeDate)
             }

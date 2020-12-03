@@ -15,9 +15,6 @@ struct MapView: UIViewRepresentable {
     @Binding var isActive: Bool
     @Binding var selectedTruck: TruckAnnotation?
     
-//    @Binding var directionsAlert: Bool
-//    @Binding var annotation: MKAnnotation
-    
     var currentLocation: CLLocationCoordinate2D
 
     func makeUIView(context: Context) -> MKMapView {
@@ -72,7 +69,7 @@ struct MapView: UIViewRepresentable {
                 // check to see if there is an Event Annotation
                 if let truckAnnotation = annotation as? TruckAnnotation{
                     // setting the image of the annotation on the map
-                    let circle = truckAnnotation.truck.open ? UIImage(systemName:"mappin.circle.fill")!.withTintColor(primColorUI):
+                    let circle = truckAnnotation.open ? UIImage(systemName:"mappin.circle.fill")!.withTintColor(primColorUI):
                     UIImage(systemName:"mappin.circle.fill")!.withTintColor(.red)
                     let size = CGSize(width: 40, height: 40)
                     annotationView?.image = UIGraphicsImageRenderer(size:size).image {

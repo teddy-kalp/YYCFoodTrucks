@@ -9,8 +9,7 @@ import SwiftUI
 
 struct Events: View {
 
-    @ObservedObject var eventRepo = EventRespository();
-    @ObservedObject var eventScheduleRepo = EventScheduleRespository();
+    var events: [Event]
 
     
 
@@ -18,7 +17,7 @@ struct Events: View {
         NavigationView(){
             VStack(){
                   ScrollView{
-                        ForEach(eventRepo.events){ event in
+                        ForEach(events){ event in
                             VStack(alignment: .leading){
                                 VStack(){
                                   
@@ -97,13 +96,6 @@ struct EventScheduleDetails: View {
             }
         }
     }
-    
-
-struct Events_Previews: PreviewProvider {
-    static var previews: some View {
-        Events()
-    }
-}
 
 }
 

@@ -43,8 +43,6 @@ struct Discover: View {
             }
             .navigationBarTitle("Discover", displayMode: .inline)
             .font(.custom("",size: 20))
-            
-            
         }
     }
 }

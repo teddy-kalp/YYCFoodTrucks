@@ -10,6 +10,7 @@ import MapKit
 
 class TruckAnnotation: MKPointAnnotation{
     var truck: Truck
+    var open: Bool = false
     
     init(truck: Truck){
         self.truck = truck

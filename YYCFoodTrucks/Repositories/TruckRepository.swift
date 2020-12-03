@@ -51,5 +51,14 @@ class TruckRespository: ObservableObject{
         }
     }
     
+    func findTruckBySchedule(schedule: Schedule) -> Truck?{
+        for truck in trucks{
+            if truck.id == schedule.truckId{
+                return truck
+            }
+        }
+        return nil
+    }
+    
 }
     
